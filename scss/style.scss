@@ -1,0 +1,1412 @@
+/*
+Theme Name: EyeMedics Bystra
+Theme URI: https://envyus.com.au/
+Author: Envy Us
+Author URI: https://envyus.com.au/
+Description: Starter Bystra Template Jan 2026
+Version: 1.1
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: minimal, flexible blocks, options, scss structure, responsive, bootstrap
+Text Domain: bystra
+*/
+
+@use 'sass:color';
+@use 'colours' as colours;
+@use 'fonts' as fonts;
+@use 'vendors';
+@use 'fx';
+@use 'swiper';
+
+body,
+html {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+*:focus {
+    outline: none !important;
+}
+
+//.container {
+//    max-width: 1200px;
+//}
+
+.logo-constraint {
+    max-width: 231px;
+}
+
+.logo-constraint-extrawide {
+    max-width: 300px;
+}
+
+.logo-constraint-slider {
+    max-width: 300px;
+}
+
+@media (max-width: 992px) {
+    .logo-constraint {
+        max-width: 180px;
+    }
+}
+
+@media (max-width: 576px) {
+    .logo-constraint {
+        max-width: 162px;
+    }
+}
+
+.bg-content-light {
+    background-color: color.change(#000, $alpha: 0.12);
+}
+
+
+/*
+██ ███    ███  █████   ██████  ███████ ███████
+██ ████  ████ ██   ██ ██       ██      ██
+██ ██ ████ ██ ███████ ██   ███ █████   ███████
+██ ██  ██  ██ ██   ██ ██    ██ ██           ██
+██ ██      ██ ██   ██  ██████  ███████ ███████
+
+
+*/
+/* WordPress Image Alignments */
+.aligncenter,
+.align-center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.alignleft,
+.align-left {
+    float: left;
+    margin: 0.5em 1em 0.5em 0;
+}
+
+.alignright,
+.align-right {
+    float: right;
+    margin: 0.5em 0 0.5em 1em;
+}
+
+/* WordPress Captions */
+.wp-caption {
+    max-width: 100%;
+    margin-bottom: 1em;
+}
+
+.wp-caption.aligncenter,
+.wp-caption.align-center {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.wp-caption.alignleft,
+.wp-caption.align-left {
+    margin-right: 1em;
+}
+
+.wp-caption.alignright,
+.wp-caption.align-right {
+    margin-left: 1em;
+}
+
+.wp-caption img {
+    display: block;
+    margin: 0 auto;
+}
+
+.wp-caption-text {
+    margin: 0.5em 0;
+    font-size: 1.4rem;
+    color: colours.$tinta;
+    text-align: center;
+}
+
+/* Clear floats after aligned items */
+.clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+@media screen and (max-width: 576px) {
+
+    .alignleft,
+    .alignright,
+    .align-left,
+    .align-right {
+        float: none;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 1em;
+    }
+}
+
+.img-cards {
+    border-top-left-radius: 24px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 24px;
+    border-bottom-left-radius: 24px;
+    border: 2px solid colours.$blanco;
+}
+
+// Pill/capsule top shape: using a large fixed value (999px) instead of percentage
+// ensures the arch starts right at the top edge. The browser caps the radius at
+// half the element's width, creating a consistent tight semicircle regardless of
+// image dimensions.
+.img-v-cards {
+    border-radius: 999px 999px 0 0;
+}
+
+.img-v-cards-base {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 24px;
+    border-bottom-left-radius: 24px;
+}
+
+// Staggered card layout: even cards are offset vertically to create
+// a dynamic, alternating pattern
+.cards-v-staggered>.col:nth-child(even) {
+    margin-top: 13rem;
+}
+
+.img-banners {
+    border-top-left-radius: 0;
+    border-top-right-radius: 6.7rem;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 6.7rem;
+}
+
+.img-contact {
+    border-top-left-radius: 4.7rem;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 4.7rem;
+    border-bottom-left-radius: 0;
+}
+
+.img-round-footer {
+    border-top-left-radius: 24px;
+    border-top-right-radius: 24px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+    margin-top: -24px;
+}
+
+.img-rounded {
+    border-radius: 24px;
+}
+
+.img-rounded-max {
+    border-radius: 55.6rem;
+    border: 13px solid colours.$aguamarina;
+}
+
+
+.logos-footer {
+    border-radius: 24px;
+}
+
+@media (max-width: 767px) {
+    .logos-footer {
+        max-width: 120px;
+    }
+}
+
+
+/*
+███    ███ ███████ ███    ██ ██    ██ ███████
+████  ████ ██      ████   ██ ██    ██ ██
+██ ████ ██ █████   ██ ██  ██ ██    ██ ███████
+██  ██  ██ ██      ██  ██ ██ ██    ██      ██
+██      ██ ███████ ██   ████  ██████  ███████
+
+
+*/
+
+/* Main Menu */
+
+.menu-item {
+    @include fonts.font(fonts.$text-prose, fonts.$fw-prose-regular);
+    font-size: 1.8rem;
+    margin-left: 9px;
+}
+
+// Mobile menu collapse container
+#main-menu-mobile {
+
+    // Only show when collapse is active (mobile)
+    &.show,
+    &.collapsing {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+    }
+
+    // Force hide on desktop (xl+) regardless of collapse state
+    @media (min-width: 1200px) {
+        display: none !important;
+    }
+}
+
+// Desktop menu UL - always flex on xl+
+#menu-main-menu-desktop {
+    display: flex;
+    align-items: center;
+}
+
+// Mobile menu UL - flex direction column for stacked items
+#menu-main-menu-mobile {
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+// Link styles for both desktop and mobile menus
+#main-menu-mobile a:link,
+#menu-main-menu-desktop a:link {
+    color: colours.$verde;
+    text-decoration: none;
+}
+
+#main-menu-mobile a:visited,
+#menu-main-menu-desktop a:visited {
+    color: colours.$verde !important;
+    background-color: transparent;
+}
+
+#main-menu-mobile a:hover,
+#menu-main-menu-desktop a:hover {
+    color: colours.$cielo-dark !important;
+    text-decoration: none;
+}
+
+// Mobile-specific link styles for screens below XL
+@media (max-width: 1199.98px) {
+
+    // Center the mobile menu container and items
+    #main-menu-mobile.show,
+    #main-menu-mobile.collapsing {
+        align-items: center;
+    }
+
+    #menu-main-menu-mobile {
+        align-items: center;
+        text-align: center;
+        width: 100%;
+    }
+
+    #menu-main-menu-mobile .menu-item {
+        width: 100%;
+        text-align: center;
+    }
+
+    #main-menu-mobile .dropdown-menu {
+        text-align: center;
+        width: 100%;
+    }
+
+    #main-menu-mobile a:link,
+    #main-menu-mobile a:visited {
+        color: colours.$blanco !important;
+        font-size: 2.4rem;
+    }
+
+    #main-menu-mobile a:hover {
+        color: colours.$cielo !important;
+    }
+
+    // Dropdown items in mobile menu
+    #main-menu-mobile .dropdown-item:link,
+    #main-menu-mobile .dropdown-item:visited {
+        color: colours.$verde !important;
+    }
+
+    #main-menu-mobile .dropdown-item:hover {
+        color: colours.$cielo !important;
+    }
+
+    // Inverted CTA buttons on mobile
+    #main-menu-mobile .btn-cta {
+        background-color: colours.$verde;
+        border-color: colours.$blanco;
+        color: colours.$blanco;
+        width: auto;
+        margin-top: 0.75rem;
+    }
+
+    #main-menu-mobile .btn-cta a:link,
+    #main-menu-mobile .btn-cta a:visited {
+        color: colours.$blanco;
+    }
+
+    #main-menu-mobile .btn-cta:hover,
+    #main-menu-mobile .btn-cta--active {
+        background-color: colours.$verde-dark;
+        border-color: colours.$verde-dark;
+    }
+
+    #main-menu-mobile .btn-cta a:hover,
+    #main-menu-mobile .btn-cta--active a {
+        color: colours.$verde !important;
+    }
+}
+
+.dropdown-menu {
+    background-color: colours.$blanco !important;
+    border: 0;
+}
+
+// Desktop hover dropdown - removes gap that can cause menu to close
+@media (min-width: 992px) {
+    .navbar-nav .dropdown-menu {
+        margin-top: 0;
+    }
+}
+
+.dropdown-item {
+    @include fonts.font(fonts.$text-prose, fonts.$fw-prose-medium);
+    color: colours.$tinta !important;
+    background: transparent;
+    padding-right: 2rem;
+}
+
+.dropdown-item:hover {
+    background-color: transparent;
+}
+
+.dropdown-item.active,
+#main-menu-mobile .active,
+#menu-main-menu-desktop .active {
+    color: colours.$amarillo !important;
+    background-color: transparent !important;
+}
+
+
+/* Super Menu (Secondary navigation) */
+#super-menu ul {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+#super-menu li {
+    @include fonts.font(fonts.$text-prose, fonts.$fw-prose-bold);
+    font-size: 1.3rem;
+    position: relative;
+    /* Needed for the separator positioning */
+    padding: 0 9px;
+}
+
+/* Add vertical line separator to the right of all items */
+#super-menu li::after {
+    content: '|';
+    position: absolute;
+    right: -6px;
+    top: 45%;
+    transform: translateY(-50%);
+    color: colours.$hueso;
+}
+
+/* Add vertical line separator to the left of the first item */
+#super-menu li:first-child::before {
+    content: '|';
+    position: absolute;
+    left: -6px;
+    top: 45%;
+    transform: translateY(-50%);
+    color: colours.$hueso;
+}
+
+#super-menu a {
+    text-decoration: none;
+    color: inherit;
+    text-transform: uppercase;
+
+    &:link {
+        color: colours.$hueso;
+    }
+
+    &:visited {
+        color: colours.$hueso;
+    }
+
+    &:hover {
+        color: colours.$hueso-light;
+    }
+
+    &:active {
+        color: colours.$amarillo;
+    }
+}
+
+
+/* Footer Menu */
+#footer-menu ul {
+    display: block;
+    list-style-type: none;
+    padding: 0;
+    margin: 12px 0 0 0;
+}
+
+#footer-menu li {
+    @include fonts.font(fonts.$text-prose, fonts.$fw-prose-regular);
+    font-size: 2.4rem;
+    position: relative;
+    color: colours.$hueso;
+    margin: 0 0 6px 0;
+    padding: 0;
+}
+
+#footer-menu a {
+    text-decoration: none;
+    color: inherit;
+    text-transform: capitalize;
+
+    &:link {
+        color: colours.$hueso;
+    }
+
+    &:visited {
+        color: colours.$hueso;
+    }
+
+    &:hover {
+        color: colours.$aguamarina;
+    }
+
+    &:active {
+        color: colours.$aguamarina-light;
+    }
+}
+
+
+/* privacy Menu */
+#privacy-menu ul {
+    // display: flex;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+#privacy-menu li {
+    position: relative;
+    /* Needed for the separator positioning */
+    padding: 0;
+    margin: 0;
+}
+
+#privacy-menu a {
+    text-decoration: none;
+    color: inherit;
+
+    &:link {
+        color: colours.$hueso;
+    }
+
+    &:visited {
+        color: colours.$hueso;
+    }
+
+    &:hover {
+        color: colours.$verde;
+    }
+
+    &:active {
+        color: colours.$amarillo;
+    }
+}
+
+
+
+/*
+██████  ██    ██ ████████ ████████  ██████  ███    ██ ███████
+██   ██ ██    ██    ██       ██    ██    ██ ████   ██ ██
+██████  ██    ██    ██       ██    ██    ██ ██ ██  ██ ███████
+██   ██ ██    ██    ██       ██    ██    ██ ██  ██ ██      ██
+██████   ██████     ██       ██     ██████  ██   ████ ███████
+ 
+*/
+/* btn-cta used in the menu item styles */
+.btn-cta {
+    @include fonts.font(fonts.$text-prose, fonts.$fw-prose-bold);
+    border-radius: 999px;
+    padding: 0.45rem 1.2rem;
+    border: 2px solid colours.$verde;
+    color: colours.$verde;
+    background: transparent;
+    transition: all 0.25s ease;
+}
+
+.btn-cta:hover,
+.btn-cta--active {
+    background: colours.$verde;
+    color: colours.$hueso ;
+}
+
+#main-menu-mobile .btn-cta a:hover,
+#main-menu-mobile .btn-cta--active a,
+#menu-main-menu-desktop .btn-cta a:hover,
+#menu-main-menu-desktop .btn-cta--active a {
+    color: colours.$hueso !important;
+}
+
+
+@mixin button-styles($bg-colour, $bg-colour-hover, $text-colour, $text-colour-hover) {
+    @include fonts.font(fonts.$text-prose, fonts.$fw-prose-medium);
+    font-size: 1.6rem;
+    letter-spacing: 0.24rem;
+    border: 2px solid $bg-colour;
+    border-radius: 24px;
+    margin: 0 3px;
+    padding: 6px 18px 3px 18px;
+    background-color: $bg-colour;
+    color: $text-colour;
+    text-transform: uppercase;
+
+    &:hover {
+        border-color: $bg-colour-hover;
+        background-color: $bg-colour-hover;
+        color: $text-colour-hover;
+    }
+}
+
+.btn-posidonia {
+    @include button-styles(colours.$posidonia, colours.$posidonia-dark, colours.$hueso, colours.$humo);
+}
+
+.btn-aguamarina {
+    @include button-styles(colours.$aguamarina, colours.$aguamarina-dark, colours.$posidonia, colours.$blanco);
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    min-width: 180px;
+}
+
+.btn-verde {
+    @include button-styles(colours.$verde, colours.$verde-dark, colours.$hueso, colours.$humo);
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    min-width: 180px;
+}
+
+
+
+/*
+██  ██████  ██████  ███    ██ ███████
+██ ██      ██    ██ ████   ██ ██
+██ ██      ██    ██ ██ ██  ██ ███████
+██ ██      ██    ██ ██  ██ ██      ██
+██  ██████  ██████  ██   ████ ███████
+
+
+*/
+
+.icon-details-container {
+    @include fonts.font(fonts.$text-prose, fonts.$fw-prose-semibold);
+    text-align: center;
+    background-color: colours.$posidonia;
+    color: colours.$hueso;
+}
+
+.icon-details {
+    height: auto;
+    width: 30px;
+    border: 1px solid colours.$posidonia;
+}
+
+
+
+
+
+
+/*
+██      ██ ███████ ████████ ███████
+██      ██ ██         ██    ██
+██      ██ ███████    ██    ███████
+██      ██      ██    ██         ██
+███████ ██ ███████    ██    ███████
+
+Check the fonts in %text-list-base (.text-list li, .text-list-light and .text-list-dark versions) in the _fonts.scss file 
+*/
+
+.styled-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+
+    ul {
+        width: 100%;
+    }
+
+    li {
+        padding: 3px 15px 0px 15px;
+        margin: 9px 0;
+        position: relative;
+
+        // Alternate background colors
+        &:nth-child(odd) {
+            background-color: colours.$aguamarina;
+        }
+
+        &:nth-child(even) {
+            background-color: colours.$posidonia;
+        }
+
+        // Add a hover effect
+        &:hover {
+            background-color: color.adjust(#fff, $lightness: -30%);
+            cursor: pointer;
+        }
+
+        .list-link {
+            display: block;
+            width: 100%;
+            height: auto;
+            padding: 10px 15px;
+            text-align: center;
+            text-decoration: none;
+            color: inherit;
+        }
+    }
+}
+
+
+
+
+/*
+██    ██ ██ ██      ██       █████   ██████  ███████
+██    ██ ██ ██      ██      ██   ██ ██       ██
+██    ██ ██ ██      ██      ███████ ██   ███ █████
+ ██  ██  ██ ██      ██      ██   ██ ██    ██ ██
+  ████   ██ ███████ ███████ ██   ██  ██████  ███████
+
+
+███    ███  █████  ██████
+████  ████ ██   ██ ██   ██
+██ ████ ██ ███████ ██████
+██  ██  ██ ██   ██ ██
+██      ██ ██   ██ ██
+
+*/
+
+.mapBlock {
+    height: 289px;
+    padding: 0 !important;
+    border-radius: 24px;
+    overflow: hidden; // ensure the iframe respects the border radius
+}
+
+/*
+██    ██ ██ ██      ██       █████   ██████  ███████
+██    ██ ██ ██      ██      ██   ██ ██       ██
+██    ██ ██ ██      ██      ███████ ██   ███ █████
+ ██  ██  ██ ██      ██      ██   ██ ██    ██ ██
+  ████   ██ ███████ ███████ ██   ██  ██████  ███████
+
+
+███    ███  █████  ██████
+████  ████ ██   ██ ██   ██
+██ ████ ██ ███████ ██████
+██  ██  ██ ██   ██ ██
+██      ██ ██   ██ ██
+
+*/
+
+.village-cards-container {
+    max-width: 99%;
+    padding: 2.1rem;
+}
+
+
+
+
+
+
+
+
+/*
+██████  ██ ██████  ███████  ██████ ████████  ██████  ██████  ██    ██
+██   ██ ██ ██   ██ ██      ██         ██    ██    ██ ██   ██  ██  ██
+██   ██ ██ ██████  █████   ██         ██    ██    ██ ██████    ████
+██   ██ ██ ██   ██ ██      ██         ██    ██    ██ ██   ██    ██
+██████  ██ ██   ██ ███████  ██████    ██     ██████  ██   ██    ██
+
+
+*/
+.section-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+
+/*
+ ██████  █████  ██████  ██████  ███████
+██      ██   ██ ██   ██ ██   ██ ██
+██      ███████ ██████  ██   ██ ███████
+██      ██   ██ ██   ██ ██   ██      ██
+ ██████ ██   ██ ██   ██ ██████  ███████
+
+
+*/
+.card-icon {
+    width: 100%;
+    max-width: 120px;
+    height: auto;
+}
+
+.img-darken {
+    filter: brightness(96%);
+}
+
+.card-h-icon {
+    width: 100%;
+    border: 0px solid transparent !important;
+}
+
+@media screen and (max-width: 576px) {
+    .card-h-icon {
+        width: 120px !important;
+        height: auto;
+        border: 0px solid transparent !important;
+        text-align: center;
+    }
+}
+
+// arrow icon is used in cards-h where the color is dynamic and the horizontal layout changes to vertical on mobile
+.arrow-icon {
+    position: absolute;
+    width: 36px;
+    height: auto;
+    z-index: 10;
+    bottom: -18px;
+    left: 25%;
+    transform: translateY(-50%) translateX(50%) rotate(0deg);
+}
+
+/* Adjust for larger screens */
+@media (min-width: 768px) {
+    .arrow-icon {
+        top: 50%;
+        right: 9px;
+        left: auto;
+        bottom: auto;
+        transform: translateY(-50%) translateX(50%) rotate(270deg);
+    }
+}
+
+.round-up {
+    border-top-left-radius: 12px !important;
+    border-top-right-radius: 12px !important;
+}
+
+.round-down {
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+
+.round-start {
+    border-top-left-radius: 12px !important;
+    border-bottom-left-radius: 12px !important;
+}
+
+.round-end {
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+
+.round-cards-h-icon {
+    border-top-left-radius: 12px !important;
+    border-bottom-left-radius: 12px !important;
+}
+
+.round-cards-h-content {
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+
+@media screen and (max-width: 576px) {
+    .round-cards-h-icon {
+        border-top-left-radius: 12px !important;
+        border-top-right-radius: 12px !important;
+        border-bottom-right-radius: 0px !important;
+        border-bottom-left-radius: 0px !important;
+    }
+
+    .round-cards-h-content {
+        border-top-left-radius: 0px !important;
+        border-top-right-radius: 0px !important;
+        border-bottom-right-radius: 12px !important;
+        border-bottom-left-radius: 12px !important;
+    }
+}
+
+.cardItem {
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    overflow: hidden;
+}
+
+.text-card-headline {
+    @include fonts.font(fonts.$text-prose, fonts.$fw-prose-regular);
+    font-size: 12rem;
+    text-transform: none;
+}
+
+.text-card-tagline {
+    @include fonts.font(fonts.$text-prose, fonts.$fw-prose-bold);
+    font-size: 2.4rem;
+    text-transform: uppercase;
+}
+
+.text-above-image {
+    z-index: 2;
+}
+
+.img-darken {
+    z-index: 1;
+}
+
+.card-header-custom {
+    border-top-left-radius: 1.5rem;
+    border: 1px solid colours.$negro;
+    background-color: colours.$negro;
+    padding: 0.8rem 0.5rem 0.4rem 0.5rem;
+}
+
+.card-body-custom {
+    border-radius: 0rem 0rem 1.5rem 1.5rem;
+    border: 1px solid colours.$negro;
+    padding: 0.8rem 0.5rem 0.4rem 0.5rem;
+}
+
+.card {
+    border: 0px solid #f7f7f7;
+}
+
+
+
+
+
+/*
+ █████   ██████  ██████  ██████  ██████  ██████  ██  ██████  ███    ██
+██   ██ ██      ██      ██    ██ ██   ██ ██   ██ ██ ██    ██ ████   ██
+███████ ██      ██      ██    ██ ██████  ██   ██ ██ ██    ██ ██ ██  ██
+██   ██ ██      ██      ██    ██ ██   ██ ██   ██ ██ ██    ██ ██  ██ ██
+██   ██  ██████  ██████  ██████  ██   ██ ██████  ██  ██████  ██   ████
+
+
+*/
+.accordion-button,
+.accordion-button:not(.collapsed) {
+    background-color: colours.$blanco !important;
+    border: 2px solid colours.$verde !important;
+    border-top-left-radius: 2.4rem !important;
+    border-top-right-radius: 2.4rem !important;
+    border-bottom-left-radius: 2.4rem !important;
+    border-bottom-right-radius: 2.4rem !important;
+}
+
+.plusMinus,
+.plusMinusSub {
+    position: absolute;
+    right: 20px;
+
+    &::before {
+        content: "\f067"; // Unicode for Font Awesome plus icon
+        font-family: "Font Awesome 5 Free"; // Font Family for Font Awesome 5
+        font-weight: 900; // Font Weight required for the Free solid icons
+        display: block;
+        color: colours.$verde;
+        font-style: normal;
+    }
+
+    &.rotate {
+        transform: rotate(180deg);
+        transition: 0.5s;
+
+        &::before {
+            content: "\f068"; // Unicode for Font Awesome minus icon
+        }
+    }
+}
+
+
+
+
+.plusMinusCard {
+    &::before {
+        color: colours.$hueso !important;
+    }
+}
+
+
+.accordion-button:not(.collapsed)::after {
+    display: none;
+}
+
+.accordion-button::after {
+    display: none;
+}
+
+// Accordion title hover and expanded states
+.accordion-title {
+    color: colours.$posidonia;
+    transition: color 0.25s ease;
+}
+
+.accordion-button:hover .accordion-title,
+.accordion-button:not(.collapsed) .accordion-title {
+        color: colours.$verde-dark;
+}
+
+
+
+
+
+/*
+███    ███  ██████  ██████   █████  ██      ███████
+████  ████ ██    ██ ██   ██ ██   ██ ██      ██
+██ ████ ██ ██    ██ ██   ██ ███████ ██      ███████
+██  ██  ██ ██    ██ ██   ██ ██   ██ ██           ██
+██      ██  ██████  ██████  ██   ██ ███████ ███████
+
+*/
+.modal-header {
+    border-bottom: 0;
+    border-top-left-radius: 12px !important;
+    border-top-right-radius: 12px !important;
+}
+
+
+
+/*
+███████ ██ ███    ██  ██████  ██      ███████      ██████ ██████  ████████
+██      ██ ████   ██ ██       ██      ██          ██      ██   ██    ██
+███████ ██ ██ ██  ██ ██   ███ ██      █████       ██      ██████     ██
+     ██ ██ ██  ██ ██ ██    ██ ██      ██          ██      ██         ██
+███████ ██ ██   ████  ██████  ███████ ███████      ██████ ██         ██
+
+
+*/
+.y-borders {
+    border-top: 2px solid colours.$negro;
+    border-bottom: 2px solid colours.$negro;
+}
+
+
+
+/*
+███████ ██ ███    ██  ██████  ██      ███████
+██      ██ ████   ██ ██       ██      ██
+███████ ██ ██ ██  ██ ██   ███ ██      █████
+     ██ ██ ██  ██ ██ ██    ██ ██      ██
+███████ ██ ██   ████  ██████  ███████ ███████
+
+
+*/
+.contentBlock img {
+    max-width: 100%;
+}
+
+
+
+/*
+███    ██ ███████ ██     ██ ███████ ██████   █████  ██████  ███████ ██████
+████   ██ ██      ██     ██ ██      ██   ██ ██   ██ ██   ██ ██      ██   ██
+██ ██  ██ █████   ██  █  ██ ███████ ██████  ███████ ██████  █████   ██████
+██  ██ ██ ██      ██ ███ ██      ██ ██      ██   ██ ██      ██      ██   ██
+██   ████ ███████  ███ ███  ███████ ██      ██   ██ ██      ███████ ██   ██
+
+
+*/
+.newspaper {
+    column-count: 2;
+}
+
+@media screen and (max-width: 992px) {
+    .newspaper {
+        column-count: 1;
+    }
+
+}
+
+
+
+/*
+██████   █████   ██████  ██ ███    ██  █████  ████████ ██  ██████  ███    ██
+██   ██ ██   ██ ██       ██ ████   ██ ██   ██    ██    ██ ██    ██ ████   ██
+██████  ███████ ██   ███ ██ ██ ██  ██ ███████    ██    ██ ██    ██ ██ ██  ██
+██      ██   ██ ██    ██ ██ ██  ██ ██ ██   ██    ██    ██ ██    ██ ██  ██ ██
+██      ██   ██  ██████  ██ ██   ████ ██   ██    ██    ██  ██████  ██   ████
+
+
+*/
+/* Pagination Styling */
+.pagination a {
+    margin: 0 5px;
+    padding: 5px 10px;
+    background-color: colours.$hueso-light;
+    // border: 1px solid #dee2e6;
+    color: colours.$tinta;
+    text-decoration: none;
+}
+
+.pagination a:hover {
+    background-color: colours.$negro;
+    color: colours.$hueso;
+}
+
+/* Active page styling */
+.pagination .current {
+    margin: 0 5px;
+    padding: 5px 10px;
+
+    background-color: colours.$posidonia-light;
+    color: colours.$hueso;
+    border-color: colours.$negro;
+}
+
+
+// Common hover styles for both "Prev" and "Next" links
+.pagination a:hover {
+    background-color: colours.$posidonia-dark;
+    color: colours.$hueso;
+}
+
+// Targeting the "Prev" link specifically
+.pagination a:has(> .fas.fa-chevron-left) {
+    background-color: colours.$hueso;
+    color: colours.$tinta;
+
+    // Hover styles specific to "Prev" link, if needed
+    &:hover {
+        background-color: colours.$humo;
+        color: colours.$hueso;
+    }
+}
+
+// Targeting the "Next" link specifically
+.pagination a:has(> .fas.fa-chevron-right) {
+    background-color: colours.$hueso;
+    color: colours.$tinta;
+
+    // Hover styles specific to "Next" link, if needed
+    &:hover {
+        background-color: colours.$humo;
+        color: colours.$hueso;
+    }
+}
+
+.bannerLeft {
+    height: 700px;
+    padding: 40px;
+    background-position: center;
+    background-size: cover;
+
+}
+
+.colStack {
+    padding: 40px;
+    width: 100%;
+    height: 50%;
+    background-position: center;
+    background-size: cover;
+}
+
+.bannerItem {
+    position: relative;
+}
+
+.bannerItem::before {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: color.change(#000000, $alpha: 0.3);
+}
+
+.bannerItem h1 {
+    @include fonts.font(fonts.$text-prose, fonts.$fw-prose-bold);
+    font-size: 12rem;
+    line-height: 50%;
+    margin-bottom: 20px;
+}
+
+.bannerItem h3 {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    width: 480px;
+
+}
+
+.txtWrapper {
+    z-index: 99;
+}
+
+/*
+██████  ██       ██████   ██████
+██   ██ ██      ██    ██ ██
+██████  ██      ██    ██ ██   ███
+██   ██ ██      ██    ██ ██    ██
+██████  ███████  ██████   ██████
+
+
+██       ██████   ██████  ██████
+██      ██    ██ ██    ██ ██   ██
+██      ██    ██ ██    ██ ██████
+██      ██    ██ ██    ██ ██
+███████  ██████   ██████  ██
+
+
+*/
+.postImgContainer {
+    position: relative;
+    width: 100%;
+    padding-top: 100%;
+    /* Ensures a square container */
+    overflow: hidden;
+    /* Prevents image overflow */
+    background-color: colours.$humo;
+    /* Gray background as fallback */
+}
+
+.postImgFluid {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Ensures the image fills the container */
+    display: block;
+}
+
+
+
+/*
+███████ ██      ██ ██████  ███████ ██████       ██████  █████  ██████  ██████  ███████
+██      ██      ██ ██   ██ ██      ██   ██     ██      ██   ██ ██   ██ ██   ██ ██
+███████ ██      ██ ██   ██ █████   ██████      ██      ███████ ██████  ██   ██ ███████
+     ██ ██      ██ ██   ██ ██      ██   ██     ██      ██   ██ ██   ██ ██   ██      ██
+███████ ███████ ██ ██████  ███████ ██   ██      ██████ ██   ██ ██   ██ ██████  ███████
+
+
+*/
+// Slider Cards Block - Slick Slider Styles
+.slider-cards .slick-slide {
+    margin: 0 10px;
+}
+
+.slick-prev,
+.slick-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    font-size: 0;
+    color: transparent;
+    background: none;
+    border: none;
+}
+
+.slick-prev::before,
+.slick-next::before {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    font-size: 36px;
+    color: color.change(colours.$posidonia, $alpha: 0.7);
+    opacity: 1;
+}
+
+.slick-prev::before {
+    content: "\f053";
+}
+
+.slick-next::before {
+    content: "\f054";
+}
+
+.slick-prev {
+    left: -45px;
+}
+
+.slick-next {
+    right: -45px;
+}
+
+.slick-dots {
+    position: absolute;
+    bottom: -30px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.slick-dots li {
+    display: inline-block;
+    margin: 0 5px;
+}
+
+.slick-dots li button {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: color.change(colours.$posidonia, $alpha: 0.7);
+    border: none;
+    cursor: pointer;
+    font-size: 0;
+}
+
+.slick-dots li.slick-active button {
+    background: colours.$amarillo;
+    transform: scale(1.2);
+    transition: transform 0.3s ease;
+}
+
+
+
+/*
+██████   ██████   ██████ ██    ██ ███    ███ ███████ ███    ██ ████████
+██   ██ ██    ██ ██      ██    ██ ████  ████ ██      ████   ██    ██
+██   ██ ██    ██ ██      ██    ██ ██ ████ ██ █████   ██ ██  ██    ██
+██   ██ ██    ██ ██      ██    ██ ██  ██  ██ ██      ██  ██ ██    ██
+██████   ██████   ██████  ██████  ██      ██ ███████ ██   ████    ██
+
+
+██████  ███████ ███████  ██████  ██    ██ ██████   ██████ ███████ ███████
+██   ██ ██      ██      ██    ██ ██    ██ ██   ██ ██      ██      ██
+██████  █████   ███████ ██    ██ ██    ██ ██████  ██      █████   ███████
+██   ██ ██           ██ ██    ██ ██    ██ ██   ██ ██      ██           ██
+██   ██ ███████ ███████  ██████   ██████  ██   ██  ██████ ███████ ███████
+
+
+*/
+// Document Resources - newspaper column styles
+.newspaper-1 {
+    column-count: 1;
+    column-gap: 40px;
+}
+
+.newspaper-2 {
+    column-count: 2;
+    column-gap: 40px;
+}
+
+@media screen and (max-width: 992px) {
+    .newspaper-2 {
+        column-count: 1;
+    }
+}
+
+.list-separator {
+    border-bottom: 1px solid colours.$verde;
+    padding-bottom: 20px;
+}
+
+
+
+/*
+ ██████  █████  ██████  ██████  ███████     ███████ ██   ██
+██      ██   ██ ██   ██ ██   ██ ██          ██       ██ ██
+██      ███████ ██████  ██   ██ ███████     █████     ███
+██      ██   ██ ██   ██ ██   ██      ██     ██       ██ ██
+ ██████ ██   ██ ██   ██ ██████  ███████     ██      ██   ██
+
+
+*/
+// Card FX styles for 3D hover effects
+.card-fx-container {
+    perspective: 6000px;
+}
+
+.card-fx {
+    box-shadow: 0 6px 9px color.change(colours.$negro, $alpha: 0.15);
+    transition: box-shadow 0.3s ease-out;
+    transform-style: preserve-3d;
+}
+
+
+
+
+/* cards block */
+.cards-shape-top {
+    border-top-left-radius: 36px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 36px;
+    border-bottom-left-radius: 0;
+}
+
+.cards-shape-bottom {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 36px;
+    border-bottom-left-radius: 0;
+}
+
+/* Team Cards - Image Overflow Effect */
+.team-card-wrapper {
+    padding-top: 150px;
+    /* Space for the overflowing image */
+}
+
+.team-card-body {
+    overflow: visible;
+    /* Allow image to overflow */
+}
+
+.team-image-overflow {
+    margin-top: -150px;
+    /* Pull image above the card boundary */
+    position: relative;
+    z-index: 2;
+}
+
+
+/*
+███████ ██    ██  ██████
+██      ██    ██ ██
+███████ ██    ██ ██   ███
+     ██  ██  ██  ██    ██
+███████   ████    ██████
+
+
+*/
+
+/* Content Basic SVG Decorations */
+.content-basic__svg-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.content-basic__svg {
+    display: block;
+
+    &--cloud-right {
+        width: clamp(250px, 35vw, 550px);
+        height: auto;
+        margin-top: -3px;
+        margin-right: -24px;
+    }
+}

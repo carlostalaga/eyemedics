@@ -1,0 +1,180 @@
+// =============================================================================
+// COLOUR SYSTEM
+// =============================================================================
+// This file defines all theme colours and generates utility classes automatically.
+//
+// HOW IT WORKS:
+// 1. We define individual Sass variables for each colour (e.g., $posidonia: #232663)
+// 2. We group all colours into a Sass "map" - think of it as a dictionary/object
+// 3. We use an @each loop to iterate over the map and generate CSS classes
+//
+// BENEFITS:
+// - Adding a new colour = 1 line (add to map) instead of 6+ lines (manual classes)
+// - No risk of duplicates or typos
+// - Consistent naming across all utilities
+// - Easy to maintain and extend
+// =============================================================================
+
+@use 'sass:color';
+
+
+
+// =============================================================================
+// COLOUR VARIABLES
+// =============================================================================
+// These Sass variables are the "source of truth" for all colours.
+// Other SCSS files can import and use these directly: colours.$posidonia
+// =============================================================================
+
+// Primary brand colours
+$verde: #8CC63E;
+$verde-light: #b8dc7d;
+$verde-dark: #5a8418;
+
+// Legacy naranja aliases (now pointing to verde)
+$naranja: $verde;
+$naranja-light: $verde-light;
+$naranja-dark: $verde-dark;
+
+$posidonia: #0D2C6B;
+$posidonia-light: #2D4C8B;
+$posidonia-dark: #0A1F4A;
+
+// Secondary brand colours
+$aguamarina: #B7DFC9;
+$aguamarina-light: #e6f4fa;
+$aguamarina-dark: #7bc4d4;
+
+$purpura: #80298F;
+$purpura-light: #A049A0;
+$purpura-dark: #612661;
+
+$cielo: #ACCDEC;
+$cielo-light: #D4E8F5;
+$cielo-dark: #7A9DB8;
+
+// Accent and neutral colours
+$amarillo: #fcb937;
+$hueso: #F5F0EB;
+$hueso-light: #F9F7F5;
+$hueso-dark: #DBC8B6;
+$tinta: #303030;
+$humo: #eaeaea;
+$sombra: color.change(#7e7e81, $alpha: 0.6);
+$carbon: #202020;
+$negro: #000000;
+$blanco: #ffffff;
+
+
+
+
+// =============================================================================
+// COLOUR MAP
+// =============================================================================
+// A Sass map is a collection of key-value pairs, similar to a JavaScript object
+// or a PHP associative array.
+//
+// SYNTAX:
+//   $map-name: (
+//       "key1": value1,
+//       "key2": value2,
+//   );
+//
+// The KEY (in quotes) becomes the class name suffix: .text-{key}, .bg-{key}
+// The VALUE is the Sass variable containing the actual hex/colour value
+//
+// To add a new colour:
+// 1. Define the variable above (e.g., $nuevo: #ff0000;)
+// 2. Add it to this map (e.g., "nuevo": $nuevo,)
+// 3. Done! The loop below will auto-generate .text-nuevo, .bg-nuevo, etc.
+// =============================================================================
+
+$colors: (
+    // Primary brand
+    "verde": $verde,
+    "verde-light": $verde-light,
+    "verde-dark": $verde-dark,
+
+    // Secondary brand
+
+
+    // Accent and neutrals
+    "posidonia": $posidonia,
+    "posidonia-light": $posidonia-light,
+    "posidonia-dark": $posidonia-dark,
+
+    "aguamarina": $aguamarina,
+    "aguamarina-light": $aguamarina-light,
+    "aguamarina-dark": $aguamarina-dark,
+
+    "purpura": $purpura,
+    "purpura-light": $purpura-light,
+    "purpura-dark": $purpura-dark,
+
+    "amarillo": $amarillo,
+    "hueso": $hueso,
+    "hueso-light": $hueso-light,
+    "hueso-dark": $hueso-dark,
+    "tinta": $tinta,
+    "humo": $humo,
+    "sombra": $sombra,
+    "carbon": $carbon,
+    "negro": $negro,
+    "blanco": $blanco,
+
+    // Extended palette
+    "cielo": $cielo,
+    "cielo-light": $cielo-light,
+    "cielo-dark": $cielo-dark,
+);
+
+
+
+// =============================================================================
+// UTILITY CLASS GENERATOR
+// =============================================================================
+// The @each directive loops through every item in our $colors map.
+// On each iteration:
+//   - $name = the key (e.g., "posidonia")
+//   - $value = the value (e.g., #232663)
+//
+// #{$name} is Sass interpolation - it inserts the variable's value into a string.
+// So when $name = "posidonia", .#{$name} becomes .posidonia
+//
+// This single loop replaces ~230 lines of manually written utility classes!
+// =============================================================================
+
+@each $name, $value in $colors {
+
+    // Text colour utilities
+    // Generates: .posidonia, .text-posidonia { color: #232663; }
+    .#{$name},
+    .text-#{$name} {
+        color: $value;
+    }
+
+    // Background colour utilities
+    // Generates: .bg-posidonia { background-color: #232663; }
+    .bg-#{$name} {
+        background-color: $value;
+    }
+
+    // Border colour utilities
+    // Generates: .border-posidonia { border-color: #232663; }
+    .border-#{$name} {
+        border-color: $value;
+    }
+}
+
+
+
+// =============================================================================
+// SPECIAL UTILITY CLASSES
+// =============================================================================
+// These are one-off utilities that don't fit the pattern above.
+// Keep special cases separate for clarity.
+// =============================================================================
+
+.bg-transparent {
+    background-color: transparent !important;
+}

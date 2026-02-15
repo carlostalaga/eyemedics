@@ -1,0 +1,480 @@
+@use 'sass:map';
+@use 'colours' as colours;
+
+// Font family variables
+$text-prose: "canada-type-gibson", sans-serif;
+// $text-drama: 'open-sans', sans-serif;
+// $text-epic: 'times', serif;
+
+// Font weight variables
+$fw-prose-light: 300;
+$fw-prose-regular: 400;
+$fw-prose-medium: 500;
+$fw-prose-semibold: 600;
+$fw-prose-bold: 700;
+$fw-prose-extrabold: 800;
+
+
+// Mixin for font properties
+@mixin font($family, $weight, $style: normal) {
+    font-family: $family;
+    font-weight: $weight;
+    font-style: $style;
+}
+
+
+// document styles
+html {
+    font-size: 62.5%;
+}
+
+body {
+    @include font($text-prose, $fw-prose-light);
+    font-size: 2.4rem;
+    color: colours.$tinta;
+}
+
+// Note: Responsive scaling is handled per-element via $breakpoints map
+// Avoid scaling html font-size as it compounds with element-specific scaling
+
+a {
+    text-decoration: none;
+    color: colours.$posidonia;
+
+    &:hover {
+        text-decoration: none;
+        color: colours.$aguamarina-dark;
+    }
+}
+
+
+// Heading typography map
+// The 'color' property sets the default color for each heading.
+// To override a heading color in a specific context, use utility classes from _colours.scss:
+//   <h2 class="text-posidonia">...</h2>
+// This allows sensible defaults while enabling easy per-case overrides.
+$base-font-sizes: (
+    h1: (size: 9.6rem, weight: $fw-prose-medium, line-height: 92.364%, letter-spacing: -0.058rem, color: colours.$verde),
+    h2: (size: 9.2rem, weight: $fw-prose-medium, line-height: 96%, letter-spacing: -0.058rem, color: colours.$humo),
+    h3: (size: 8.0rem, weight: $fw-prose-medium, line-height: 92.364%, letter-spacing: -0.049rem, color: colours.$verde),
+    h4: (size: 6.4rem, weight: $fw-prose-medium, line-height: 92.364%, letter-spacing: -0.039rem, color: colours.$verde),
+    h5: (size: 5.0rem, weight: $fw-prose-medium, line-height: 123%, letter-spacing: -0.12rem, color: colours.$posidonia),
+    h6: (size: 4rem, weight: $fw-prose-medium, line-height: 95%, letter-spacing: null, color: colours.$posidonia)
+);
+
+$breakpoints: (
+    1200px: 0.90,
+    992px: 0.85,
+    768px: 0.80,
+    576px: 0.75
+);
+
+// =============================================================================
+// HEADING STYLES GENERATOR
+// =============================================================================
+// Iterates over the $base-font-sizes map to generate consistent heading styles.
+// Each heading (h1-h6) receives its typography properties from the map above.
+//
+// Required properties (always applied):
+//   - size: font-size in rem
+//   - weight: font-weight value
+//   - color: text color from colours module
+//
+// Optional properties (only applied if not null):
+//   - line-height: custom line-height (falls back to browser default if null)
+//   - letter-spacing: custom letter-spacing (falls back to browser default if null)
+//
+// To override colors in specific contexts, use utility classes from _colours.scss:
+//   <h2 class="text-posidonia">...</h2>
+// =============================================================================
+@each $tag, $props in $base-font-sizes {
+    #{$tag} {
+        @include font($text-prose, map.get($props, weight));
+        font-size: map.get($props, size);
+        color: map.get($props, color);
+
+        @if map.get($props, line-height) {
+            line-height: map.get($props, line-height);
+        }
+
+        @if map.get($props, letter-spacing) {
+            letter-spacing: map.get($props, letter-spacing);
+        }
+    }
+}
+
+// Responsive styles
+@each $bp, $scale in $breakpoints {
+    @media (max-width: $bp) {
+        @each $tag, $props in $base-font-sizes {
+            #{$tag} {
+                font-size: calc(#{map.get($props, size)} * #{$scale});
+            }
+        }
+    }
+}
+
+
+.contentBox {
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        margin: 0 0 0.6rem 0;
+    }
+}
+
+/* Basics */
+strong {
+    font-weight: $fw-prose-medium;
+    color: colours.$posidonia;
+}
+
+
+.text-prose-light {
+    @include font($text-prose, $fw-prose-light);
+}
+
+.text-prose-regular {
+    @include font($text-prose, $fw-prose-regular);
+}
+
+.text-prose-semibold {
+    @include font($text-prose, $fw-prose-semibold);
+}
+
+.text-prose-bold {
+    @include font($text-prose, $fw-prose-bold);
+}
+
+.text-prose-medium {
+    @include font($text-prose, $fw-prose-medium);
+}
+
+.text-prose-extrabold {
+    @include font($text-prose, $fw-prose-extrabold);
+}
+
+/* Utilities */
+
+.info-text {
+    @include font($text-prose, $fw-prose-regular);
+    font-size: 1.5rem;
+}
+
+.text-header {
+    @include font($text-prose, $fw-prose-bold);
+    font-size: 6.7rem;
+    line-height: 92.364%,
+}
+
+.text-small {
+    font-size: 1.4rem;
+}
+
+.text-xs {
+    font-size: 1.3rem;
+}
+
+.titles-footer {
+    @include font($text-prose, $fw-prose-medium);
+    font-size: 2.6rem;
+}
+
+/*
+██      ██ ███████ ████████ ███████
+██      ██ ██         ██    ██
+██      ██ ███████    ██    ███████
+██      ██      ██    ██         ██
+███████ ██ ███████    ██    ███████
+*/
+
+// Base text-list styles - shared properties for all list styles
+// Using placeholder selector for efficient code reuse without duplication
+%text-list-base {
+    @include font($text-prose, $fw-prose-semibold);
+    font-size: 1.7rem;
+    line-height: 1;
+    text-transform: uppercase;
+
+    // Link styling within list items
+    a {
+        text-decoration: none;
+        color: inherit; // Inherit color from parent element
+
+        &:hover {
+            text-decoration: none;
+        }
+
+        &:active {
+            color: colours.$amarillo; // Highlight color when clicked
+        }
+    }
+}
+
+// Light version of list - typically used on the "styled-list" or dark backgrounds
+.text-list li,
+.text-list-light {
+    @extend %text-list-base;
+    color: colours.$hueso; // Light text for contrast on dark backgrounds
+
+    &:hover {
+        color: colours.$hueso; // Maintain light color on hover
+    }
+}
+
+// Dark version of list - typically used on light backgrounds
+.text-list-dark {
+    @extend %text-list-base;
+    color: colours.$posidonia; // Brand color for text
+
+    &:hover {
+        color: colours.$aguamarina; // Color change on hover for interaction feedback
+    }
+}
+
+
+
+/*
+███████ ██      ██ ██████  ███████ ██████
+██      ██      ██ ██   ██ ██      ██   ██
+███████ ██      ██ ██   ██ █████   ██████
+     ██ ██      ██ ██   ██ ██      ██   ██
+███████ ███████ ██ ██████  ███████ ██   ██
+
+
+*/
+.text-slider-headline {
+    @include font($text-prose, $fw-prose-bold);
+    color: colours.$blanco;
+    font-size: 9rem;
+    line-height: 92.364%;
+    text-transform: none;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    margin-bottom: 1rem;
+    position: relative;
+    z-index: 2;
+}
+
+.text-slider-headline-frontpage {
+    @extend .text-slider-headline;
+    font-size: 11rem;
+}
+
+.text-slider-tagline {
+    @include font($text-prose, $fw-prose-semibold);
+    font-size: 2.1rem;
+    line-height: 1.2;
+}
+
+.text-slider-content {
+    @include font($text-prose, $fw-prose-regular);
+    font-size: 1.8rem;
+}
+
+@media (max-width: 992px) {
+    .text-slider-headline {
+        font-size: 3.3rem;
+    }
+
+    .text-slider-tagline {
+        font-size: calc(2.2rem * 0.85);
+    }
+}
+
+@media (max-width: 768px) {
+    .text-slider-headline {
+        font-size: 6rem;
+        line-height: 1;
+    }
+
+    .text-slider-tagline {
+        font-size: calc(2.2rem * 0.80);
+    }
+}
+
+@media (max-width: 576px) {
+    .text-slider-headline {
+        font-size: 4rem;
+        line-height: 1;
+    }
+
+    .text-slider-tagline {
+        font-size: calc(2.2rem * 0.75);
+    }
+}
+
+/*
+ ██████  █████  ██████  ██████  ███████
+██      ██   ██ ██   ██ ██   ██ ██
+██      ███████ ██████  ██   ██ ███████
+██      ██   ██ ██   ██ ██   ██      ██
+ ██████ ██   ██ ██   ██ ██████  ███████
+
+
+*/
+.text-card-downloads-headline {
+    @include font($text-prose, $fw-prose-semibold);
+    color: colours.$posidonia;
+    font-size: 2.4rem;
+}
+
+.text-card-downloads-tagline {
+    @include font($text-prose, $fw-prose-regular);
+    color: colours.$posidonia;
+    font-size: 2.1rem;
+}
+
+.text-cards-content {
+    @include font($text-prose, $fw-prose-regular);
+    color: colours.$posidonia;
+}
+
+
+.text-specifications {
+    @include font($text-prose, $fw-prose-medium);
+}
+
+
+
+
+/*
+
+███████ ██      ██ ██████  ███████ ██████
+██      ██      ██ ██   ██ ██      ██   ██
+███████ ██      ██ ██   ██ █████   ██████
+     ██ ██      ██ ██   ██ ██      ██   ██
+███████ ███████ ██ ██████  ███████ ██   ██
+
+
+ ██████  █████  ██████  ██████  ███████
+██      ██   ██ ██   ██ ██   ██ ██
+██      ███████ ██████  ██   ██ ███████
+██      ██   ██ ██   ██ ██   ██      ██
+ ██████ ██   ██ ██   ██ ██████  ███████
+
+
+*/
+
+
+.slider-cards .headline {
+    @include font($text-prose, $fw-prose-bold);
+    font-size: 3.0rem;
+    // position: relative;
+    // display: inline-block;
+    text-transform: none;
+    line-height: 1.2;
+}
+
+.slider-cards .tagline {
+    @include font($text-prose, $fw-prose-semibold);
+    font-size: 2.5rem;
+    line-height: 1.2;
+}
+
+.slider-cards .description {
+    @include font($text-prose, $fw-prose-regular);
+    font-size: 1.7rem;
+}
+
+@media (max-width: 992px) {
+    .slider-cards .headline {
+        font-size: calc(3.0rem * 0.85);
+    }
+}
+
+@media (max-width: 768px) {
+    .slider-cards .headline {
+        font-size: calc(3.0rem * 0.80);
+    }
+}
+
+@media (max-width: 576px) {
+    .slider-cards .headline {
+        font-size: calc(3.0rem * 0.75);
+    }
+}
+
+
+/*
+ █████   ██████  ██████  ██████  ██████  ██████  ██  ██████  ███    ██
+██   ██ ██      ██      ██    ██ ██   ██ ██   ██ ██ ██    ██ ████   ██
+███████ ██      ██      ██    ██ ██████  ██   ██ ██ ██    ██ ██ ██  ██
+██   ██ ██      ██      ██    ██ ██   ██ ██   ██ ██ ██    ██ ██  ██ ██
+██   ██  ██████  ██████  ██████  ██   ██ ██████  ██  ██████  ██   ████
+
+
+*/
+.accordion-title {
+    @include font($text-prose, $fw-prose-medium);
+    font-size: 2.2rem;
+    line-height: 1;
+    color: colours.$posidonia;
+
+    &:visited,
+    &:hover,
+    &:active {
+        color: colours.$posidonia;
+    }
+}
+
+
+
+
+
+
+
+/*
+███████  ██████  ███    ██ ████████      █████  ██     ██ ███████ ███████  ██████  ███    ███ ███████
+██      ██    ██ ████   ██    ██        ██   ██ ██     ██ ██      ██      ██    ██ ████  ████ ██
+█████   ██    ██ ██ ██  ██    ██        ███████ ██  █  ██ █████   ███████ ██    ██ ██ ████ ██ █████
+██      ██    ██ ██  ██ ██    ██        ██   ██ ██ ███ ██ ██           ██ ██    ██ ██  ██  ██ ██
+██       ██████  ██   ████    ██        ██   ██  ███ ███  ███████ ███████  ██████  ██      ██ ███████
+
+*/
+
+// Common styles for all icons
+// Placeholder selector for shared icon styles - only output when @extended
+%icon-common {
+    color: colours.$tinta;
+    font-size: 2.7rem;
+    margin-right: 10px;
+    transition: color 0.4s, transform 0.4s;
+
+    &:hover {
+        color: colours.$humo;
+        transform: translateY(1px);
+    }
+}
+
+// Apply common styles to all Font Awesome icons
+// Target all elements whose class attribute starts with "fa-"
+// and apply common icon styles to them by extending the %icon-common placeholder
+[class^="fa-"] {
+    @extend %icon-common;
+}
+
+// Specific styles for social icons in light mode
+#social-icons-lightmode {
+
+    .fa-brands,
+    .fa-solid {
+        color: colours.$hueso;
+
+        &:hover {
+            color: colours.$verde;
+        }
+    }
+}
+
+// Special case for fa-expand
+.fa-expand {
+    font-size: 2.7rem;
+}
+
+// Social icons reference (for documentation purposes)
+// These icons are styled via the [class^="fa-"] selector above
+// Available icons: envelope, facebook, twitter, instagram, linkedin
