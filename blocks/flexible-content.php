@@ -59,6 +59,8 @@ if( have_rows('flexible_content') ):
             include get_theme_file_path('/blocks/block-quote.php');
         elseif( get_row_layout() == 'breadcrumbs' ):
             include get_theme_file_path('/blocks/block-breadcrumbs.php');
+        elseif( get_row_layout() == 'slider_tabs' ):
+            include get_theme_file_path('/blocks/block-slider-tabs.php');
 // Ends the last case if/elseif/
         endif;
 // End C A S E S

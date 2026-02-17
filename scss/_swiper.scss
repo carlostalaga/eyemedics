@@ -363,6 +363,124 @@ Based on scale_vectors reference implementation
     }
 }
 
+/*
+███████ ██      ██ ██████  ███████ ██████      ████████  █████  ██████  ███████
+██      ██      ██ ██   ██ ██      ██   ██        ██    ██   ██ ██   ██ ██
+███████ ██      ██ ██   ██ █████   ██████         ██    ███████ ██████  ███████
+     ██ ██      ██ ██   ██ ██      ██   ██        ██    ██   ██ ██   ██      ██
+███████ ███████ ██ ██████  ███████ ██   ██        ██    ██   ██ ██████  ███████
+
+Swiper Thumbs pill nav + content slider
+*/
+
+// Block wrapper
+.slider-tabs {
+    width: 100%;
+    overflow: hidden;
+}
+
+// Nav wrapper: centres pills horizontally
+.slider-tabs__nav-wrapper {
+    display: flex;
+    justify-content: center;
+    padding: 0 16px;
+    margin-bottom: 24px;
+}
+
+// Nav swiper: only as wide as its pills
+.swiper-slider-tabs-nav {
+    width: auto;
+    max-width: 100%;
+    overflow: visible;
+
+    .swiper-wrapper {
+        display: flex;
+        align-items: center;
+        height: auto;
+    }
+}
+
+// Each pill slide shrinks to button width
+.slider-tabs__pill-slide {
+    width: auto !important;
+    flex-shrink: 0;
+}
+
+// Pill button
+.slider-tabs__pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    padding: 12px 28px;
+    border: 2px solid colours.$humo;
+    border-radius: 9999px;
+    background-color: colours.$blanco;
+    color: colours.$tinta;
+    font-family: inherit;
+    font-weight: 500;
+    font-size: 1.6rem;
+    line-height: 1.2;
+    cursor: pointer;
+    transition: background-color 0.25s ease,
+        color 0.25s ease,
+        border-color 0.25s ease;
+    user-select: none;
+
+    &:hover {
+        border-color: colours.$lima;
+        background-color: colours.$lima;
+    }
+
+    &:focus-visible {
+        outline: 2px solid colours.$posidonia;
+        outline-offset: 2px;
+    }
+
+    // Active state (set by Swiper thumbs + JS)
+    &--active,
+    .swiper-slide-thumb-active & {
+        background-color: colours.$lima;
+        border-color: colours.$lima;
+        color: colours.$tinta;
+    }
+}
+
+// Content swiper
+.swiper-slider-tabs-content {
+    .swiper-wrapper {
+        height: auto;
+    }
+
+    .swiper-slide {
+        height: auto;
+        align-items: flex-start;
+    }
+}
+
+// Panel inner content
+.slider-tabs__panel-inner {
+    padding: 24px 0;
+}
+
+// Responsive: tighten spacing on mobile
+@media (max-width: 767px) {
+    .slider-tabs__pill {
+        padding: 10px 20px;
+        font-size: 1.4rem;
+    }
+
+    .slider-tabs__nav-wrapper {
+        justify-content: flex-start;
+        margin-bottom: 16px;
+    }
+
+    .slider-tabs__panel-inner {
+        padding: 16px 0;
+    }
+}
+
+
 // Hero Responsive Adjustments
 @media (max-width: 768px) {
     .hero__text-container {

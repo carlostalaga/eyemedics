@@ -391,6 +391,7 @@ html {
 /* Super Menu (Secondary navigation) */
 #super-menu ul {
     display: flex;
+    flex-wrap: wrap;
     list-style-type: none;
     padding: 0;
     margin: 0;
@@ -404,24 +405,14 @@ html {
     padding: 0 9px;
 }
 
-/* Add vertical line separator to the right of all items */
-#super-menu li::after {
+/* Add vertical line separator between items only (no separator at start or end) */
+#super-menu li:not(:last-child)::after {
     content: '|';
     position: absolute;
     right: -6px;
     top: 45%;
     transform: translateY(-50%);
-    color: colours.$hueso;
-}
-
-/* Add vertical line separator to the left of the first item */
-#super-menu li:first-child::before {
-    content: '|';
-    position: absolute;
-    left: -6px;
-    top: 45%;
-    transform: translateY(-50%);
-    color: colours.$hueso;
+    color: colours.$carbon;
 }
 
 #super-menu a {
@@ -430,19 +421,57 @@ html {
     text-transform: uppercase;
 
     &:link {
-        color: colours.$hueso;
+        color: colours.$carbon;
     }
 
     &:visited {
-        color: colours.$hueso;
+        color: colours.$carbon;
     }
 
     &:hover {
-        color: colours.$hueso-light;
+        color: colours.$verde-dark;
     }
 
     &:active {
-        color: colours.$amarillo;
+        color: colours.$naranja;
+    }
+}
+
+
+/* Footer Menu */
+#footer-menu ul {
+    display: block;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+#footer-menu li {
+    @include fonts.font(fonts.$text-prose, fonts.$fw-prose-bold);
+    position: relative;
+    color: colours.$blanco;
+    padding: 0;
+}
+
+#footer-menu a {
+    text-decoration: none;
+    color: inherit;
+    text-transform: uppercase;
+
+    &:link {
+        color: #ffffff;
+    }
+
+    &:visited {
+        color: #ffffff;
+    }
+
+    &:hover {
+        color: #FF0000;
+    }
+
+    &:active {
+        color: #FFA500;
     }
 }
 
@@ -970,7 +999,7 @@ Check the fonts in %text-list-base (.text-list li, .text-list-light and .text-li
 
 .accordion-button:hover .accordion-title,
 .accordion-button:not(.collapsed) .accordion-title {
-        color: colours.$verde-dark;
+    color: colours.$verde-dark;
 }
 
 

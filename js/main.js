@@ -324,14 +324,125 @@ jQuery(document).ready(function () {
         });
 
         /*
+        ███████ ██      ██ ██████  ███████ ██████      ████████  █████  ██████  ███████
+        ██      ██      ██ ██   ██ ██      ██   ██        ██    ██   ██ ██   ██ ██
+        ███████ ██      ██ ██   ██ █████   ██████         ██    ███████ ██████  ███████
+             ██ ██      ██ ██   ██ ██      ██   ██        ██    ██   ██ ██   ██      ██
+        ███████ ███████ ██ ██████  ███████ ██   ██        ██    ██   ██ ██████  ███████
+
+        Swiper Thumbs – pill nav + content slider with GSAP entrance animation
+        */
+        document.querySelectorAll('.slider-tabs').forEach(function (block) {
+            var navEl = block.querySelector('.swiper-slider-tabs-nav');
+            var contentEl = block.querySelector('.swiper-slider-tabs-content');
+            if (!navEl || !contentEl) return;
+
+            // GSAP slide entrance animation
+            function animateSlide(slideEl) {
+                if (typeof gsap === 'undefined' || !slideEl) return;
+                var items = slideEl.querySelectorAll('[data-anim]');
+                if (!items.length) return;
+                gsap.fromTo(items,
+                    { autoAlpha: 0, y: 12 },
+                    { autoAlpha: 1, y: 0, duration: 0.4, stagger: 0.05 }
+                );
+            }
+
+            // Nav Swiper (pills)
+            var navSwiper = new Swiper(navEl, {
+                slidesPerView: 'auto',
+                spaceBetween: 16,
+                freeMode: true,
+                watchSlidesProgress: true,
+                slideToClickedSlide: true,
+                keyboard: { enabled: true, onlyInViewport: true },
+                breakpoints: {
+                    1024: {
+                        allowTouchMove: false,
+                        freeMode: false
+                    }
+                }
+            });
+
+            // Content Swiper (panels)
+            var contentSwiper = new Swiper(contentEl, {
+                autoHeight: true,
+                spaceBetween: 24,
+                keyboard: { enabled: true, onlyInViewport: true },
+                thumbs: { swiper: navSwiper }
+            });
+
+            // Keep aria attributes in sync
+            function updateA11y(activeIndex) {
+                var pills = block.querySelectorAll('.slider-tabs__pill');
+                var panels = block.querySelectorAll('.slider-tabs__panel');
+                pills.forEach(function (pill, i) {
+                    var isActive = (i === activeIndex);
+                    pill.setAttribute('aria-selected', isActive ? 'true' : 'false');
+                    pill.setAttribute('tabindex', isActive ? '0' : '-1');
+                    pill.classList.toggle('slider-tabs__pill--active', isActive);
+                });
+                panels.forEach(function (panel, i) {
+                    if (i === activeIndex) {
+                        panel.removeAttribute('hidden');
+                    } else {
+                        panel.setAttribute('hidden', '');
+                    }
+                });
+            }
+
+            // Pill click → slide to content
+            block.querySelectorAll('.slider-tabs__pill').forEach(function (pill, idx) {
+                pill.addEventListener('click', function () {
+                    contentSwiper.slideTo(idx);
+                });
+            });
+
+            // Keyboard arrow navigation between pills
+            block.querySelectorAll('.slider-tabs__pill').forEach(function (pill, idx, pills) {
+                pill.addEventListener('keydown', function (e) {
+                    var newIdx = null;
+                    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+                        e.preventDefault();
+                        newIdx = (idx + 1) % pills.length;
+                    } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+                        e.preventDefault();
+                        newIdx = (idx - 1 + pills.length) % pills.length;
+                    } else if (e.key === 'Home') {
+                        e.preventDefault();
+                        newIdx = 0;
+                    } else if (e.key === 'End') {
+                        e.preventDefault();
+                        newIdx = pills.length - 1;
+                    }
+                    if (newIdx !== null) {
+                        contentSwiper.slideTo(newIdx);
+                        pills[newIdx].focus();
+                    }
+                });
+            });
+
+            // Update on slide change
+            contentSwiper.on('slideChangeTransitionEnd', function () {
+                updateA11y(contentSwiper.activeIndex);
+                animateSlide(contentSwiper.slides[contentSwiper.activeIndex]);
+            });
+
+            // Initial state
+            updateA11y(0);
+            animateSlide(contentSwiper.slides[0]);
+        });
+
+
+        /*
          ██████  ███████ ███    ██ ███████ ██████  ██  ██████     ███████ ██      ██ ██████  ███████ ██████
         ██       ██      ████   ██ ██      ██   ██ ██ ██          ██      ██      ██ ██   ██ ██      ██   ██
         ██   ███ █████   ██ ██  ██ █████   ██████  ██ ██          ███████ ██      ██ ██   ██ █████   ██████
         ██    ██ ██      ██  ██ ██ ██      ██   ██ ██ ██               ██ ██      ██ ██   ██ ██      ██   ██
          ██████  ███████ ██   ████ ███████ ██   ██ ██  ██████     ███████ ███████ ██ ██████  ███████ ██   ██
         */
-        // Initialize the generic swiper (excludes .swiper-hero to avoid double init)
-        var swiper = new Swiper('.swiper:not(.swiper-hero)', {
+        // Initialize the generic swiper (excludes hero and slider-tabs to avoid double init)
+        var swiper = new Swiper('.swiper:not(.swiper-hero):not(.swiper-slider-tabs-nav):not(.swiper-slider-tabs-content)', {
             loop: true,
             // Uncomment the next line if you want autoplay
             // autoplay: true,

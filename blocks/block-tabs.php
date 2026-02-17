@@ -6,55 +6,59 @@
    ██    ██   ██ ██   ██      ██
    ██    ██   ██ ██████  ███████
 
-
 */
 
-$tabs_background = get_sub_field('tabs_background'); // Define the background variable for tabs
-
+$tabs_background = get_sub_field('tabs_background');
+if($tabs_background == 'bg-white'):
+    $tabs_background_class = 'bg-white';
+endif;
+if($tabs_background == 'bg-hueso'):
+    $tabs_background_class = 'bg-hueso';
+endif;  
 ?>
-<div id="tabs-<?php echo $iBlock; ?>" class="container-fluid front-page-tabs py-5 px-5 px-md-0 <?php 
-    // Check if the variable is set before using it
-    if(isset($tabs_background) && $tabs_background == 'bg-white'): 
-        echo 'bg-white'; 
-    elseif(isset($tabs_background) && $tabs_background == 'bg-hueso'): 
-        echo 'bg-hueso';
-    // Optionally add a default class if neither condition is met and the variable might not be set
-    // else { echo 'bg-default'; } 
-    endif; 
-?>">
-    <div class="container tabsBox py-5">
+<div id="tabs-<?php echo $iBlock; ?>" class="container-fluid tabs-block py-0 px-0 <?php echo $tabs_background_class; ?>">
+    <div class="container tabsBox py-0">
+
+        <?php if (have_rows('tabs_repeater')): $tabIndex = 0; ?>
 
         <!-- Nav tabs -->
-        <ul class="nav nav-pills gap-3 justify-content-center" id="myTab-<?php echo $iBlock; ?>" role="tablist">
+        <ul class="nav tabs-icon-nav justify-content-center flex-wrap" id="myTab-<?php echo $iBlock; ?>" role="tablist">
+            <?php while (have_rows('tabs_repeater')): the_row();
+                $tab_label = get_sub_field('tab_label');
+                $is_active = ($tabIndex === 0);
+            ?>
             <li class="nav-item" role="presentation">
-                <button class="btn btn-sm btn-verde active" id="tab-uno-tab-<?php echo $iBlock; ?>" data-bs-toggle="tab" data-bs-target="#tab-uno-<?php echo $iBlock; ?>" type="button" role="tab" aria-controls="tab-uno-<?php echo $iBlock; ?>" aria-selected="true">REFER YOUR CHILD <i class="fas fa-arrow-right" aria-hidden="true"></i></button>
+                <button class="tabs-icon-btn <?php echo $is_active ? 'active' : ''; ?>" id="tab-<?php echo $iBlock; ?>-<?php echo $tabIndex; ?>-tab" data-bs-toggle="tab" data-bs-target="#tab-<?php echo $iBlock; ?>-<?php echo $tabIndex; ?>" type="button" role="tab" aria-controls="tab-<?php echo $iBlock; ?>-<?php echo $tabIndex; ?>" aria-selected="<?php echo $is_active ? 'true' : 'false'; ?>">
+                    <span class="tabs-icon-label"><?php echo esc_html($tab_label); ?></span>
+                </button>
             </li>
-            <li class="nav-item" role="presentation">
-                <button class="btn btn-sm btn-verde" id="tab-dos-tab-<?php echo $iBlock; ?>" data-bs-toggle="tab" data-bs-target="#tab-dos-<?php echo $iBlock; ?>" type="button" role="tab" aria-controls="tab-dos-<?php echo $iBlock; ?>" aria-selected="false">REFER FOR ADULTS <i class="fas fa-arrow-right" aria-hidden="true"></i></button>
-            </li>
-
+            <?php $tabIndex++; endwhile; ?>
         </ul>
 
         <!-- Tab panes -->
-        <div class="tab-content border border-0 p-3" id="myTabContent-<?php echo $iBlock; ?>">
+        <div class="tab-content p-0 bg-danger" id="myTabContent-<?php echo $iBlock; ?>">
+            <?php 
+            // Reset the repeater to loop again for tab content
+            $tabIndex = 0;
+            while (have_rows('tabs_repeater')): the_row();
+                $tab_content = get_sub_field('tab_content');
+                $is_active = ($tabIndex === 0);
+            ?>
+            <div class="tab-pane fade <?php echo $is_active ? 'show active' : ''; ?>" id="tab-<?php echo $iBlock; ?>-<?php echo $tabIndex; ?>" role="tabpanel" aria-labelledby="tab-<?php echo $iBlock; ?>-<?php echo $tabIndex; ?>-tab">
 
-            <div class="tab-pane fade show active" id="tab-uno-<?php echo $iBlock; ?>" role="tabpanel" aria-labelledby="tab-uno-tab-<?php echo $iBlock; ?>">
-                <h6 class="mt-5">Refer your Child</h6>
-                <div class="w-100">
-                    <iframe src="https://sound-bites-therapy-services.splose.com/public-form/c2bc003b-158c-4716-be8b-938faa32d3f7" width="100%" height="3600" style="border: none; max-width: 100%;" title="Sound Bites Therapy Services Form"></iframe>
+                <?php if ($tab_content): ?>
+                <div class="tabs-content-area mt-4">
+                    <?php echo $tab_content; ?>
                 </div>
+                <?php endif; ?>
+
             </div>
-
-            <div class="tab-pane fade" id="tab-dos-<?php echo $iBlock; ?>" role="tabpanel" aria-labelledby="tab-dos-tab-<?php echo $iBlock; ?>">
-                <h6 class="mt-5">Refer for Adults</h6>
-                <div class="w-100">
-                    <iframe src="https://sound-bites-therapy-services.splose.com/public-form/b60c898f-65c7-4eec-8ee3-5f1d84b848d8" width="100%" height="3600" style="border: none; max-width: 100%;" title="Sound Bites Therapy Services Form"></iframe>
-                </div>
-            </div>
-
-
+            <?php $tabIndex++; endwhile; ?>
         </div>
 
+        <?php else: ?>
+        <!-- No tabs configured -->
+        <?php endif; ?>
+
     </div>
-</div>
 </div>

@@ -341,15 +341,9 @@ bootstrap tabs
 
 // Style the tab content area
 .tab-content {
-    border: 0px solid colours.$aguamarina;
-    border-top: none; // Top border is visually replaced by the active tab's bottom border
-    padding: 1.5rem;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-    background-color: colours.$hueso; // Ensure content background matches theme
-    position: relative; // Needed for stacking context
-    // Ensure content is visually behind the active tab's border connection
-    margin-top: 0; // Reset any potential default margin
+    position: relative;
+    margin: 0 !important;
+    padding: 0 !important;
 }
 
 

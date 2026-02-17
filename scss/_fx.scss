@@ -488,3 +488,112 @@ Team card image hover effect with GSAP
         filter: brightness(1);
     }
 }
+
+
+
+/*
+████████  █████  ██████  ███████     ██  ██████  ██████  ███    ██
+   ██    ██   ██ ██   ██ ██          ██ ██      ██    ██ ████   ██
+   ██    ███████ ██████  ███████     ██ ██      ██    ██ ██ ██  ██
+   ██    ██   ██ ██   ██      ██     ██ ██      ██    ██ ██  ██ ██
+   ██    ██   ██ ██████  ███████     ██  ██████  ██████  ██   ████
+
+Icon-style tabs for homepage navigation buttons
+*/
+
+.tabs-block {
+
+    // Container adjustments
+    .tabsBox {
+        max-width: 100%;
+    }
+}
+
+// Icon-style navigation buttons
+.tabs-icon-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+
+    @media (min-width: 768px) {
+        gap: 1rem;
+    }
+
+    .nav-item {
+        flex: 1 1 auto;
+        max-width: 200px;
+        min-width: 120px;
+
+        @media (max-width: 575px) {
+            flex: 0 0 calc(50% - 0.5rem);
+            max-width: calc(50% - 0.5rem);
+            min-width: auto;
+        }
+    }
+}
+
+.tabs-icon-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    width: 100%;
+    padding: 1.25rem 1rem;
+    background-color: colours.$blanco;
+    border: 2px solid colours.$verde;
+    border-radius: 0;
+    font-weight: 600;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: colours.$tinta;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    @media (min-width: 768px) {
+        padding: 1.5rem 1.25rem;
+        font-size: 0.8125rem;
+    }
+
+    &:hover {
+        background-color: colours.$verde-light;
+        border-color: colours.$verde;
+        color: colours.$blanco;
+    }
+
+    &.active {
+        background-color: colours.$verde;
+        border-color: colours.$verde;
+        color: colours.$blanco;
+    }
+}
+
+.tabs-icon-label {
+    text-align: center;
+    line-height: 1.2;
+}
+
+// Tab content area
+.tabs-content-area {
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        margin-bottom: 1rem;
+    }
+
+    p {
+        margin-bottom: 1rem;
+    }
+
+    iframe {
+        border: none;
+        max-width: 100%;
+    }
+}

@@ -497,6 +497,27 @@
                             "new_lines": "br"
                         },
                         {
+                            "key": "field_67905f0f03cd1",
+                            "label": "Hero Button Reduce Gap",
+                            "name": "hero_button_reduce_gap",
+                            "aria-label": "",
+                            "type": "true_false",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 0,
+                            "allow_in_bindings": 1,
+                            "ui": 0,
+                            "ui_on_text": "",
+                            "ui_off_text": ""
+                        },
+                        {
                             "key": "field_6854e788928dc",
                             "label": "Gallery",
                             "name": "gallery",
@@ -523,27 +544,6 @@
                             "mime_types": "",
                             "insert": "append",
                             "preview_size": "medium"
-                        },
-                        {
-                            "key": "field_67905f0f03cd1",
-                            "label": "Hero Button Reduce Gap",
-                            "name": "hero_button_reduce_gap",
-                            "aria-label": "",
-                            "type": "true_false",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "message": "",
-                            "default_value": 0,
-                            "allow_in_bindings": 1,
-                            "ui": 0,
-                            "ui_on_text": "",
-                            "ui_off_text": ""
                         }
                     ],
                     "min": "",
@@ -570,9 +570,10 @@
                                 "id": ""
                             },
                             "choices": {
-                                "bg-cielo": "Background Cielo",
-                                "bg-hueso": "Background Bone",
-                                "bg-white": "Background White"
+                                "bg-verde": "bg-verde",
+                                "bg-verde-light": "bg-verde-light",
+                                "bg-humo": "bg-humo",
+                                "bg-white": "bg-white"
                             },
                             "default_value": false,
                             "return_format": "value",
@@ -1603,7 +1604,7 @@
                             "choices": {
                                 "aguamarina": "aguamarina",
                                 "purpura": "purpura",
-                                "verde": "verde",
+                                "naranja": "naranja",
                                 "cielo": "cielo"
                             },
                             "default_value": false,
@@ -2476,6 +2477,73 @@
                             "placeholder": "",
                             "create_options": 0,
                             "save_options": 0
+                        },
+                        {
+                            "key": "field_6992905efe719",
+                            "label": "Tabs Repeater",
+                            "name": "tabs_repeater",
+                            "aria-label": "",
+                            "type": "repeater",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "layout": "table",
+                            "min": 0,
+                            "max": 0,
+                            "collapsed": "",
+                            "button_label": "Add Row",
+                            "rows_per_page": 20,
+                            "sub_fields": [
+                                {
+                                    "key": "field_69929072fe71a",
+                                    "label": "Tab Label",
+                                    "name": "tab_label",
+                                    "aria-label": "",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "maxlength": "",
+                                    "allow_in_bindings": 0,
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": "",
+                                    "parent_repeater": "field_6992905efe719"
+                                },
+                                {
+                                    "key": "field_699290cdfe71b",
+                                    "label": "Tab Content",
+                                    "name": "tab_content",
+                                    "aria-label": "",
+                                    "type": "textarea",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "maxlength": "",
+                                    "allow_in_bindings": 0,
+                                    "rows": "",
+                                    "placeholder": "",
+                                    "new_lines": "",
+                                    "parent_repeater": "field_6992905efe719"
+                                }
+                            ]
                         }
                     ],
                     "min": "",
@@ -4024,5 +4092,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1770007470
+    "modified": 1771308477
 }

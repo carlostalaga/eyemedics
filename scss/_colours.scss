@@ -28,10 +28,13 @@
 
 // Primary brand colours
 $verde: #8CC63E;
-$verde-light: #b8dc7d;
+$verde-light: #A7D16C;
 $verde-dark: #5a8418;
 
-// Legacy naranja aliases (now pointing to verde)
+// Secondary brand colours
+$lima: #D5E04D;
+
+// Accent and neutral colours
 $naranja: $verde;
 $naranja-light: $verde-light;
 $naranja-dark: $verde-dark;
@@ -40,7 +43,6 @@ $posidonia: #0D2C6B;
 $posidonia-light: #2D4C8B;
 $posidonia-dark: #0A1F4A;
 
-// Secondary brand colours
 $aguamarina: #B7DFC9;
 $aguamarina-light: #e6f4fa;
 $aguamarina-dark: #7bc4d4;
@@ -53,7 +55,6 @@ $cielo: #ACCDEC;
 $cielo-light: #D4E8F5;
 $cielo-dark: #7A9DB8;
 
-// Accent and neutral colours
 $amarillo: #fcb937;
 $hueso: #F5F0EB;
 $hueso-light: #F9F7F5;
@@ -96,7 +97,7 @@ $colors: (
     "verde-dark": $verde-dark,
 
     // Secondary brand
-
+    "lima": $lima,
 
     // Accent and neutrals
     "posidonia": $posidonia,

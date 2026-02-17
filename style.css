@@ -26,15 +26,15 @@ Text Domain: bystra
 
 .verde-light,
 .text-verde-light {
-  color: #b8dc7d;
+  color: #A7D16C;
 }
 
 .bg-verde-light {
-  background-color: #b8dc7d;
+  background-color: #A7D16C;
 }
 
 .border-verde-light {
-  border-color: #b8dc7d;
+  border-color: #A7D16C;
 }
 
 .verde-dark,
@@ -48,6 +48,19 @@ Text Domain: bystra
 
 .border-verde-dark {
   border-color: #5a8418;
+}
+
+.lima,
+.text-lima {
+  color: #D5E04D;
+}
+
+.bg-lima {
+  background-color: #D5E04D;
+}
+
+.border-lima {
+  border-color: #D5E04D;
 }
 
 .posidonia,
@@ -360,7 +373,7 @@ body {
   font-family: "canada-type-gibson", sans-serif;
   font-weight: 300;
   font-style: normal;
-  font-size: 2.4rem;
+  font-size: 2.2rem;
   color: #303030;
 }
 
@@ -1184,14 +1197,9 @@ bootstrap tabs
 }
 
 .tab-content {
-  border: 0px solid #B7DFC9;
-  border-top: none;
-  padding: 1.5rem;
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
-  background-color: #F5F0EB;
   position: relative;
-  margin-top: 0;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 @media (max-width: 1400px) {
@@ -1707,6 +1715,101 @@ Team card image hover effect with GSAP
 }
 
 /*
+████████  █████  ██████  ███████     ██  ██████  ██████  ███    ██
+   ██    ██   ██ ██   ██ ██          ██ ██      ██    ██ ████   ██
+   ██    ███████ ██████  ███████     ██ ██      ██    ██ ██ ██  ██
+   ██    ██   ██ ██   ██      ██     ██ ██      ██    ██ ██  ██ ██
+   ██    ██   ██ ██████  ███████     ██  ██████  ██████  ██   ████
+
+Icon-style tabs for homepage navigation buttons
+*/
+.tabs-block .tabsBox {
+  max-width: 100%;
+}
+
+.tabs-icon-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+@media (min-width: 768px) {
+  .tabs-icon-nav {
+    gap: 1rem;
+  }
+}
+.tabs-icon-nav .nav-item {
+  flex: 1 1 auto;
+  max-width: 200px;
+  min-width: 120px;
+}
+@media (max-width: 575px) {
+  .tabs-icon-nav .nav-item {
+    flex: 0 0 calc(50% - 0.5rem);
+    max-width: calc(50% - 0.5rem);
+    min-width: auto;
+  }
+}
+
+.tabs-icon-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 1.25rem 1rem;
+  background-color: #ffffff;
+  border: 2px solid #8CC63E;
+  border-radius: 0;
+  font-weight: 600;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: #303030;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+@media (min-width: 768px) {
+  .tabs-icon-btn {
+    padding: 1.5rem 1.25rem;
+    font-size: 0.8125rem;
+  }
+}
+.tabs-icon-btn:hover {
+  background-color: #A7D16C;
+  border-color: #8CC63E;
+  color: #ffffff;
+}
+.tabs-icon-btn.active {
+  background-color: #8CC63E;
+  border-color: #8CC63E;
+  color: #ffffff;
+}
+
+.tabs-icon-label {
+  text-align: center;
+  line-height: 1.2;
+}
+
+.tabs-content-area h1,
+.tabs-content-area h2,
+.tabs-content-area h3,
+.tabs-content-area h4,
+.tabs-content-area h5,
+.tabs-content-area h6 {
+  margin-bottom: 1rem;
+}
+.tabs-content-area p {
+  margin-bottom: 1rem;
+}
+.tabs-content-area iframe {
+  border: none;
+  max-width: 100%;
+}
+
+/*
 Theme Name: EyeMedics Bystra
 Theme URI: https://envyus.com.au/
 Author: Envy Us
@@ -2021,6 +2124,100 @@ Based on scale_vectors reference implementation
   }
   50% {
     transform: translateX(2%);
+  }
+}
+/*
+███████ ██      ██ ██████  ███████ ██████      ████████  █████  ██████  ███████
+██      ██      ██ ██   ██ ██      ██   ██        ██    ██   ██ ██   ██ ██
+███████ ██      ██ ██   ██ █████   ██████         ██    ███████ ██████  ███████
+     ██ ██      ██ ██   ██ ██      ██   ██        ██    ██   ██ ██   ██      ██
+███████ ███████ ██ ██████  ███████ ██   ██        ██    ██   ██ ██████  ███████
+
+Swiper Thumbs pill nav + content slider
+*/
+.slider-tabs {
+  width: 100%;
+  overflow: hidden;
+}
+
+.slider-tabs__nav-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 0 16px;
+  margin-bottom: 24px;
+}
+
+.swiper-slider-tabs-nav {
+  width: auto;
+  max-width: 100%;
+  overflow: visible;
+}
+.swiper-slider-tabs-nav .swiper-wrapper {
+  display: flex;
+  align-items: center;
+  height: auto;
+}
+
+.slider-tabs__pill-slide {
+  width: auto !important;
+  flex-shrink: 0;
+}
+
+.slider-tabs__pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  padding: 12px 28px;
+  border: 2px solid #eaeaea;
+  border-radius: 9999px;
+  background-color: #ffffff;
+  color: #303030;
+  font-family: inherit;
+  font-weight: 500;
+  font-size: 1.6rem;
+  line-height: 1.2;
+  cursor: pointer;
+  transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+  user-select: none;
+}
+.slider-tabs__pill:hover {
+  border-color: #D5E04D;
+  background-color: #D5E04D;
+}
+.slider-tabs__pill:focus-visible {
+  outline: 2px solid #0D2C6B;
+  outline-offset: 2px;
+}
+.slider-tabs__pill--active, .swiper-slide-thumb-active .slider-tabs__pill {
+  background-color: #D5E04D;
+  border-color: #D5E04D;
+  color: #303030;
+}
+
+.swiper-slider-tabs-content .swiper-wrapper {
+  height: auto;
+}
+.swiper-slider-tabs-content .swiper-slide {
+  height: auto;
+  align-items: flex-start;
+}
+
+.slider-tabs__panel-inner {
+  padding: 24px 0;
+}
+
+@media (max-width: 767px) {
+  .slider-tabs__pill {
+    padding: 10px 20px;
+    font-size: 1.4rem;
+  }
+  .slider-tabs__nav-wrapper {
+    justify-content: flex-start;
+    margin-bottom: 16px;
+  }
+  .slider-tabs__panel-inner {
+    padding: 16px 0;
   }
 }
 @media (max-width: 768px) {
@@ -2393,6 +2590,7 @@ html {
 /* Super Menu (Secondary navigation) */
 #super-menu ul {
   display: flex;
+  flex-wrap: wrap;
   list-style-type: none;
   padding: 0;
   margin: 0;
@@ -2408,24 +2606,14 @@ html {
   padding: 0 9px;
 }
 
-/* Add vertical line separator to the right of all items */
-#super-menu li::after {
+/* Add vertical line separator between items only (no separator at start or end) */
+#super-menu li:not(:last-child)::after {
   content: "|";
   position: absolute;
   right: -6px;
   top: 45%;
   transform: translateY(-50%);
-  color: #F5F0EB;
-}
-
-/* Add vertical line separator to the left of the first item */
-#super-menu li:first-child::before {
-  content: "|";
-  position: absolute;
-  left: -6px;
-  top: 45%;
-  transform: translateY(-50%);
-  color: #F5F0EB;
+  color: #202020;
 }
 
 #super-menu a {
@@ -2434,16 +2622,51 @@ html {
   text-transform: uppercase;
 }
 #super-menu a:link {
-  color: #F5F0EB;
+  color: #202020;
 }
 #super-menu a:visited {
-  color: #F5F0EB;
+  color: #202020;
 }
 #super-menu a:hover {
-  color: #F9F7F5;
+  color: #5a8418;
 }
 #super-menu a:active {
-  color: #fcb937;
+  color: #8CC63E;
+}
+
+/* Footer Menu */
+#footer-menu ul {
+  display: block;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+#footer-menu li {
+  font-family: "canada-type-gibson", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  position: relative;
+  color: #ffffff;
+  padding: 0;
+}
+
+#footer-menu a {
+  text-decoration: none;
+  color: inherit;
+  text-transform: uppercase;
+}
+#footer-menu a:link {
+  color: #ffffff;
+}
+#footer-menu a:visited {
+  color: #ffffff;
+}
+#footer-menu a:hover {
+  color: #FF0000;
+}
+#footer-menu a:active {
+  color: #FFA500;
 }
 
 /* Footer Menu */

@@ -49,13 +49,15 @@ if ($top_inverted_cloud_colour == 'cielo') {
 
 // Determine background class based on selection
 $background_class = '';
-if ($content_basic_background == 'bg-hueso') {
-    $background_class = 'bg-hueso';
-} elseif ($content_basic_background == 'bg-cielo') {
-    $background_class = 'bg-cielo';
-} elseif ($content_basic_background == 'bg-white') {
-    $background_class = 'bg-white';
-}
+    if ($content_basic_background == 'bg-verde') {
+        $background_class = 'bg-verde';
+    } elseif ($content_basic_background == 'bg-verde-light') {
+        $background_class = 'bg-verde-light';
+    } elseif ($content_basic_background == 'bg-humo') {
+        $background_class = 'bg-humo';
+    } elseif ($content_basic_background == 'bg-white') {
+        $background_class = 'bg-white';
+    }
 
 // Determine if newspaper column style should be applied
 $newspaper_class = ($content_basic_columns == '2_col') ? 'newspaper' : '';

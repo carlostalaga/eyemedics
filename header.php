@@ -12,7 +12,20 @@
 <body <?php body_class(); ?>>
     <?php wp_body_open(); ?>
 
-    <header class="bg-blanco py-4 px-4 px-md-0">
+    <header class="bg-blanco py-0 px-4 px-md-0">
+
+
+        <div class="container-fluid bg-lima">
+            <nav aria-label="Secondary navigation: Shortcuts" id="super-menu" class="d-flex flex-wrap justify-content-end py-3">
+                <?php /* Super Menu */
+            wp_nav_menu( array(
+                'menu' => 'super-menu',
+                'theme_location' => 'super-menu',
+                'fallback_cb'    => false
+            ) );
+            ?>
+            </nav>
+        </div>
 
         <!-- 
             Bootstrap Navigation Structure:
@@ -36,7 +49,7 @@
                     <!-- Logo column -->
                     <div class="col-8 col-md-4">
                         <a id="navbar-brand" href="<?php echo get_option('siteurl'); ?>" aria-label="Go to homepage">
-                            <img id="logo-change" src="<?php echo get_template_directory_uri() ?>/img/logo-eyemedics-dark.png" class="img-fluid my-3" alt="<?php echo get_bloginfo('name'); ?> logo">
+                            <img id="logo-change" src="<?php echo get_template_directory_uri() ?>/img/logo-eyemedics-dark.png" class="logo-constraint img-fluid my-3" alt="<?php echo get_bloginfo('name'); ?> logo">
                         </a>
                     </div>
 
