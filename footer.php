@@ -1,6 +1,6 @@
 <!-- new design footer -->
 
-<footer class="container-fluid img-round-footer bg-posidonia p-0">
+<footer class="container-fluid img-round-footer bg-carbon p-0">
 
 
     <div class="container py-5">
@@ -9,7 +9,7 @@
 
             <div class="col-12 col-md-6 mb-5 mb-md-0">
                 <a id="navbar-brand" href="<?php echo get_option('siteurl'); ?>" aria-label="Go to homepage">
-                    <img src="<?php echo get_template_directory_uri() ?>/img/logo-soundbites-dark.png" class="img-fluid my-3" alt="<?php echo get_bloginfo('name'); ?> logo">
+                    <img src="<?php echo get_template_directory_uri() ?>/img/logo-eyemedics-dark.png" class="img-fluid my-3 logo-constraint" alt="<?php echo get_bloginfo('name'); ?> logo">
                 </a>
             </div>
 
@@ -17,44 +17,34 @@
 
             <div class="col-12 col-md-6 text-white text-start text-md-end  d-flex justify-content-start justify-content-md-end align-items-end">
 
-                <?php 
-                    $cta_button = get_field('cta_button', 'option');
-                    if( $cta_button ):
-                        $cta_url = $cta_button['url'];
-                        $cta_title = $cta_button['title'] ?: 'EMAIL US';
-                        $cta_target = $cta_button['target'] ? $cta_button['target'] : '_self';
-                ?>
-                <a href="<?php echo esc_url($cta_url); ?>" class="btn btn-sm btn-verde me-5" <?php echo $cta_target !== '_self' ? ' target="' . esc_attr($cta_target) . '" rel="noopener noreferrer"' : ''; ?>>
-                    <?php echo esc_html($cta_title); ?> <i class="fas fa-arrow-right" aria-hidden="true"></i>
-                </a>
-                <?php endif; ?>
+
 
                 <?php /* Social Icons */ ?>
                 <div id="social-icons-lightmode">
                     <?php if( get_field('mail', 'option') ): ?>
                     <a href="<?php echo esc_url( 'mailto:' . antispambot( get_field('mail', 'option' ) ) . '?subject=' . rawurlencode( 'Message from ' . get_bloginfo('name') ) ); ?>">
-                        <i class="fas fa-envelope ms-2 fs-1 text-white" aria-hidden="true"></i>
+                        <i class="fa fa-envelope ms-2 fs-1" aria-hidden="true"></i>
                     </a>&nbsp;
                     <?php endif; ?>
 
                     <?php if( get_field('facebook', 'option') ): ?>
-                    <a target="_blank" href="<?php the_field('facebook', 'option'); ?>"><i class="fab fa-facebook-f ms-2 fs-1 text-white" aria-hidden="true"></i></a>&nbsp;
+                    <a target="_blank" href="<?php the_field('facebook', 'option'); ?>"><i class="fab fa-facebook-f ms-2 fs-1" aria-hidden="true"></i></a>&nbsp;
                     <?php endif; ?>
 
                     <?php if( get_field('twitter', 'option') ): ?>
-                    <a target="_blank" href="<?php the_field('twitter', 'option'); ?>"><i class="fab fa-twitter  ms-2 fs-1 text-white" aria-hidden="true"></i></a>&nbsp;
+                    <a target="_blank" href="<?php the_field('twitter', 'option'); ?>"><i class="fab fa-twitter ms-2 fs-1" aria-hidden="true"></i></a>&nbsp;
                     <?php endif; ?>
 
                     <?php if( get_field('tiktok', 'option') ): ?>
-                    <a target="_blank" href="<?php the_field('tiktok', 'option'); ?>"><i class="fab fa-tiktok  ms-2 fs-1 text-white" aria-hidden="true"></i></a>&nbsp;
+                    <a target="_blank" href="<?php the_field('tiktok', 'option'); ?>"><i class="fab fa-tiktok ms-2 fs-1" aria-hidden="true"></i></a>&nbsp;
                     <?php endif; ?>
 
                     <?php if( get_field('instagram', 'option') ): ?>
-                    <a target="_blank" href="<?php the_field('instagram', 'option'); ?>"><i class="fab fa-instagram ms-2 fs-1 text-white" aria-hidden="true"></i></a>&nbsp;
+                    <a target="_blank" href="<?php the_field('instagram', 'option'); ?>"><i class="fab fa-instagram ms-2 fs-1" aria-hidden="true"></i></a>&nbsp;
                     <?php endif; ?>
 
                     <?php if( get_field('linkedin', 'option') ): ?>
-                    <a target="_blank" href="<?php the_field('linkedin', 'option'); ?>"><i class="fab fa-linkedin-in  ms-2 fs-1 text-white" aria-hidden="true"></i></a>&nbsp;
+                    <a target="_blank" href="<?php the_field('linkedin', 'option'); ?>"><i class="fab fa-linkedin-in ms-2 fs-1" aria-hidden="true"></i></a>&nbsp;
                     <?php endif; ?>
 
 
@@ -66,7 +56,7 @@
 
         <div class="row border-bottom border-top border-white border-1 my-4 mx-4 mx-md-0 pt-5 pb-5">
 
-            <div class="col-12 col-md-6 col-lg-3 mb-5 pt-5 text-white">
+            <div class="col-12 col-md-6 col-lg-4 mb-5 pt-5 text-white">
                 <div class="titles-footer mb-4">
                     Quick Links
                 </div>
@@ -81,7 +71,7 @@
                 </nav>
             </div>
 
-            <div class="col-12 col-md-6 col-lg-3 mb-5 pt-5 text-white">
+            <div class="col-12 col-md-6 col-lg-4 mb-5 pt-5 text-white">
                 <div class="titles-footer mb-4">
                     Contact
                 </div>
@@ -117,23 +107,13 @@
             </div>
 
             <div class="col-12 col-md-9 col-lg-4 mb-5 pt-5 text-white">
-                <div class="mapBlock">
-                    <?php $google_map_iframe = get_field('google_map_iframe', 'options'); // Only needed for the conditional check, NOT to display the map. Check functions.php and main.js for the map display.
-                    if ($google_map_iframe) :
-                    ?>
-                    <div id="map-placeholder" class=" text-white">
-                        <p>Loading map...</p>
+                <div class="d-flex">
+                    <div class="mb-4 ps-md-5 pe-5 pe-md-0">
+                        <img src="<?php echo get_template_directory_uri() ?>/img/logo-ndis.png" class="img-fluid mb-3 img-rounded logos-footer">
                     </div>
-                    <?php endif; ?>
-                </div>
-            </div>
-
-            <div class="col-12 col-md-3 col-lg-2 mb-5 text-white ps-md-5      d-flex d-md-block">
-                <div class="mb-4 ps-md-5 pe-5 pe-md-0">
-                    <img src="<?php echo get_template_directory_uri() ?>/img/logo-ndis.png" class="img-fluid mb-3 img-rounded logos-footer">
-                </div>
-                <div class="mb-4 ps-md-5 pe-5 pe-md-0">
-                    <img src="<?php echo get_template_directory_uri() ?>/img/logo-cpsp.png" class="img-fluid mb-3 img-rounded logos-footer">
+                    <div class="mb-4 ps-md-5 pe-5 pe-md-0">
+                        <img src="<?php echo get_template_directory_uri() ?>/img/logo-cpsp.png" class="img-fluid mb-3 img-rounded logos-footer">
+                    </div>
                 </div>
             </div>
 

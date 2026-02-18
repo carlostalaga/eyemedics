@@ -587,65 +587,6 @@
                             "save_options": 0
                         },
                         {
-                            "key": "field_6979524384bd3",
-                            "label": "Show Top Inverted Bite",
-                            "name": "show_top_inverted_cloud",
-                            "aria-label": "",
-                            "type": "true_false",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "message": "",
-                            "default_value": 0,
-                            "allow_in_bindings": 0,
-                            "ui_on_text": "",
-                            "ui_off_text": "",
-                            "ui": 1
-                        },
-                        {
-                            "key": "field_697952ebe1439",
-                            "label": "Top Inverted Bite Colour",
-                            "name": "top_inverted_cloud_colour",
-                            "aria-label": "",
-                            "type": "select",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": [
-                                [
-                                    {
-                                        "field": "field_6979524384bd3",
-                                        "operator": "==",
-                                        "value": "1"
-                                    }
-                                ]
-                            ],
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "choices": {
-                                "cielo": "Cielo",
-                                "hueso": "Bone",
-                                "white": "White"
-                            },
-                            "default_value": "white",
-                            "return_format": "value",
-                            "multiple": 0,
-                            "allow_null": 0,
-                            "allow_in_bindings": 1,
-                            "ui": 0,
-                            "ajax": 0,
-                            "placeholder": "",
-                            "create_options": 0,
-                            "save_options": 0
-                        },
-                        {
                             "key": "field_66ea327087d77",
                             "label": "Content Basic Columns",
                             "name": "content_basic_columns",
@@ -807,35 +748,6 @@
                             "placeholder": "",
                             "create_options": 0,
                             "save_options": 0
-                        },
-                        {
-                            "key": "field_6979754e3bde4",
-                            "label": "Expand Image",
-                            "name": "expand_image",
-                            "aria-label": "",
-                            "type": "true_false",
-                            "instructions": "Expand the image to 110 percent, only on desktop view.",
-                            "required": 0,
-                            "conditional_logic": [
-                                [
-                                    {
-                                        "field": "field_66ea35e1bd027",
-                                        "operator": "==",
-                                        "value": "right"
-                                    }
-                                ]
-                            ],
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "message": "",
-                            "default_value": 0,
-                            "allow_in_bindings": 0,
-                            "ui_on_text": "",
-                            "ui_off_text": "",
-                            "ui": 1
                         },
                         {
                             "key": "field_66e004d4a71b9",
@@ -4092,5 +4004,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1771308477
+    "modified": 1771309698
 }

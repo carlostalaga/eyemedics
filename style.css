@@ -273,15 +273,15 @@ Text Domain: bystra
 
 .carbon,
 .text-carbon {
-  color: #202020;
+  color: #0A0203;
 }
 
 .bg-carbon {
-  background-color: #202020;
+  background-color: #0A0203;
 }
 
 .border-carbon {
-  border-color: #202020;
+  border-color: #0A0203;
 }
 
 .negro,
@@ -844,24 +844,30 @@ strong {
 ██       ██████  ██   ████    ██        ██   ██  ███ ███  ███████ ███████  ██████  ██      ██ ███████
 
 */
-[class^=fa-] {
+[class*=fa-] {
   color: #303030;
   font-size: 2.7rem;
   margin-right: 10px;
   transition: color 0.4s, transform 0.4s;
 }
-[class^=fa-]:hover {
+[class*=fa-]:hover {
   color: #eaeaea;
   transform: translateY(1px);
 }
 
+#social-icons-lightmode .fa,
+#social-icons-lightmode .fab,
+#social-icons-lightmode .fas,
 #social-icons-lightmode .fa-brands,
 #social-icons-lightmode .fa-solid {
-  color: #F5F0EB;
+  color: #8CC63E;
 }
+#social-icons-lightmode .fa:hover,
+#social-icons-lightmode .fab:hover,
+#social-icons-lightmode .fas:hover,
 #social-icons-lightmode .fa-brands:hover,
 #social-icons-lightmode .fa-solid:hover {
-  color: #8CC63E;
+  color: #eaeaea;
 }
 
 .fa-expand {
@@ -2613,7 +2619,7 @@ html {
   right: -6px;
   top: 45%;
   transform: translateY(-50%);
-  color: #202020;
+  color: #0A0203;
 }
 
 #super-menu a {
@@ -2622,10 +2628,10 @@ html {
   text-transform: uppercase;
 }
 #super-menu a:link {
-  color: #202020;
+  color: #0A0203;
 }
 #super-menu a:visited {
-  color: #202020;
+  color: #0A0203;
 }
 #super-menu a:hover {
   color: #5a8418;

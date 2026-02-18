@@ -450,22 +450,21 @@ strong {
     }
 }
 
-// Apply common styles to all Font Awesome icons
-// Target all elements whose class attribute starts with "fa-"
-// and apply common icon styles to them by extending the %icon-common placeholder
-[class^="fa-"] {
+[class*="fa-"] {
     @extend %icon-common;
 }
 
-// Specific styles for social icons in light mode
 #social-icons-lightmode {
 
+    .fa,
+    .fab,
+    .fas,
     .fa-brands,
     .fa-solid {
-        color: colours.$hueso;
+        color: colours.$verde;
 
         &:hover {
-            color: colours.$verde;
+            color: colours.$humo;
         }
     }
 }
@@ -476,5 +475,5 @@ strong {
 }
 
 // Social icons reference (for documentation purposes)
-// These icons are styled via the [class^="fa-"] selector above
-// Available icons: envelope, facebook, twitter, instagram, linkedin
+// These icons are styled via the [class*="fa-"] selector above
+// Available icons: envelope, facebook, twitter, tiktok, instagram, linkedin
