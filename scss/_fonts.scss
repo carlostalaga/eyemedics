@@ -182,6 +182,7 @@ strong {
 .titles-footer {
     @include font($text-prose, $fw-prose-medium);
     font-size: 2.6rem;
+    color: colours.$verde;
 }
 
 /*

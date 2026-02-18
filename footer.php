@@ -56,9 +56,9 @@
 
         <div class="row border-bottom border-top border-white border-1 my-4 mx-4 mx-md-0 pt-5 pb-5">
 
-            <div class="col-12 col-md-6 col-lg-4 mb-5 pt-5 text-white">
+            <div class="col-12 col-md-6 col-lg-8 mb-5 pt-5 text-white">
                 <div class="titles-footer mb-4">
-                    Quick Links
+                    Doctors and Staff
                 </div>
                 <nav aria-label="Footer primary navigation" id="footer-menu" class="col">
                     <?php /* Footer Menu */
@@ -71,48 +71,25 @@
                 </nav>
             </div>
 
-            <div class="col-12 col-md-6 col-lg-4 mb-5 pt-5 text-white">
-                <div class="titles-footer mb-4">
-                    Contact
-                </div>
-                <div class="mb-4">
-                    <?php 
-                        $phone = get_field('phone', 'option');
-                        if( $phone ):
-                            echo 'Phone: <a href="tel:' . $phone . '" class="text-white">' . $phone . '</a>';
-                        endif;
-                    ?>
-                </div>
-                <div class="mb-5">
-                    <?php 
-                        $mail = get_field('mail', 'option');
-                        if( $mail ):
-                    ?>
-                    <a href="mailto:<?php echo esc_attr($mail); ?>" class="btn btn-sm btn-verde">
-                        Email Us <i class="fas fa-arrow-right" aria-hidden="true"></i>
-                    </a>
-                    <?php endif; ?>
-                </div>
-                <div class="titles-footer mb-4">
-                    Find Us
-                </div>
-                <div class="mb-5">
-                    <?php 
-                        $address = get_field('address', 'option');
-                        if( $address ):
-                            echo $address;
-                        endif;
-                    ?>
-                </div>
-            </div>
-
             <div class="col-12 col-md-9 col-lg-4 mb-5 pt-5 text-white">
+                <div class="titles-footer mb-4">
+                    Quick Links
+                </div>
+                <nav aria-label="Footer primary navigation" id="footer-menu" class="mb-5">
+                    <?php /* Footer Menu */
+                        wp_nav_menu( array(
+                            'menu' => 'footer-menu',
+                            'theme_location' => 'footer-menu',
+                            'fallback_cb'    => false
+                        ) );
+                    ?>
+                </nav>
                 <div class="d-flex">
-                    <div class="mb-4 ps-md-5 pe-5 pe-md-0">
-                        <img src="<?php echo get_template_directory_uri() ?>/img/logo-ndis.png" class="img-fluid mb-3 img-rounded logos-footer">
+                    <div class="mb-4 pe-5 pe-md-0">
+                        <img src="<?php echo get_template_directory_uri() ?>/img/logo-cpm.jpg" class="img-fluid mb-3 logos-footer">
                     </div>
-                    <div class="mb-4 ps-md-5 pe-5 pe-md-0">
-                        <img src="<?php echo get_template_directory_uri() ?>/img/logo-cpsp.png" class="img-fluid mb-3 img-rounded logos-footer">
+                    <div class="mb-4 pe-5 pe-md-0">
+                        <img src="<?php echo get_template_directory_uri() ?>/img/logo-savesight.png" class="img-fluid mb-3 logos-footer">
                     </div>
                 </div>
             </div>
