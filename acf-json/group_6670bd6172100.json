@@ -683,7 +683,7 @@
                             "name": "content_basic_image",
                             "aria-label": "",
                             "type": "image",
-                            "instructions": "Size 576px by 576px (Aspect ratio 1:1 )",
+                            "instructions": "Size 576px by 576px (Aspect ratio 1:1 ) when aligned left or right OR size 1920px by 1080px (Aspect ratio 16:9) when aligned content wide.",
                             "required": 0,
                             "conditional_logic": [
                                 [
@@ -4004,5 +4004,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1771309698
+    "modified": 1771460890
 }

@@ -234,15 +234,15 @@ Text Domain: bystra
 
 .tinta,
 .text-tinta {
-  color: #303030;
+  color: #1a1a1a;
 }
 
 .bg-tinta {
-  background-color: #303030;
+  background-color: #1a1a1a;
 }
 
 .border-tinta {
-  border-color: #303030;
+  border-color: #1a1a1a;
 }
 
 .humo,
@@ -374,7 +374,7 @@ body {
   font-weight: 300;
   font-style: normal;
   font-size: 2.2rem;
-  color: #303030;
+  color: #1a1a1a;
 }
 
 a {
@@ -391,7 +391,7 @@ h1 {
   font-weight: 500;
   font-style: normal;
   font-size: 9.6rem;
-  color: #8CC63E;
+  color: #1a1a1a;
   line-height: 92.364%;
   letter-spacing: -0.058rem;
 }
@@ -401,7 +401,7 @@ h2 {
   font-weight: 500;
   font-style: normal;
   font-size: 9.2rem;
-  color: #eaeaea;
+  color: #1a1a1a;
   line-height: 96%;
   letter-spacing: -0.058rem;
 }
@@ -411,7 +411,7 @@ h3 {
   font-weight: 500;
   font-style: normal;
   font-size: 8rem;
-  color: #8CC63E;
+  color: #1a1a1a;
   line-height: 92.364%;
   letter-spacing: -0.049rem;
 }
@@ -421,7 +421,7 @@ h4 {
   font-weight: 500;
   font-style: normal;
   font-size: 6.4rem;
-  color: #8CC63E;
+  color: #1a1a1a;
   line-height: 92.364%;
   letter-spacing: -0.039rem;
 }
@@ -441,7 +441,7 @@ h6 {
   font-weight: 500;
   font-style: normal;
   font-size: 4rem;
-  color: #0D2C6B;
+  color: #1a1a1a;
   line-height: 95%;
 }
 
@@ -846,7 +846,7 @@ strong {
 
 */
 [class*=fa-] {
-  color: #303030;
+  color: #1a1a1a;
   font-size: 2.7rem;
   margin-right: 10px;
   transition: color 0.4s, transform 0.4s;
@@ -1050,7 +1050,7 @@ Text Domain: bystra
 
 .custom-mailchimp-input-wider {
   background: #F9F7F5;
-  color: #303030;
+  color: #1a1a1a;
   border: 2px solid #F5F0EB;
   border-radius: 3px;
   padding: 6px 12px;
@@ -1075,7 +1075,7 @@ Text Domain: bystra
 /* Hover effect for Mailchimp button */
 .custom-mailchimp-button:hover {
   background: transparent;
-  color: #303030;
+  color: #1a1a1a;
 }
 
 /* 
@@ -1774,7 +1774,7 @@ Icon-style tabs for homepage navigation buttons
   font-weight: 600;
   font-size: 0.75rem;
   text-transform: uppercase;
-  color: #303030;
+  color: #1a1a1a;
   cursor: pointer;
   transition: all 0.3s ease;
 }
@@ -2179,7 +2179,7 @@ Swiper Thumbs pill nav + content slider
   border: 2px solid #eaeaea;
   border-radius: 9999px;
   background-color: #ffffff;
-  color: #303030;
+  color: #1a1a1a;
   font-family: inherit;
   font-weight: 500;
   font-size: 1.6rem;
@@ -2199,7 +2199,7 @@ Swiper Thumbs pill nav + content slider
 .slider-tabs__pill--active, .swiper-slide-thumb-active .slider-tabs__pill {
   background-color: #D5E04D;
   border-color: #D5E04D;
-  color: #303030;
+  color: #1a1a1a;
 }
 
 .swiper-slider-tabs-content .swiper-wrapper {
@@ -2367,7 +2367,7 @@ html {
 .wp-caption-text {
   margin: 0.5em 0;
   font-size: 1.4rem;
-  color: #303030;
+  color: #1a1a1a;
   text-align: center;
 }
 
@@ -2578,7 +2578,7 @@ html {
   font-family: "canada-type-gibson", sans-serif;
   font-weight: 500;
   font-style: normal;
-  color: #303030 !important;
+  color: #1a1a1a !important;
   background: transparent;
   padding-right: 2rem;
 }
@@ -3255,7 +3255,7 @@ Check the fonts in %text-list-base (.text-list li, .text-list-light and .text-li
   margin: 0 5px;
   padding: 5px 10px;
   background-color: #F9F7F5;
-  color: #303030;
+  color: #1a1a1a;
   text-decoration: none;
 }
 
@@ -3280,7 +3280,7 @@ Check the fonts in %text-list-base (.text-list li, .text-list-light and .text-li
 
 .pagination a:has(> .fas.fa-chevron-left) {
   background-color: #F5F0EB;
-  color: #303030;
+  color: #1a1a1a;
 }
 .pagination a:has(> .fas.fa-chevron-left):hover {
   background-color: #eaeaea;
@@ -3289,7 +3289,7 @@ Check the fonts in %text-list-base (.text-list li, .text-list-light and .text-li
 
 .pagination a:has(> .fas.fa-chevron-right) {
   background-color: #F5F0EB;
-  color: #303030;
+  color: #1a1a1a;
 }
 .pagination a:has(> .fas.fa-chevron-right):hover {
   background-color: #eaeaea;
