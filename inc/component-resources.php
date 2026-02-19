@@ -98,14 +98,14 @@ $link_button_class = $use_light_buttons ? 'btn btn-hueso' : 'btn btn-lima';
     <?php else: ?>
     <!-- Original Style: Title inside button -->
     <?php if ($type_of_resource == 'file'): ?>
-    <a class="<?php echo esc_attr($file_button_class); ?> text-start fit-content" href="<?php echo esc_attr($url); ?>" target="_blank" title="<?php echo esc_attr($title); ?>">
+    <a class="<?php echo esc_attr($file_button_class); ?> text-start fit-content mb-5" href="<?php echo esc_attr($url); ?>" target="_blank" title="<?php echo esc_attr($title); ?>">
         <span style="overflow-wrap: break-word; text-wrap: wrap;">
             <?php if($title): echo esc_html($title); else: ?>Learn&nbsp;more<?php endif; ?>
         </span>
         <i class="fas fa-file" aria-hidden="true"></i>
     </a>
     <?php elseif ($type_of_resource == 'link'): ?>
-    <a class="<?php echo esc_attr($link_button_class); ?> text-start fit-content" href="<?php echo esc_url($link_url); ?>" target="<?php echo esc_attr($link_target); ?>" title="<?php echo esc_attr($link_title); ?>" aria-label="Learn more about <?php echo esc_attr($link_title); ?>">
+    <a class="<?php echo esc_attr($link_button_class); ?> text-start fit-content mb-5" href="<?php echo esc_url($link_url); ?>" target="<?php echo esc_attr($link_target); ?>" title="<?php echo esc_attr($link_title); ?>" aria-label="Learn more about <?php echo esc_attr($link_title); ?>">
         <span style="overflow-wrap: break-word; text-wrap: wrap;">
             <?php if($link_title): echo esc_html($link_title); else: ?>Learn&nbsp;more<?php endif; ?>
         </span>

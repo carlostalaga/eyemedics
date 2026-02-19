@@ -416,7 +416,7 @@ h1 {
   font-family: "canada-type-gibson", sans-serif;
   font-weight: 500;
   font-style: normal;
-  font-size: 9.6rem;
+  font-size: 6.2rem;
   color: #1a1a1a;
   line-height: 92.364%;
   letter-spacing: -0.058rem;
@@ -426,7 +426,7 @@ h2 {
   font-family: "canada-type-gibson", sans-serif;
   font-weight: 500;
   font-style: normal;
-  font-size: 9.2rem;
+  font-size: 5.7rem;
   color: #1a1a1a;
   line-height: 96%;
   letter-spacing: -0.058rem;
@@ -436,7 +436,7 @@ h3 {
   font-family: "canada-type-gibson", sans-serif;
   font-weight: 500;
   font-style: normal;
-  font-size: 8rem;
+  font-size: 4.8rem;
   color: #1a1a1a;
   line-height: 92.364%;
   letter-spacing: -0.049rem;
@@ -446,7 +446,7 @@ h4 {
   font-family: "canada-type-gibson", sans-serif;
   font-weight: 500;
   font-style: normal;
-  font-size: 6.4rem;
+  font-size: 4rem;
   color: #1a1a1a;
   line-height: 92.364%;
   letter-spacing: -0.039rem;
@@ -456,7 +456,7 @@ h5 {
   font-family: "canada-type-gibson", sans-serif;
   font-weight: 500;
   font-style: normal;
-  font-size: 5rem;
+  font-size: 3.4rem;
   color: #0D2C6B;
   line-height: 123%;
   letter-spacing: -0.12rem;
@@ -466,89 +466,89 @@ h6 {
   font-family: "canada-type-gibson", sans-serif;
   font-weight: 500;
   font-style: normal;
-  font-size: 4rem;
+  font-size: 2.6rem;
   color: #1a1a1a;
   line-height: 95%;
 }
 
 @media (max-width: 1200px) {
   h1 {
-    font-size: calc(9.6rem * 0.9);
+    font-size: calc(6.2rem * 0.9);
   }
   h2 {
-    font-size: calc(9.2rem * 0.9);
+    font-size: calc(5.7rem * 0.9);
   }
   h3 {
-    font-size: calc(8rem * 0.9);
+    font-size: calc(4.8rem * 0.9);
   }
   h4 {
-    font-size: calc(6.4rem * 0.9);
+    font-size: calc(4rem * 0.9);
   }
   h5 {
-    font-size: calc(5rem * 0.9);
+    font-size: calc(3.4rem * 0.9);
   }
   h6 {
-    font-size: calc(4rem * 0.9);
+    font-size: calc(2.6rem * 0.9);
   }
 }
 @media (max-width: 992px) {
   h1 {
-    font-size: calc(9.6rem * 0.85);
+    font-size: calc(6.2rem * 0.85);
   }
   h2 {
-    font-size: calc(9.2rem * 0.85);
+    font-size: calc(5.7rem * 0.85);
   }
   h3 {
-    font-size: calc(8rem * 0.85);
+    font-size: calc(4.8rem * 0.85);
   }
   h4 {
-    font-size: calc(6.4rem * 0.85);
+    font-size: calc(4rem * 0.85);
   }
   h5 {
-    font-size: calc(5rem * 0.85);
+    font-size: calc(3.4rem * 0.85);
   }
   h6 {
-    font-size: calc(4rem * 0.85);
+    font-size: calc(2.6rem * 0.85);
   }
 }
 @media (max-width: 768px) {
   h1 {
-    font-size: calc(9.6rem * 0.8);
+    font-size: calc(6.2rem * 0.8);
   }
   h2 {
-    font-size: calc(9.2rem * 0.8);
+    font-size: calc(5.7rem * 0.8);
   }
   h3 {
-    font-size: calc(8rem * 0.8);
+    font-size: calc(4.8rem * 0.8);
   }
   h4 {
-    font-size: calc(6.4rem * 0.8);
+    font-size: calc(4rem * 0.8);
   }
   h5 {
-    font-size: calc(5rem * 0.8);
+    font-size: calc(3.4rem * 0.8);
   }
   h6 {
-    font-size: calc(4rem * 0.8);
+    font-size: calc(2.6rem * 0.8);
   }
 }
 @media (max-width: 576px) {
   h1 {
-    font-size: calc(9.6rem * 0.75);
+    font-size: calc(6.2rem * 0.75);
   }
   h2 {
-    font-size: calc(9.2rem * 0.75);
+    font-size: calc(5.7rem * 0.75);
   }
   h3 {
-    font-size: calc(8rem * 0.75);
+    font-size: calc(4.8rem * 0.75);
   }
   h4 {
-    font-size: calc(6.4rem * 0.75);
+    font-size: calc(4rem * 0.75);
   }
   h5 {
-    font-size: calc(5rem * 0.75);
+    font-size: calc(3.4rem * 0.75);
   }
   h6 {
-    font-size: calc(4rem * 0.75);
+    font-size: calc(2.6rem * 0.75);
   }
 }
 .contentBox h1,
@@ -2451,14 +2451,6 @@ html {
   border-top-right-radius: 0;
   border-bottom-right-radius: 4.7rem;
   border-bottom-left-radius: 0;
-}
-
-.img-round-footer {
-  border-top-left-radius: 24px;
-  border-top-right-radius: 24px;
-  border-bottom-right-radius: 0;
-  border-bottom-left-radius: 0;
-  margin-top: -24px;
 }
 
 .img-rounded {

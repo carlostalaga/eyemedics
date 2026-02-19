@@ -10,13 +10,13 @@
 */
 
 $spacer_background = get_sub_field('spacer_background');
-if($spacer_background == 'bg-cielo'):
-    $spacer_background_class = 'bg-cielo';
-endif;
-if($spacer_background == 'bg-hueso'):
-    $spacer_background_class = 'bg-hueso';
-endif;
-if($spacer_background == 'bg-white'):
+if($spacer_background == 'bg-verde'):
+    $spacer_background_class = 'bg-verde';
+elseif($spacer_background == 'bg-verde-light'):
+    $spacer_background_class = 'bg-verde-light';
+elseif($spacer_background == 'bg-humo'):
+    $spacer_background_class = 'bg-humo';
+elseif($spacer_background == 'bg-white'):
     $spacer_background_class = 'bg-white';
 endif;
 

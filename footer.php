@@ -1,6 +1,6 @@
 <!-- new design footer -->
 
-<footer class="container-fluid img-round-footer bg-carbon p-0">
+<footer class="container-fluid bg-carbon p-0">
 
 
     <div class="container py-5">
@@ -85,10 +85,10 @@
                     ?>
                 </nav>
                 <div class="d-flex">
-                    <div class="mb-4 pe-5 pe-md-0">
+                    <div class="mb-4 pe-5">
                         <img src="<?php echo get_template_directory_uri() ?>/img/logo-cpm.jpg" class="img-fluid mb-3 logos-footer">
                     </div>
-                    <div class="mb-4 pe-5 pe-md-0">
+                    <div class="mb-4 pe-5">
                         <img src="<?php echo get_template_directory_uri() ?>/img/logo-savesight.png" class="img-fluid mb-3 logos-footer">
                     </div>
                 </div>

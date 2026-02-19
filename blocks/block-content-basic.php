@@ -85,11 +85,11 @@ ob_start();
 if ($content_basic_headline):
     if (!$firstContentBlockFound): ?>
 <!-- First headline on page - use H1 for SEO -->
-<h3 class="mb-5"><?php echo esc_html($content_basic_headline); ?></h3>
+<h1 class="mb-5"><?php echo esc_html($content_basic_headline); ?></h1>
 <?php $firstContentBlockFound = true;
     else: ?>
 <!-- Subsequent headlines - use H2 for proper heading hierarchy -->
-<h4 class="mb-5"><?php echo esc_html($content_basic_headline); ?></h4>
+<h2 class="mb-5"><?php echo esc_html($content_basic_headline); ?></h2>
 <?php endif;
 endif;
 $headline_html = ob_get_clean();
@@ -112,7 +112,7 @@ $resources_html = ob_get_clean();
 ?>
 
 <!-- Content Basic Block -->
-<div id="content-<?php echo $iBlock; ?>" class="container-fluid  pb-5 px-5 px-md-0 border border-0 border-danger <?php echo $background_class; ?>">
+<div id="content-<?php echo $iBlock; ?>" class="container-fluid py-5 pb-5 px-5 px-md-0  <?php echo $background_class; ?>">
 
     <div class="container border border-0 border-secondary">
 
@@ -136,6 +136,10 @@ $resources_html = ob_get_clean();
         <?php else: ?>
         <!-- "left" or "right" layout: image and content side by side -->
         <div class="row g-0 py-0">
+            <div class="col-12">
+                <?php echo $headline_html; ?>
+            </div>
+
             <!-- Image (if enabled) -->
             <?php if ($content_basic_optional_image): ?>
             <div class="<?php echo $image_column_class; ?> <?php echo $image_order_class; ?>">
@@ -149,13 +153,18 @@ $resources_html = ob_get_clean();
             <?php endif; ?>
 
             <!-- Content -->
-            <div class="<?php echo $content_column_class; ?> contentBox bg-primary p-0 d-flex align-items-center">
+            <div class="<?php echo $content_column_class; ?> contentBox p-0 d-flex align-items-center">
                 <div>
-                    <?php echo $headline_html; ?>
                     <?php echo $content_html; ?>
-                    <?php echo $resources_html; ?>
                 </div>
             </div>
+
+
+
+            <div class="col-12 order-3">
+                <?php echo $resources_html; ?>
+            </div>
+
         </div>
         <?php endif; ?>
 

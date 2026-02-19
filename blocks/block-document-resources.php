@@ -63,10 +63,10 @@ $document_resources_use_light_buttons = in_array($document_resources_background,
     <div class="container">
 
         <?php if($document_resources_title): ?>
-        <h3 class="text-posidonia pb-5 <?php if($document_resources_columns == '1_col'): echo 'mx-lg-5 px-lg-5'; endif; ?>"><?php echo $document_resources_title ?></h3>
+        <h2 class="pb-5"><?php echo $document_resources_title ?></h2>
         <?php endif; ?>
 
-        <div class="<?php if($document_resources_columns == '1_col'): echo 'newspaper-1 mx-lg-5 px-lg-5'; elseif($document_resources_columns == '2_col'): echo 'newspaper-2'; endif; ?>">
+        <div class="<?php if($document_resources_columns == '1_col'): echo 'newspaper-1'; elseif($document_resources_columns == '2_col'): echo 'newspaper-2'; endif; ?>">
 
 
             <?php

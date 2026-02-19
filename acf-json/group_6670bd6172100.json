@@ -1757,9 +1757,10 @@
                                 "id": ""
                             },
                             "choices": {
-                                "bg-cielo": "Background Cielo",
-                                "bg-hueso": "Background Bone",
-                                "bg-white": "Background White"
+                                "bg-verde": "bg-verde",
+                                "bg-verde-light": "bg-verde-light",
+                                "bg-humo": "bg-humo",
+                                "bg-white": "bg-white"
                             },
                             "default_value": false,
                             "return_format": "value",
@@ -4007,5 +4008,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1771478276
+    "modified": 1771480981
 }
