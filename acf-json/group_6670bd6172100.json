@@ -662,7 +662,7 @@
                             "name": "content_basic_optional_image",
                             "aria-label": "",
                             "type": "true_false",
-                            "instructions": "Would you like to include an image in an additional column?",
+                            "instructions": "Would you like to include an image?",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -2134,9 +2134,10 @@
                                 "id": ""
                             },
                             "choices": {
-                                "bg-cielo": "Background Cielo",
-                                "bg-hueso": "Background Bone",
-                                "bg-white": "Background White"
+                                "bg-verde": "bg-verde",
+                                "bg-verde-light": "bg-verde-light",
+                                "bg-humo": "bg-humo",
+                                "bg-white": "bg-white"
                             },
                             "default_value": false,
                             "return_format": "value",
@@ -3344,8 +3345,10 @@
                                 "id": ""
                             },
                             "choices": {
-                                "bg-hueso": "Background Bone",
-                                "bg-white": "Background White"
+                                "bg-verde": "bg-verde",
+                                "bg-verde-light": "bg-verde-light",
+                                "bg-humo": "bg-humo",
+                                "bg-white": "bg-white"
                             },
                             "default_value": "bg-white",
                             "return_format": "value",
@@ -4004,5 +4007,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1771460890
+    "modified": 1771478276
 }

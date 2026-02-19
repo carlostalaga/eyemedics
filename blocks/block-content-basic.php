@@ -46,6 +46,9 @@ $background_class = '';
         $background_class = 'bg-white';
     }
 
+// Detect darker green backgrounds so resource buttons can flip to the light palette for contrast.
+$use_light_buttons = in_array($content_basic_background, array('bg-verde', 'bg-verde-light'), true);
+
 // Determine if newspaper column style should be applied
 $newspaper_class = ($content_basic_columns == '2_col') ? 'newspaper' : '';
 
@@ -101,7 +104,7 @@ $content_html = ob_get_clean();
 
 ob_start(); ?>
 <div class="mt-5">
-    <?php echo display_resources('content_basic_resource_repeater', true, false); ?>
+    <?php echo display_resources('content_basic_resource_repeater', false, false, $use_light_buttons); ?>
 </div>
 <?php 
 $resources_html = ob_get_clean();

@@ -12,15 +12,17 @@ $accordion_anchor = get_sub_field('accordion_anchor');
 $accordion_headline = get_sub_field('accordion_headline');
 $accordion_intro = get_sub_field('accordion_intro');
 $accordion_background = get_sub_field('accordion_background');
-if($accordion_background == 'bg-cielo'):
-    $accordion_background_class = 'bg-cielo';
-endif;
-if($accordion_background == 'bg-hueso'):
-    $accordion_background_class = 'bg-hueso';
-endif;
-if($accordion_background == 'bg-white'):
+$accordion_background_class = '';
+if($accordion_background == 'bg-verde'):
+    $accordion_background_class = 'bg-verde';
+elseif($accordion_background == 'bg-verde-light'):
+    $accordion_background_class = 'bg-verde-light';
+elseif($accordion_background == 'bg-humo'):
+    $accordion_background_class = 'bg-humo';
+elseif($accordion_background == 'bg-white'):
     $accordion_background_class = 'bg-white';
 endif;
+$accordion_use_light_buttons = in_array($accordion_background, array('bg-verde', 'bg-verde-light'), true);
 ?>
 <div id="<?php echo $accordion_anchor; ?>">
     <div id="accordionBlock-<?php echo $iBlock; ?>" class="container-fluid py-5 <?php echo $accordion_background_class; ?>">
@@ -92,7 +94,7 @@ endif;
                                     <!-- Resources -->
                                     <?php if($accordion_resource_repeater): ?>
                                     <div class="col-12 mt-5">
-                                        <?php display_resources('accordion_resource_repeater'); ?>
+                                        <?php display_resources('accordion_resource_repeater', false, false, $accordion_use_light_buttons); ?>
                                     </div>
                                     <?php endif; ?>
 

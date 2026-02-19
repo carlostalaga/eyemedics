@@ -21,6 +21,22 @@ $document_resources_background = get_sub_field('document_resources_background');
 $document_resources = get_sub_field('document_resources');
 $document_resources_title = get_sub_field('document_resources_title');
 $document_resources_columns = get_sub_field('document_resources_columns');
+
+$document_resources_background_class = '';
+if ($document_resources_background == 'bg-verde') {
+    $document_resources_background_class = 'bg-verde';
+} elseif ($document_resources_background == 'bg-verde-light') {
+    $document_resources_background_class = 'bg-verde-light';
+} elseif ($document_resources_background == 'bg-humo') {
+    $document_resources_background_class = 'bg-humo';
+} elseif ($document_resources_background == 'bg-white') {
+    $document_resources_background_class = 'bg-white';
+} elseif ($document_resources_background == 'bg-hueso') {
+    $document_resources_background_class = 'bg-hueso';
+}
+
+// Flip resource buttons to the light palette when rendered on dark green backgrounds.
+$document_resources_use_light_buttons = in_array($document_resources_background, array('bg-verde', 'bg-verde-light'), true);
 ?>
 
 
@@ -43,13 +59,7 @@ $document_resources_columns = get_sub_field('document_resources_columns');
 /* List separator styles moved to style.scss */
 </style>
 
-<div id="documentResources-<?php echo $iBlock; ?>" class="container-fluid py-5 px-5 px-md-0 <?php 
-    if($document_resources_background == 'bg-white'): 
-        echo 'bg-white'; 
-    elseif($document_resources_background == 'bg-hueso'): 
-        echo 'bg-hueso';
-    endif; 
-?>">
+<div id="documentResources-<?php echo $iBlock; ?>" class="container-fluid py-5 px-5 px-md-0 <?php echo $document_resources_background_class; ?>">
     <div class="container">
 
         <?php if($document_resources_title): ?>
@@ -60,7 +70,7 @@ $document_resources_columns = get_sub_field('document_resources_columns');
 
 
             <?php
-                echo display_resources('document_resource_repeater', false, true);
+                echo display_resources('document_resource_repeater', true, true, $document_resources_use_light_buttons);
             ?>
 
 

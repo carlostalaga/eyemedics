@@ -63,6 +63,32 @@ Text Domain: bystra
   border-color: #D5E04D;
 }
 
+.lima-light,
+.text-lima-light {
+  color: #E6F28A;
+}
+
+.bg-lima-light {
+  background-color: #E6F28A;
+}
+
+.border-lima-light {
+  border-color: #E6F28A;
+}
+
+.lima-dark,
+.text-lima-dark {
+  color: #A9B22E;
+}
+
+.bg-lima-dark {
+  background-color: #A9B22E;
+}
+
+.border-lima-dark {
+  border-color: #A9B22E;
+}
+
 .posidonia,
 .text-posidonia {
   color: #0D2C6B;
@@ -2798,17 +2824,17 @@ html {
   color: #eaeaea;
 }
 
-.btn-aguamarina {
+.btn-lima {
   font-family: "canada-type-gibson", sans-serif;
   font-weight: 500;
   font-style: normal;
   font-size: 1.6rem;
   letter-spacing: 0.24rem;
-  border: 2px solid #B7DFC9;
+  border: 2px solid #D5E04D;
   border-radius: 24px;
   margin: 0 3px;
   padding: 6px 18px 3px 18px;
-  background-color: #B7DFC9;
+  background-color: #D5E04D;
   color: #0D2C6B;
   text-transform: uppercase;
   display: inline-flex;
@@ -2817,9 +2843,9 @@ html {
   gap: 24px;
   min-width: 180px;
 }
-.btn-aguamarina:hover {
-  border-color: #7bc4d4;
-  background-color: #7bc4d4;
+.btn-lima:hover {
+  border-color: #A9B22E;
+  background-color: #A9B22E;
   color: #ffffff;
 }
 
@@ -2846,6 +2872,56 @@ html {
   border-color: #5a8418;
   background-color: #5a8418;
   color: #eaeaea;
+}
+
+.btn-blanco {
+  font-family: "canada-type-gibson", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 1.6rem;
+  letter-spacing: 0.24rem;
+  border: 2px solid #ffffff;
+  border-radius: 24px;
+  margin: 0 3px;
+  padding: 6px 18px 3px 18px;
+  background-color: #ffffff;
+  color: #1a1a1a;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  min-width: 180px;
+}
+.btn-blanco:hover {
+  border-color: #F5F0EB;
+  background-color: #F5F0EB;
+  color: #1a1a1a;
+}
+
+.btn-hueso {
+  font-family: "canada-type-gibson", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 1.6rem;
+  letter-spacing: 0.24rem;
+  border: 2px solid #F5F0EB;
+  border-radius: 24px;
+  margin: 0 3px;
+  padding: 6px 18px 3px 18px;
+  background-color: #F5F0EB;
+  color: #1a1a1a;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  min-width: 180px;
+}
+.btn-hueso:hover {
+  border-color: #DBC8B6;
+  background-color: #DBC8B6;
+  color: #1a1a1a;
 }
 
 /*

@@ -610,8 +610,8 @@ html {
     @include button-styles(colours.$posidonia, colours.$posidonia-dark, colours.$hueso, colours.$humo);
 }
 
-.btn-aguamarina {
-    @include button-styles(colours.$aguamarina, colours.$aguamarina-dark, colours.$posidonia, colours.$blanco);
+.btn-lima {
+    @include button-styles(colours.$lima, colours.$lima-dark, colours.$posidonia, colours.$blanco);
     display: inline-flex;
     align-items: center;
     justify-content: space-between;
@@ -621,6 +621,24 @@ html {
 
 .btn-verde {
     @include button-styles(colours.$verde, colours.$verde-dark, colours.$hueso, colours.$humo);
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    min-width: 180px;
+}
+
+.btn-blanco {
+    @include button-styles(colours.$blanco, colours.$hueso, colours.$tinta, colours.$tinta);
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    min-width: 180px;
+}
+
+.btn-hueso {
+    @include button-styles(colours.$hueso, colours.$hueso-dark, colours.$tinta, colours.$tinta);
     display: inline-flex;
     align-items: center;
     justify-content: space-between;
