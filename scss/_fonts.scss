@@ -54,12 +54,12 @@ a {
 //   <h2 class="text-posidonia">...</h2>
 // This allows sensible defaults while enabling easy per-case overrides.
 $base-font-sizes: (
-    h1: (size: 9.6rem, weight: $fw-prose-medium, line-height: 92.364%, letter-spacing: -0.058rem, color: colours.$verde),
-    h2: (size: 9.2rem, weight: $fw-prose-medium, line-height: 96%, letter-spacing: -0.058rem, color: colours.$humo),
-    h3: (size: 8.0rem, weight: $fw-prose-medium, line-height: 92.364%, letter-spacing: -0.049rem, color: colours.$verde),
-    h4: (size: 6.4rem, weight: $fw-prose-medium, line-height: 92.364%, letter-spacing: -0.039rem, color: colours.$verde),
+    h1: (size: 9.6rem, weight: $fw-prose-medium, line-height: 92.364%, letter-spacing: -0.058rem, color: colours.$tinta),
+    h2: (size: 9.2rem, weight: $fw-prose-medium, line-height: 96%, letter-spacing: -0.058rem, color: colours.$tinta),
+    h3: (size: 8.0rem, weight: $fw-prose-medium, line-height: 92.364%, letter-spacing: -0.049rem, color: colours.$tinta),
+    h4: (size: 6.4rem, weight: $fw-prose-medium, line-height: 92.364%, letter-spacing: -0.039rem, color: colours.$tinta),
     h5: (size: 5.0rem, weight: $fw-prose-medium, line-height: 123%, letter-spacing: -0.12rem, color: colours.$posidonia),
-    h6: (size: 4rem, weight: $fw-prose-medium, line-height: 95%, letter-spacing: null, color: colours.$posidonia)
+    h6: (size: 4rem, weight: $fw-prose-medium, line-height: 95%, letter-spacing: null, color: colours.$tinta)
 );
 
 $breakpoints: (
