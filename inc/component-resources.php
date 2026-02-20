@@ -80,7 +80,7 @@ $link_button_class = $use_light_buttons ? 'btn btn-hueso' : 'btn btn-lima';
             <?php echo esc_html($title); ?>
         </span>
         <a class="<?php echo esc_attr($file_button_class); ?> d-inline-flex align-items-center justify-content-center gap-2 ps-5 text-nowrap" href="<?php echo esc_attr($url); ?>" target="_blank" title="<?php echo esc_attr($title); ?>">
-            <span>Download</span>
+            <span style="overflow-wrap: break-word; text-wrap: wrap;">Download</span>
             <i class="fas fa-file" aria-hidden="true" style="font-size: 1.4rem; color: inherit; transition: none;"></i>
         </a>
     </div>
@@ -90,7 +90,7 @@ $link_button_class = $use_light_buttons ? 'btn btn-hueso' : 'btn btn-lima';
             <?php echo esc_html($link_title); ?>
         </span>
         <a class="<?php echo esc_attr($link_button_class); ?> d-inline-flex align-items-center justify-content-center gap-2 ps-5 text-nowrap" href="<?php echo esc_url($link_url); ?>" target="<?php echo esc_attr($link_target); ?>" title="<?php echo esc_attr($link_title); ?>" aria-label="Learn more about <?php echo esc_attr($link_title); ?>">
-            <span>Learn more</span>
+            <span style="overflow-wrap: break-word; text-wrap: wrap;">Learn more</span>
             <i class="fas fa-link" aria-hidden="true" style="font-size: 1.4rem; color: inherit; transition: none;"></i>
         </a>
     </div>
@@ -102,14 +102,14 @@ $link_button_class = $use_light_buttons ? 'btn btn-hueso' : 'btn btn-lima';
         <span style="overflow-wrap: break-word; text-wrap: wrap;">
             <?php if($title): echo esc_html($title); else: ?>Learn&nbsp;more<?php endif; ?>
         </span>
-        <i class="fas fa-file" aria-hidden="true"></i>
+        <i class="fas fa-file" aria-hidden="true" style="font-size: 1.4rem; color: inherit; transition: none;"></i>
     </a>
     <?php elseif ($type_of_resource == 'link'): ?>
     <a class="<?php echo esc_attr($link_button_class); ?> text-start fit-content mb-5" href="<?php echo esc_url($link_url); ?>" target="<?php echo esc_attr($link_target); ?>" title="<?php echo esc_attr($link_title); ?>" aria-label="Learn more about <?php echo esc_attr($link_title); ?>">
         <span style="overflow-wrap: break-word; text-wrap: wrap;">
             <?php if($link_title): echo esc_html($link_title); else: ?>Learn&nbsp;more<?php endif; ?>
         </span>
-        <i class="fas fa-arrow-right" aria-hidden="true"></i>
+        <i class="fas fa-arrow-right" aria-hidden="true" style="font-size: 1.4rem; color: inherit; transition: none;"></i>
     </a>
     <?php endif; ?>
     <?php endif; ?>

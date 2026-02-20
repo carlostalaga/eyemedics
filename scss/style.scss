@@ -608,7 +608,6 @@ html {
     align-items: center;
     justify-content: space-between;
     gap: 24px;
-    min-width: 180px;
 }
 
 .btn-verde {
@@ -617,7 +616,6 @@ html {
     align-items: center;
     justify-content: space-between;
     gap: 24px;
-    min-width: 180px;
 }
 
 .btn-blanco {
@@ -626,7 +624,6 @@ html {
     align-items: center;
     justify-content: space-between;
     gap: 24px;
-    min-width: 180px;
 }
 
 .btn-hueso {
@@ -635,7 +632,6 @@ html {
     align-items: center;
     justify-content: space-between;
     gap: 24px;
-    min-width: 180px;
 }
 
 
@@ -952,11 +948,12 @@ Check the fonts in %text-list-base (.text-list li, .text-list-light and .text-li
 .accordion-button,
 .accordion-button:not(.collapsed) {
     background-color: colours.$blanco !important;
-    border: 2px solid colours.$verde !important;
+    border: 2px solid colours.$blanco !important;
     border-top-left-radius: 2.4rem !important;
     border-top-right-radius: 2.4rem !important;
     border-bottom-left-radius: 2.4rem !important;
     border-bottom-right-radius: 2.4rem !important;
+    box-shadow: -4px 4px 17.8px 3px rgba(0, 0, 0, 0.15);
 }
 
 .plusMinus,
@@ -965,7 +962,7 @@ Check the fonts in %text-list-base (.text-list li, .text-list-light and .text-li
     right: 20px;
 
     &::before {
-        content: "\f067"; // Unicode for Font Awesome plus icon
+        content: "\f061"; // Unicode for Font Awesome plus icon
         font-family: "Font Awesome 5 Free"; // Font Family for Font Awesome 5
         font-weight: 900; // Font Weight required for the Free solid icons
         display: block;
@@ -978,7 +975,7 @@ Check the fonts in %text-list-base (.text-list li, .text-list-light and .text-li
         transition: 0.5s;
 
         &::before {
-            content: "\f068"; // Unicode for Font Awesome minus icon
+            content: "\f063"; // Unicode for Font Awesome minus icon
         }
     }
 }
@@ -1003,7 +1000,7 @@ Check the fonts in %text-list-base (.text-list li, .text-list-light and .text-li
 
 // Accordion title hover and expanded states
 .accordion-title {
-    color: colours.$posidonia;
+    color: colours.$tinta;
     transition: color 0.25s ease;
 }
 

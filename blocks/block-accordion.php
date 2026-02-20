@@ -73,7 +73,7 @@ $accordion_use_light_buttons = in_array($accordion_background, array('bg-verde',
                                 </button>
                             </div>
 
-                            <div id="collapse-<?php echo $iBlock; ?>-<?php echo $collapse;?>" class="accordion-collapse collapse text-posidonia py-5 <?php echo $accordion_background_class; ?> p-5 py-3" data-bs-parent="#accordionMain-<?php echo $iBlock; ?>">
+                            <div id="collapse-<?php echo $iBlock; ?>-<?php echo $collapse;?>" class="accordion-collapse collapse text-tinta py-5 <?php echo $accordion_background_class; ?> p-5 py-3" data-bs-parent="#accordionMain-<?php echo $iBlock; ?>">
 
                                 <div class="row text-start">
 

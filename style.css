@@ -853,14 +853,14 @@ strong {
 */
 .accordion-title {
   font-family: "canada-type-gibson", sans-serif;
-  font-weight: 500;
+  font-weight: 400;
   font-style: normal;
   font-size: 2.2rem;
   line-height: 1;
-  color: #0D2C6B;
+  color: #1a1a1a;
 }
 .accordion-title:visited, .accordion-title:hover, .accordion-title:active {
-  color: #0D2C6B;
+  color: #8CC63E;
 }
 
 /*
@@ -2833,7 +2833,6 @@ html {
   align-items: center;
   justify-content: space-between;
   gap: 24px;
-  min-width: 180px;
 }
 .btn-lima:hover {
   border-color: #A9B22E;
@@ -2858,7 +2857,6 @@ html {
   align-items: center;
   justify-content: space-between;
   gap: 24px;
-  min-width: 180px;
 }
 .btn-verde:hover {
   border-color: #5a8418;
@@ -2883,7 +2881,6 @@ html {
   align-items: center;
   justify-content: space-between;
   gap: 24px;
-  min-width: 180px;
 }
 .btn-blanco:hover {
   border-color: #F5F0EB;
@@ -2908,7 +2905,6 @@ html {
   align-items: center;
   justify-content: space-between;
   gap: 24px;
-  min-width: 180px;
 }
 .btn-hueso:hover {
   border-color: #DBC8B6;
@@ -3197,11 +3193,12 @@ Check the fonts in %text-list-base (.text-list li, .text-list-light and .text-li
 .accordion-button,
 .accordion-button:not(.collapsed) {
   background-color: #ffffff !important;
-  border: 2px solid #8CC63E !important;
+  border: 2px solid #ffffff !important;
   border-top-left-radius: 2.4rem !important;
   border-top-right-radius: 2.4rem !important;
   border-bottom-left-radius: 2.4rem !important;
   border-bottom-right-radius: 2.4rem !important;
+  box-shadow: -4px 4px 17.8px 3px rgba(0, 0, 0, 0.15);
 }
 
 .plusMinus,
@@ -3211,7 +3208,7 @@ Check the fonts in %text-list-base (.text-list li, .text-list-light and .text-li
 }
 .plusMinus::before,
 .plusMinusSub::before {
-  content: "\f067";
+  content: "\f061";
   font-family: "Font Awesome 5 Free";
   font-weight: 900;
   display: block;
@@ -3225,7 +3222,7 @@ Check the fonts in %text-list-base (.text-list li, .text-list-light and .text-li
 }
 .plusMinus.rotate::before,
 .plusMinusSub.rotate::before {
-  content: "\f068";
+  content: "\f063";
 }
 
 .plusMinusCard::before {
@@ -3241,7 +3238,7 @@ Check the fonts in %text-list-base (.text-list li, .text-list-light and .text-li
 }
 
 .accordion-title {
-  color: #0D2C6B;
+  color: #1a1a1a;
   transition: color 0.25s ease;
 }
 

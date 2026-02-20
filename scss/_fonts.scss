@@ -410,15 +410,15 @@ strong {
 
 */
 .accordion-title {
-    @include font($text-prose, $fw-prose-medium);
+    @include font($text-prose, $fw-prose-regular);
     font-size: 2.2rem;
     line-height: 1;
-    color: colours.$posidonia;
+    color: colours.$tinta;
 
     &:visited,
     &:hover,
     &:active {
-        color: colours.$posidonia;
+        color: colours.$verde;
     }
 }
 
