@@ -418,6 +418,99 @@ function bystra_register_team_post_type() {
 add_action('init', 'bystra_register_team_post_type');
 
 
+
+
+
+/**
+ * Register Condition Taxonomy for Team
+ */
+function bystra_register_condition_taxonomy() {
+    $labels = array(
+        'name'                       => _x('Conditions', 'Taxonomy general name', 'bystra'),
+        'singular_name'              => _x('Condition', 'Taxonomy singular name', 'bystra'),
+        'search_items'               => __('Search Conditions', 'bystra'),
+        'popular_items'              => __('Popular Conditions', 'bystra'),
+        'all_items'                  => __('All Conditions', 'bystra'),
+        'parent_item'                => __('Parent Condition', 'bystra'),
+        'parent_item_colon'          => __('Parent Condition:', 'bystra'),
+        'edit_item'                  => __('Edit Condition', 'bystra'),
+        'update_item'                => __('Update Condition', 'bystra'),
+        'add_new_item'               => __('Add New Condition', 'bystra'),
+        'new_item_name'              => __('New Condition Name', 'bystra'),
+        'separate_items_with_commas' => __('Separate conditions with commas', 'bystra'),
+        'add_or_remove_items'        => __('Add or remove conditions', 'bystra'),
+        'choose_from_most_used'      => __('Choose from the most used conditions', 'bystra'),
+        'not_found'                  => __('No conditions found.', 'bystra'),
+        'menu_name'                  => __('Conditions', 'bystra'),
+        'back_to_items'              => __('← Back to Conditions', 'bystra'),
+    );
+
+    $args = array(
+        'labels'            => $labels,
+        'hierarchical'      => true,
+        'public'            => true,
+        'show_ui'           => true,
+        'show_admin_column' => true,
+        'show_in_nav_menus' => true,
+        'show_tagcloud'     => true,
+        'show_in_rest'      => true,
+        'rewrite'           => array('slug' => 'condition'),
+    );
+
+    register_taxonomy('condition', array('team'), $args);
+}
+add_action('init', 'bystra_register_condition_taxonomy');
+
+/**
+ * Register Location Taxonomy for Team
+ */
+function bystra_register_location_taxonomy() {
+    $labels = array(
+        'name'                       => _x('Locations', 'Taxonomy general name', 'bystra'),
+        'singular_name'              => _x('Location', 'Taxonomy singular name', 'bystra'),
+        'search_items'               => __('Search Locations', 'bystra'),
+        'popular_items'              => __('Popular Locations', 'bystra'),
+        'all_items'                  => __('All Locations', 'bystra'),
+        'parent_item'                => __('Parent Location', 'bystra'),
+        'parent_item_colon'          => __('Parent Location:', 'bystra'),
+        'edit_item'                  => __('Edit Location', 'bystra'),
+        'update_item'                => __('Update Location', 'bystra'),
+        'add_new_item'               => __('Add New Location', 'bystra'),
+        'new_item_name'              => __('New Location Name', 'bystra'),
+        'separate_items_with_commas' => __('Separate locations with commas', 'bystra'),
+        'add_or_remove_items'        => __('Add or remove locations', 'bystra'),
+        'choose_from_most_used'      => __('Choose from the most used locations', 'bystra'),
+        'not_found'                  => __('No locations found.', 'bystra'),
+        'menu_name'                  => __('Locations', 'bystra'),
+        'back_to_items'              => __('← Back to Locations', 'bystra'),
+    );
+
+    $args = array(
+        'labels'            => $labels,
+        'hierarchical'      => true,
+        'public'            => true,
+        'show_ui'           => true,
+        'show_admin_column' => true,
+        'show_in_nav_menus' => true,
+        'show_tagcloud'     => true,
+        'show_in_rest'      => true,
+        'rewrite'           => array('slug' => 'location'),
+    );
+
+    register_taxonomy('location', array('team'), $args);
+}
+add_action('init', 'bystra_register_location_taxonomy');
+
+
+
+
+
+
+
+
+
+
+
 /*
 ███████ ███████ ██████  ██    ██ ██  ██████ ███████ ███████
 ██      ██      ██   ██ ██    ██ ██ ██      ██      ██
