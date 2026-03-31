@@ -1,76 +1,14 @@
 {
     "key": "group_697aeb400e827",
-    "title": "Team",
+    "title": "Doctors and Staff",
     "fields": [
         {
-            "key": "field_697aeb400f95d",
-            "label": "Role",
-            "name": "role",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "allow_in_bindings": 0,
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
-        },
-        {
-            "key": "field_697aeb6906e77",
-            "label": "Email",
-            "name": "email",
-            "aria-label": "",
-            "type": "email",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "allow_in_bindings": 0,
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
-        },
-        {
-            "key": "field_697aeb8306e78",
-            "label": "Team Content",
-            "name": "team_content",
-            "aria-label": "",
-            "type": "wysiwyg",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "allow_in_bindings": 0,
-            "tabs": "all",
-            "toolbar": "full",
-            "media_upload": 0,
-            "delay": 0
-        },
-        {
             "key": "field_697aeb400f964",
-            "label": "Team Image",
-            "name": "team_image",
+            "label": "Doctor Staff Image",
+            "name": "doctor_staff_image",
             "aria-label": "",
             "type": "image",
-            "instructions": "Size 432px by 576px (Aspect ratio 3:4)",
+            "instructions": "Size 576px by 576px (Aspect ratio 1:1)",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -89,6 +27,176 @@
             "mime_types": "",
             "allow_in_bindings": 0,
             "preview_size": "medium"
+        },
+        {
+            "key": "field_697aeb400f95d",
+            "label": "Doctor Staff Title",
+            "name": "doctor_staff_title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "e.g. Dr, Associate Professor",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_69cb4a95b1b70",
+            "label": "Doctor Staff Specialisations",
+            "name": "doctor_staff_specialisations",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "e.g. MBBS; BMEDSCI; DPHIL; FRANZCO",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "rows": 2,
+            "placeholder": "",
+            "new_lines": "br"
+        },
+        {
+            "key": "field_69cb58c72cd44",
+            "label": "Doctor Staff Specialist Fields",
+            "name": "doctor_staff_specialist_fields",
+            "aria-label": "",
+            "type": "taxonomy",
+            "instructions": "Add Specialist Fields as reference tags only, they will not link to any pages.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "taxonomy": "specialist_fields",
+            "add_term": 0,
+            "save_terms": 0,
+            "load_terms": 0,
+            "return_format": "id",
+            "field_type": "checkbox",
+            "allow_in_bindings": 0,
+            "bidirectional": 0,
+            "multiple": 0,
+            "allow_null": 0,
+            "bidirectional_target": []
+        },
+        {
+            "key": "field_69cb4ab6b1b71",
+            "label": "Doctor Staff Conditions",
+            "name": "doctor_staff_conditions",
+            "aria-label": "",
+            "type": "post_object",
+            "instructions": "Each of these conditions will open on a new page with full details.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "conditions"
+            ],
+            "post_status": "",
+            "taxonomy": "",
+            "return_format": "object",
+            "multiple": 1,
+            "allow_null": 0,
+            "allow_in_bindings": 0,
+            "bidirectional": 0,
+            "ui": 1,
+            "bidirectional_target": []
+        },
+        {
+            "key": "field_697aeb8306e78",
+            "label": "Doctor Staff Content",
+            "name": "doctor_staff_content",
+            "aria-label": "",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "allow_in_bindings": 0,
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 0,
+            "delay": 0
+        },
+        {
+            "key": "field_69cb4b46b1b72",
+            "label": "Doctor Staff Consulting Locations",
+            "name": "doctor_staff_consulting_locations",
+            "aria-label": "",
+            "type": "post_object",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "consulting_location"
+            ],
+            "post_status": "",
+            "taxonomy": "",
+            "return_format": "object",
+            "multiple": 1,
+            "allow_null": 0,
+            "allow_in_bindings": 0,
+            "bidirectional": 0,
+            "ui": 1,
+            "bidirectional_target": []
+        },
+        {
+            "key": "field_69cb4b5db1b73",
+            "label": "Doctor Staff Operating Locations",
+            "name": "doctor_staff_operating_locations",
+            "aria-label": "",
+            "type": "post_object",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "operating_location"
+            ],
+            "post_status": "",
+            "taxonomy": "",
+            "return_format": "object",
+            "multiple": 1,
+            "allow_null": 0,
+            "allow_in_bindings": 0,
+            "bidirectional": 0,
+            "ui": 1,
+            "bidirectional_target": []
         }
     ],
     "location": [
@@ -96,7 +204,7 @@
             {
                 "param": "post_type",
                 "operator": "==",
-                "value": "team"
+                "value": "doctors_staff"
             }
         ]
     ],
@@ -110,5 +218,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1769988748
+    "modified": 1774934928
 }

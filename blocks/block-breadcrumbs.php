@@ -40,9 +40,9 @@ endif;
             <a href="<?php echo esc_url(home_url('/adults/')); ?>" class="btn btn-sm btn-verde">FOR ADULTS <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
             <?php endif;
             
-            // Team post type
-            elseif ($current_post_type === 'team') : ?>
-            <a href="<?php echo esc_url(home_url('/team/')); ?>" class="btn btn-sm btn-verde">OUR TEAM <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+            // Doctors and Staff post type
+            elseif ($current_post_type === 'doctors_staff') : ?>
+            <a href="<?php echo esc_url(home_url('/doctors-and-staff/')); ?>" class="btn btn-sm btn-verde">OUR TEAM <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
             <?php endif; ?>
         </div>
 

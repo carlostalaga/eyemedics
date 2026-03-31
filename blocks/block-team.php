@@ -30,7 +30,7 @@ $team_image_border = get_sub_field('team_image_border');
         <?php
         // Build query args for Team CPT
         $args = array(
-            'post_type'      => 'team',
+            'post_type'      => 'doctors_staff',
             'posts_per_page' => -1,
             'post_status'    => 'publish',
             'orderby'        => 'menu_order',

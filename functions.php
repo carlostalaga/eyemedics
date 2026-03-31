@@ -353,11 +353,19 @@ add_action('init', 'bystra_disable_emojis');
 
 
 /*
-████████ ███████  █████  ███    ███
-   ██    ██      ██   ██ ████  ████
-   ██    █████   ███████ ██ ████ ██
-   ██    ██      ██   ██ ██  ██  ██
-   ██    ███████ ██   ██ ██      ██
+
+██████   ██████   ██████ ████████  ██████  ██████  ███████
+██   ██ ██    ██ ██         ██    ██    ██ ██   ██ ██
+██   ██ ██    ██ ██         ██    ██    ██ ██████  ███████
+██   ██ ██    ██ ██         ██    ██    ██ ██   ██      ██
+██████   ██████   ██████    ██     ██████  ██   ██ ███████
+
+
+███████ ████████  █████  ███████ ███████
+██         ██    ██   ██ ██      ██
+███████    ██    ███████ █████   █████
+     ██    ██    ██   ██ ██      ██
+███████    ██    ██   ██ ██      ██
 
 
  ██████ ██████  ████████
@@ -365,7 +373,6 @@ add_action('init', 'bystra_disable_emojis');
 ██      ██████     ██
 ██      ██         ██
  ██████ ██         ██
-
 
 */
 
@@ -413,62 +420,83 @@ function bystra_register_doctors_staff_post_type() {
         'show_in_rest'       => true,
     );
 
-    register_post_type('team', $args);
+    register_post_type('doctors_staff', $args);
 }
 add_action('init', 'bystra_register_doctors_staff_post_type');
 
 
 
+/**
+ * Register Specialist Fields Taxonomy for Doctors and Staff
+ */
+function bystra_register_specialist_fields_taxonomy() {
+    $labels = array(
+        'name'                       => _x('Specialist Fields', 'Taxonomy general name', 'bystra'),
+        'singular_name'              => _x('Specialist Field', 'Taxonomy singular name', 'bystra'),
+        'search_items'               => __('Search Specialist Fields', 'bystra'),
+        'popular_items'              => __('Popular Specialist Fields', 'bystra'),
+        'all_items'                  => __('All Specialist Fields', 'bystra'),
+        'parent_item'                => __('Parent Specialist Field', 'bystra'),
+        'parent_item_colon'          => __('Parent Specialist Field:', 'bystra'),
+        'edit_item'                  => __('Edit Specialist Field', 'bystra'),
+        'update_item'                => __('Update Specialist Field', 'bystra'),
+        'add_new_item'               => __('Add New Specialist Field', 'bystra'),
+        'new_item_name'              => __('New Specialist Field Name', 'bystra'),
+        'separate_items_with_commas' => __('Separate specialist fields with commas', 'bystra'),
+        'add_or_remove_items'        => __('Add or remove specialist fields', 'bystra'),
+        'choose_from_most_used'      => __('Choose from the most used specialist fields', 'bystra'),
+        'not_found'                  => __('No specialist fields found.', 'bystra'),
+        'menu_name'                  => __('Specialist Fields', 'bystra'),
+        'back_to_items'              => __('← Back to Specialist Fields', 'bystra'),
+    );
+
+    $args = array(
+        'labels'            => $labels,
+        'hierarchical'      => true,
+        'public'            => true,
+        'show_ui'           => true,
+        'show_admin_column' => true,
+        'show_in_nav_menus' => true,
+        'show_tagcloud'     => true,
+        'show_in_rest'      => true,
+        'rewrite'           => array('slug' => 'specialist-fields'),
+    );
+
+    register_taxonomy('specialist_fields', array('doctors_staff'), $args);
+}
+add_action('init', 'bystra_register_specialist_fields_taxonomy');
 
 
 
 
 
 
-
-
-/*
-███████ ███████ ██████  ██    ██ ██  ██████ ███████ ███████
-██      ██      ██   ██ ██    ██ ██ ██      ██      ██
-███████ █████   ██████  ██    ██ ██ ██      █████   ███████
-     ██ ██      ██   ██  ██  ██  ██ ██      ██           ██
-███████ ███████ ██   ██   ████   ██  ██████ ███████ ███████
-
-
- ██████ ██████  ████████
-██      ██   ██    ██
-██      ██████     ██
-██      ██         ██
- ██████ ██         ██
-
-
-*/
 
 /**
- * Register Services Custom Post Type
+ * Register Consulting Locations Custom Post Type
  */
-function bystra_register_services_post_type() {
+function bystra_register_consulting_locations_post_type() {
     $labels = array(
-        'name'                  => _x('Services', 'Post type general name', 'bystra'),
-        'singular_name'         => _x('Service', 'Post type singular name', 'bystra'),
-        'menu_name'             => _x('Services', 'Admin Menu text', 'bystra'),
-        'name_admin_bar'        => _x('Service', 'Add New on Toolbar', 'bystra'),
+        'name'                  => _x('Consulting Locations', 'Post type general name', 'bystra'),
+        'singular_name'         => _x('Consulting Location', 'Post type singular name', 'bystra'),
+        'menu_name'             => _x('Consulting Locations', 'Admin Menu text', 'bystra'),
+        'name_admin_bar'        => _x('Consulting Location', 'Add New on Toolbar', 'bystra'),
         'add_new'               => __('Add New', 'bystra'),
-        'add_new_item'          => __('Add New Service', 'bystra'),
-        'new_item'              => __('New Service', 'bystra'),
-        'edit_item'             => __('Edit Service', 'bystra'),
-        'view_item'             => __('View Service', 'bystra'),
-        'all_items'             => __('All Services', 'bystra'),
-        'search_items'          => __('Search Services', 'bystra'),
-        'parent_item_colon'     => __('Parent Service:', 'bystra'),
-        'not_found'             => __('No services found.', 'bystra'),
-        'not_found_in_trash'    => __('No services found in Trash.', 'bystra'),
-        'archives'              => _x('Service archives', 'The post type archive label', 'bystra'),
-        'insert_into_item'      => _x('Insert into service', 'Overrides the "Insert into post" phrase', 'bystra'),
-        'uploaded_to_this_item' => _x('Uploaded to this service', 'Overrides the "Uploaded to this post" phrase', 'bystra'),
-        'filter_items_list'     => _x('Filter services list', 'Screen reader text', 'bystra'),
-        'items_list_navigation' => _x('Services list navigation', 'Screen reader text', 'bystra'),
-        'items_list'            => _x('Services list', 'Screen reader text', 'bystra'),
+        'add_new_item'          => __('Add New Consulting Location', 'bystra'),
+        'new_item'              => __('New Consulting Location', 'bystra'),
+        'edit_item'             => __('Edit Consulting Location', 'bystra'),
+        'view_item'             => __('View Consulting Location', 'bystra'),
+        'all_items'             => __('All Consulting Locations', 'bystra'),
+        'search_items'          => __('Search Consulting Locations', 'bystra'),
+        'parent_item_colon'     => __('Parent Consulting Location:', 'bystra'),
+        'not_found'             => __('No consulting locations found.', 'bystra'),
+        'not_found_in_trash'    => __('No consulting locations found in Trash.', 'bystra'),
+        'archives'              => _x('Consulting location archives', 'The post type archive label', 'bystra'),
+        'insert_into_item'      => _x('Insert into consulting location', 'Overrides the "Insert into post" phrase', 'bystra'),
+        'uploaded_to_this_item' => _x('Uploaded to this consulting location', 'Overrides the "Uploaded to this post" phrase', 'bystra'),
+        'filter_items_list'     => _x('Filter consulting locations list', 'Screen reader text', 'bystra'),
+        'items_list_navigation' => _x('Consulting locations list navigation', 'Screen reader text', 'bystra'),
+        'items_list'            => _x('Consulting locations list', 'Screen reader text', 'bystra'),
     );
 
     $args = array(
@@ -478,19 +506,115 @@ function bystra_register_services_post_type() {
         'show_ui'            => true,
         'show_in_menu'       => true,
         'query_var'          => true,
-        'rewrite'            => array('slug' => 'our-services'),
+        'rewrite'            => array('slug' => 'consulting-locations'),
         'capability_type'    => 'post',
         'has_archive'        => false,
         'hierarchical'       => false,
-        'menu_position'      => 6,
-        'menu_icon'          => 'dashicons-hammer',
+        'menu_position'      => 7,
+        'menu_icon'          => 'dashicons-location-alt',
         'supports'           => array('title'),
         'show_in_rest'       => true,
     );
 
-    register_post_type('services', $args);
+    register_post_type('consulting_location', $args);
 }
-add_action('init', 'bystra_register_services_post_type');
+add_action('init', 'bystra_register_consulting_locations_post_type');
+
+/**
+ * Register Operating Locations Custom Post Type
+ */
+function bystra_register_operating_locations_post_type() {
+    $labels = array(
+        'name'                  => _x('Operating Locations', 'Post type general name', 'bystra'),
+        'singular_name'         => _x('Operating Location', 'Post type singular name', 'bystra'),
+        'menu_name'             => _x('Operating Locations', 'Admin Menu text', 'bystra'),
+        'name_admin_bar'        => _x('Operating Location', 'Add New on Toolbar', 'bystra'),
+        'add_new'               => __('Add New', 'bystra'),
+        'add_new_item'          => __('Add New Operating Location', 'bystra'),
+        'new_item'              => __('New Operating Location', 'bystra'),
+        'edit_item'             => __('Edit Operating Location', 'bystra'),
+        'view_item'             => __('View Operating Location', 'bystra'),
+        'all_items'             => __('All Operating Locations', 'bystra'),
+        'search_items'          => __('Search Operating Locations', 'bystra'),
+        'parent_item_colon'     => __('Parent Operating Location:', 'bystra'),
+        'not_found'             => __('No operating locations found.', 'bystra'),
+        'not_found_in_trash'    => __('No operating locations found in Trash.', 'bystra'),
+        'archives'              => _x('Operating location archives', 'The post type archive label', 'bystra'),
+        'insert_into_item'      => _x('Insert into operating location', 'Overrides the "Insert into post" phrase', 'bystra'),
+        'uploaded_to_this_item' => _x('Uploaded to this operating location', 'Overrides the "Uploaded to this post" phrase', 'bystra'),
+        'filter_items_list'     => _x('Filter operating locations list', 'Screen reader text', 'bystra'),
+        'items_list_navigation' => _x('Operating locations list navigation', 'Screen reader text', 'bystra'),
+        'items_list'            => _x('Operating locations list', 'Screen reader text', 'bystra'),
+    );
+
+    $args = array(
+        'labels'             => $labels,
+        'public'             => true,
+        'publicly_queryable' => true,
+        'show_ui'            => true,
+        'show_in_menu'       => true,
+        'query_var'          => true,
+        'rewrite'            => array('slug' => 'operating-locations'),
+        'capability_type'    => 'post',
+        'has_archive'        => false,
+        'hierarchical'       => false,
+        'menu_position'      => 8,
+        'menu_icon'          => 'dashicons-building',
+        'supports'           => array('title'),
+        'show_in_rest'       => true,
+    );
+
+    register_post_type('operating_location', $args);
+}
+add_action('init', 'bystra_register_operating_locations_post_type');
+
+/**
+ * Register Conditions Custom Post Type
+ */
+function bystra_register_conditions_post_type() {
+    $labels = array(
+        'name'                  => _x('Conditions', 'Post type general name', 'bystra'),
+        'singular_name'         => _x('Condition', 'Post type singular name', 'bystra'),
+        'menu_name'             => _x('Conditions', 'Admin Menu text', 'bystra'),
+        'name_admin_bar'        => _x('Condition', 'Add New on Toolbar', 'bystra'),
+        'add_new'               => __('Add New', 'bystra'),
+        'add_new_item'          => __('Add New Condition', 'bystra'),
+        'new_item'              => __('New Condition', 'bystra'),
+        'edit_item'             => __('Edit Condition', 'bystra'),
+        'view_item'             => __('View Condition', 'bystra'),
+        'all_items'             => __('All Conditions', 'bystra'),
+        'search_items'          => __('Search Conditions', 'bystra'),
+        'parent_item_colon'     => __('Parent Condition:', 'bystra'),
+        'not_found'             => __('No conditions found.', 'bystra'),
+        'not_found_in_trash'    => __('No conditions found in Trash.', 'bystra'),
+        'archives'              => _x('Condition archives', 'The post type archive label', 'bystra'),
+        'insert_into_item'      => _x('Insert into condition', 'Overrides the "Insert into post" phrase', 'bystra'),
+        'uploaded_to_this_item' => _x('Uploaded to this condition', 'Overrides the "Uploaded to this post" phrase', 'bystra'),
+        'filter_items_list'     => _x('Filter conditions list', 'Screen reader text', 'bystra'),
+        'items_list_navigation' => _x('Conditions list navigation', 'Screen reader text', 'bystra'),
+        'items_list'            => _x('Conditions list', 'Screen reader text', 'bystra'),
+    );
+
+    $args = array(
+        'labels'             => $labels,
+        'public'             => true,
+        'publicly_queryable' => true,
+        'show_ui'            => true,
+        'show_in_menu'       => true,
+        'query_var'          => true,
+        'rewrite'            => array('slug' => 'conditions'),
+        'capability_type'    => 'post',
+        'has_archive'        => false,
+        'hierarchical'       => false,
+        'menu_position'      => 9,
+        'menu_icon'          => 'dashicons-clipboard',
+        'supports'           => array('title'),
+        'show_in_rest'       => true,
+    );
+
+    register_post_type('conditions', $args);
+}
+add_action('init', 'bystra_register_conditions_post_type');
 
 /**
  * Register Segment Taxonomy for Services
@@ -530,4 +654,4 @@ function bystra_register_segment_taxonomy() {
 
     register_taxonomy('segment', array('services'), $args);
 }
-add_action('init', 'bystra_register_segment_taxonomy'); 
+add_action('init', 'bystra_register_segment_taxonomy');
