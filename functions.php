@@ -370,30 +370,30 @@ add_action('init', 'bystra_disable_emojis');
 */
 
 /**
- * Register Team Custom Post Type
+ * Register Doctors and Staff Custom Post Type
  */
-function bystra_register_team_post_type() {
+function bystra_register_doctors_staff_post_type() {
     $labels = array(
-        'name'                  => _x('Team', 'Post type general name', 'bystra'),
-        'singular_name'         => _x('Team Member', 'Post type singular name', 'bystra'),
-        'menu_name'             => _x('Team', 'Admin Menu text', 'bystra'),
-        'name_admin_bar'        => _x('Team Member', 'Add New on Toolbar', 'bystra'),
+        'name'                  => _x('Doctors and Staff', 'Post type general name', 'bystra'),
+        'singular_name'         => _x('Doctor/Staff Member', 'Post type singular name', 'bystra'),
+        'menu_name'             => _x('Doctors and Staff', 'Admin Menu text', 'bystra'),
+        'name_admin_bar'        => _x('Doctor/Staff Member', 'Add New on Toolbar', 'bystra'),
         'add_new'               => __('Add New', 'bystra'),
-        'add_new_item'          => __('Add New Team Member', 'bystra'),
-        'new_item'              => __('New Team Member', 'bystra'),
-        'edit_item'             => __('Edit Team Member', 'bystra'),
-        'view_item'             => __('View Team Member', 'bystra'),
-        'all_items'             => __('All Team Members', 'bystra'),
-        'search_items'          => __('Search Team Members', 'bystra'),
-        'parent_item_colon'     => __('Parent Team Member:', 'bystra'),
-        'not_found'             => __('No team members found.', 'bystra'),
-        'not_found_in_trash'    => __('No team members found in Trash.', 'bystra'),
-        'archives'              => _x('Team archives', 'The post type archive label', 'bystra'),
-        'insert_into_item'      => _x('Insert into team member', 'Overrides the "Insert into post" phrase', 'bystra'),
-        'uploaded_to_this_item' => _x('Uploaded to this team member', 'Overrides the "Uploaded to this post" phrase', 'bystra'),
-        'filter_items_list'     => _x('Filter team members list', 'Screen reader text', 'bystra'),
-        'items_list_navigation' => _x('Team members list navigation', 'Screen reader text', 'bystra'),
-        'items_list'            => _x('Team members list', 'Screen reader text', 'bystra'),
+        'add_new_item'          => __('Add New Doctor/Staff Member', 'bystra'),
+        'new_item'              => __('New Doctor/Staff Member', 'bystra'),
+        'edit_item'             => __('Edit Doctor/Staff Member', 'bystra'),
+        'view_item'             => __('View Doctor/Staff Member', 'bystra'),
+        'all_items'             => __('All Doctors and Staff', 'bystra'),
+        'search_items'          => __('Search Doctors and Staff', 'bystra'),
+        'parent_item_colon'     => __('Parent Doctor/Staff Member:', 'bystra'),
+        'not_found'             => __('No doctors and staff members found.', 'bystra'),
+        'not_found_in_trash'    => __('No doctors and staff members found in Trash.', 'bystra'),
+        'archives'              => _x('Doctors and Staff archives', 'The post type archive label', 'bystra'),
+        'insert_into_item'      => _x('Insert into doctor/staff member', 'Overrides the "Insert into post" phrase', 'bystra'),
+        'uploaded_to_this_item' => _x('Uploaded to this doctor/staff member', 'Overrides the "Uploaded to this post" phrase', 'bystra'),
+        'filter_items_list'     => _x('Filter doctors and staff list', 'Screen reader text', 'bystra'),
+        'items_list_navigation' => _x('Doctors and staff list navigation', 'Screen reader text', 'bystra'),
+        'items_list'            => _x('Doctors and staff list', 'Screen reader text', 'bystra'),
     );
 
     $args = array(
@@ -403,7 +403,7 @@ function bystra_register_team_post_type() {
         'show_ui'            => true,
         'show_in_menu'       => true,
         'query_var'          => true,
-        'rewrite'            => array('slug' => 'team-member'),
+        'rewrite'            => array('slug' => 'doctors-and-staff'),
         'capability_type'    => 'post',
         'has_archive'        => false,
         'hierarchical'       => false,
@@ -415,91 +415,7 @@ function bystra_register_team_post_type() {
 
     register_post_type('team', $args);
 }
-add_action('init', 'bystra_register_team_post_type');
-
-
-
-
-
-/**
- * Register Condition Taxonomy for Team
- */
-function bystra_register_condition_taxonomy() {
-    $labels = array(
-        'name'                       => _x('Conditions', 'Taxonomy general name', 'bystra'),
-        'singular_name'              => _x('Condition', 'Taxonomy singular name', 'bystra'),
-        'search_items'               => __('Search Conditions', 'bystra'),
-        'popular_items'              => __('Popular Conditions', 'bystra'),
-        'all_items'                  => __('All Conditions', 'bystra'),
-        'parent_item'                => __('Parent Condition', 'bystra'),
-        'parent_item_colon'          => __('Parent Condition:', 'bystra'),
-        'edit_item'                  => __('Edit Condition', 'bystra'),
-        'update_item'                => __('Update Condition', 'bystra'),
-        'add_new_item'               => __('Add New Condition', 'bystra'),
-        'new_item_name'              => __('New Condition Name', 'bystra'),
-        'separate_items_with_commas' => __('Separate conditions with commas', 'bystra'),
-        'add_or_remove_items'        => __('Add or remove conditions', 'bystra'),
-        'choose_from_most_used'      => __('Choose from the most used conditions', 'bystra'),
-        'not_found'                  => __('No conditions found.', 'bystra'),
-        'menu_name'                  => __('Conditions', 'bystra'),
-        'back_to_items'              => __('← Back to Conditions', 'bystra'),
-    );
-
-    $args = array(
-        'labels'            => $labels,
-        'hierarchical'      => true,
-        'public'            => true,
-        'show_ui'           => true,
-        'show_admin_column' => true,
-        'show_in_nav_menus' => true,
-        'show_tagcloud'     => true,
-        'show_in_rest'      => true,
-        'rewrite'           => array('slug' => 'condition'),
-    );
-
-    register_taxonomy('condition', array('team'), $args);
-}
-add_action('init', 'bystra_register_condition_taxonomy');
-
-/**
- * Register Location Taxonomy for Team
- */
-function bystra_register_location_taxonomy() {
-    $labels = array(
-        'name'                       => _x('Locations', 'Taxonomy general name', 'bystra'),
-        'singular_name'              => _x('Location', 'Taxonomy singular name', 'bystra'),
-        'search_items'               => __('Search Locations', 'bystra'),
-        'popular_items'              => __('Popular Locations', 'bystra'),
-        'all_items'                  => __('All Locations', 'bystra'),
-        'parent_item'                => __('Parent Location', 'bystra'),
-        'parent_item_colon'          => __('Parent Location:', 'bystra'),
-        'edit_item'                  => __('Edit Location', 'bystra'),
-        'update_item'                => __('Update Location', 'bystra'),
-        'add_new_item'               => __('Add New Location', 'bystra'),
-        'new_item_name'              => __('New Location Name', 'bystra'),
-        'separate_items_with_commas' => __('Separate locations with commas', 'bystra'),
-        'add_or_remove_items'        => __('Add or remove locations', 'bystra'),
-        'choose_from_most_used'      => __('Choose from the most used locations', 'bystra'),
-        'not_found'                  => __('No locations found.', 'bystra'),
-        'menu_name'                  => __('Locations', 'bystra'),
-        'back_to_items'              => __('← Back to Locations', 'bystra'),
-    );
-
-    $args = array(
-        'labels'            => $labels,
-        'hierarchical'      => true,
-        'public'            => true,
-        'show_ui'           => true,
-        'show_admin_column' => true,
-        'show_in_nav_menus' => true,
-        'show_tagcloud'     => true,
-        'show_in_rest'      => true,
-        'rewrite'           => array('slug' => 'location'),
-    );
-
-    register_taxonomy('location', array('team'), $args);
-}
-add_action('init', 'bystra_register_location_taxonomy');
+add_action('init', 'bystra_register_doctors_staff_post_type');
 
 
 
