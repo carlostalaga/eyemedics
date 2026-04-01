@@ -3089,6 +3089,10 @@ Check the fonts in %text-list-base (.text-list li, .text-list-light and .text-li
     transform: translateY(-50%) translateX(50%) rotate(270deg);
   }
 }
+.round-all {
+  border-radius: 40px !important;
+}
+
 .round-up {
   border-top-left-radius: 12px !important;
   border-top-right-radius: 12px !important;
