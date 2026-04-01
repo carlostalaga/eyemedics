@@ -42,6 +42,7 @@
             /*
             Preferred ACF return configurations for this template:
             - doctor_staff_specialist_fields: taxonomy term IDs
+            - doctor_staff_conditions: WP_Post objects
             - doctor_staff_consulting_locations: WP_Post objects
             - doctor_staff_operating_locations: WP_Post objects
             We normalize to canonical IDs/objects once, then render from those.
@@ -159,8 +160,7 @@
               - WP_Term objects
               - term IDs
               - plain text fallback
-            - Resolve term objects once into $doctor_staff_specialist_field_terms
-              so we can reuse them in multiple template sections
+            - Resolve IDs/objects once into $doctor_staff_specialist_field_terms
             - Build a comma-separated display string from resolved term names
             - If legacy plain text is provided, keep it as the display fallback
             */
@@ -198,7 +198,7 @@
                 endif;
 
                 if (!empty($doctor_staff_specialist_field_terms)) :
-                    // Primary output for both summary and detailed section.
+                    // Primary output used in the specialist fields display block.
                     $doctor_staff_specialist_fields_display = implode(', ', wp_list_pluck($doctor_staff_specialist_field_terms, 'name'));
                 elseif (!empty($doctor_staff_specialist_fields_fallback_values)) :
                     // Legacy plain text path.
