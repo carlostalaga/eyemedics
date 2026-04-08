@@ -39,16 +39,34 @@ get_header();
                             'order' => 'ASC',
                         )
                     );
+
+                    $locations_requested_location_id = 0;
+                    if (isset($_GET['location'])) :
+                        $locations_requested_location_raw = wp_unslash($_GET['location']);
+                        if (is_scalar($locations_requested_location_raw)) :
+                            $locations_requested_location_id = absint((string) $locations_requested_location_raw);
+                        endif;
+                    endif;
                 ?>
                 <?php if (!empty($locations_posts)): ?>
                 <?php
+                    $locations_active_tab_index = 0;
+                    if (!empty($locations_requested_location_id)) :
+                        foreach ($locations_posts as $locations_index => $locations_post_item) :
+                            if ((int) $locations_post_item->ID === $locations_requested_location_id) :
+                                $locations_active_tab_index = (int) $locations_index;
+                                break;
+                            endif;
+                        endforeach;
+                    endif;
+
                     $locations_tab_index = 0;
                 ?>
 
                 <!-- Nav tabs -->
                 <ul class="nav tabs-icon-nav justify-content-center flex-wrap pb-5" id="locationsTab-page" role="tablist">
                     <?php foreach ($locations_posts as $locations_post): ?>
-                    <?php $locations_is_active = ($locations_tab_index === 0); ?>
+                    <?php $locations_is_active = ($locations_tab_index === $locations_active_tab_index); ?>
                     <li class="nav-item" role="presentation">
                         <button class="tabs-icon-btn <?php echo $locations_is_active ? 'active' : ''; ?>" id="locations-tab-page-<?php echo esc_attr($locations_tab_index); ?>-tab" data-bs-toggle="tab" data-bs-target="#locations-tab-page-<?php echo esc_attr($locations_tab_index); ?>" type="button" role="tab" aria-controls="locations-tab-page-<?php echo esc_attr($locations_tab_index); ?>" aria-selected="<?php echo $locations_is_active ? 'true' : 'false'; ?>">
                             <span class="tabs-icon-label"><?php echo esc_html(get_the_title($locations_post)); ?></span>
@@ -63,7 +81,7 @@ get_header();
                     <?php $locations_tab_index = 0; ?>
                     <?php foreach ($locations_posts as $locations_post): ?>
                     <?php
-                        $locations_is_active = ($locations_tab_index === 0);
+                        $locations_is_active = ($locations_tab_index === $locations_active_tab_index);
                         $locations_post_id = $locations_post->ID;
                         $locations_post_title = get_the_title($locations_post_id);
                         $locations_post_map = get_field('consulting_location_map', $locations_post_id);
@@ -153,7 +171,7 @@ get_header();
                                                 <div class="mb-1"><?php echo esc_html($locations_doctor_title); ?></div>
                                                 <?php endif; ?>
 
-                                                <h4 class="h6 mb-2"><?php echo esc_html($locations_doctor_name); ?></h4>
+                                                <h4 class="mb-2"><?php echo esc_html($locations_doctor_name); ?></h4>
 
                                                 <?php if (!empty($locations_doctor_specialisations)): ?>
                                                 <div class="mb-3 small"><?php echo wp_kses_post($locations_doctor_specialisations); ?></div>

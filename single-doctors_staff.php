@@ -71,6 +71,20 @@
                 $doctor_staff_operating_location_ids = array_values(array_unique(array_filter($doctor_staff_operating_location_ids)));
             endif;
 
+            /*
+            ===========================================================
+                Locations Page Link Routing
+            ===========================================================
+            */
+            $doctor_staff_locations_page_url = '';
+            $doctor_staff_locations_page = get_page_by_path('locations');
+            if ($doctor_staff_locations_page instanceof WP_Post) :
+                $doctor_staff_locations_page_url = get_permalink($doctor_staff_locations_page->ID);
+            endif;
+            if (empty($doctor_staff_locations_page_url)) :
+                $doctor_staff_locations_page_url = home_url('/locations/');
+            endif;
+
             $doctor_staff_condition_ids = array();
             $doctor_staff_conditions_display = '';
             $doctor_staff_condition_links = array();
@@ -296,8 +310,16 @@
                             <ul class="mb-0">
                                 <?php foreach ($doctor_staff_consulting_location_ids as $doctor_staff_location_id) : ?>
                                 <?php if ($doctor_staff_location_id) : ?>
+                                <?php
+                                    $doctor_staff_location_tab_url = add_query_arg(
+                                        array(
+                                            'location' => (int) $doctor_staff_location_id,
+                                        ),
+                                        $doctor_staff_locations_page_url
+                                    ) . '#locations-page';
+                                ?>
                                 <li>
-                                    <a href="<?php echo esc_url(get_permalink($doctor_staff_location_id)); ?>" class="text-white">
+                                    <a href="<?php echo esc_url($doctor_staff_location_tab_url); ?>" class="text-white">
                                         <?php echo esc_html(get_the_title($doctor_staff_location_id)); ?>
                                     </a>
                                 </li>
@@ -314,8 +336,16 @@
                             <ul class="mb-0">
                                 <?php foreach ($doctor_staff_operating_location_ids as $doctor_staff_location_id) : ?>
                                 <?php if ($doctor_staff_location_id) : ?>
+                                <?php
+                                    $doctor_staff_location_tab_url = add_query_arg(
+                                        array(
+                                            'location' => (int) $doctor_staff_location_id,
+                                        ),
+                                        $doctor_staff_locations_page_url
+                                    ) . '#locations-page';
+                                ?>
                                 <li>
-                                    <a href="<?php echo esc_url(get_permalink($doctor_staff_location_id)); ?>" class="text-white">
+                                    <a href="<?php echo esc_url($doctor_staff_location_tab_url); ?>" class="text-white">
                                         <?php echo esc_html(get_the_title($doctor_staff_location_id)); ?>
                                     </a>
                                 </li>
