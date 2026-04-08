@@ -241,7 +241,7 @@
                         </div>
                         <?php endif; ?>
 
-                        <div class="mt-5 bg-white">
+                        <div class="mt-5">
                             <?php if (!empty($doctor_staff_specialist_fields_display)) : ?>
                             <div>
                                 <div class="text-small">Specialist Fields</div>
@@ -285,19 +285,19 @@
 
 
 
-        <div class="container-fluid bg-light">
+        <div class="container-fluid bg-light mb-5">
             <div class="container">
                 <div class="row justify-content-center g-5 text-white">
 
-                    <div class="col-12 col-md-6 col-lg-4 bg-black m-5 p-5 round-all">
+                    <div class="col-12 col-md-5 col-lg-4 bg-black m-5 p-5 round-all">
                         <?php if (!empty($doctor_staff_consulting_location_ids)) : ?>
                         <div class="mb-4">
-                            <h2 class="h5 mb-2">Consulting Locations</h2>
+                            <h4 class="text-white mb-5">Consulting Locations</h4>
                             <ul class="mb-0">
                                 <?php foreach ($doctor_staff_consulting_location_ids as $doctor_staff_location_id) : ?>
                                 <?php if ($doctor_staff_location_id) : ?>
                                 <li>
-                                    <a href="<?php echo esc_url(get_permalink($doctor_staff_location_id)); ?>">
+                                    <a href="<?php echo esc_url(get_permalink($doctor_staff_location_id)); ?>" class="text-white">
                                         <?php echo esc_html(get_the_title($doctor_staff_location_id)); ?>
                                     </a>
                                 </li>
@@ -307,15 +307,15 @@
                         </div>
                         <?php endif; ?>
                     </div>
-                    <div class="col-12 col-md-6 col-lg-4 bg-black m-5 p-5 round-all">
+                    <div class="col-12 col-md-5 col-lg-4 bg-black m-5 p-5 round-all">
                         <?php if (!empty($doctor_staff_operating_location_ids)) : ?>
                         <div class="mb-4">
-                            <h2 class="h5 mb-2">Operating Locations</h2>
+                            <h4 class="text-white mb-5">Operating Locations</h4>
                             <ul class="mb-0">
                                 <?php foreach ($doctor_staff_operating_location_ids as $doctor_staff_location_id) : ?>
                                 <?php if ($doctor_staff_location_id) : ?>
                                 <li>
-                                    <a href="<?php echo esc_url(get_permalink($doctor_staff_location_id)); ?>">
+                                    <a href="<?php echo esc_url(get_permalink($doctor_staff_location_id)); ?>" class="text-white">
                                         <?php echo esc_html(get_the_title($doctor_staff_location_id)); ?>
                                     </a>
                                 </li>
@@ -333,7 +333,66 @@
 
 
 
+        <?php if (!empty($doctor_staff_consulting_location_ids)) : ?>
+        <div class="container-fluid mb-5">
+            <div class="container py-5">
+                <div class="row justify-content-center g-5">
 
+                    <div class="col-12">
+                        <h2><i class="fas fa-caret-right ms-2" aria-hidden="true"></i> Locations</h2>
+                    </div>
+
+                    <?php foreach ($doctor_staff_consulting_location_ids as $doctor_staff_location_id) : ?>
+                    <?php if ($doctor_staff_location_id) : ?>
+                    <?php
+                                $doctor_staff_location_title = get_the_title($doctor_staff_location_id);
+                                $doctor_staff_location_address = get_field('consulting_location_address', $doctor_staff_location_id);
+                                $doctor_staff_location_phone = get_field('consulting_location_phone', $doctor_staff_location_id);
+                                $doctor_staff_location_fax = get_field('consulting_location_fax', $doctor_staff_location_id);
+                                $doctor_staff_location_image = get_field('consulting_location_image', $doctor_staff_location_id);
+
+                                $doctor_staff_location_image_url = '';
+                                if (is_array($doctor_staff_location_image)) :
+                                    if (!empty($doctor_staff_location_image['sizes']['576sm'])) :
+                                        $doctor_staff_location_image_url = (string) $doctor_staff_location_image['sizes']['576sm'];
+                                    elseif (!empty($doctor_staff_location_image['url'])) :
+                                        $doctor_staff_location_image_url = (string) $doctor_staff_location_image['url'];
+                                    endif;
+                                endif;
+                                ?>
+                    <div class="col-12 col-md-4">
+                        <div class="h-100 pt-4">
+                            <div class="row g-3 align-items-start">
+                                <div class="col-12 col-lg-7 fosforos bg-light">
+                                    <?php if (!empty($doctor_staff_location_title)) : ?>
+                                    <h5 class="mb-3"><?php echo esc_html($doctor_staff_location_title); ?></h5>
+                                    <?php endif; ?>
+                                    <?php if (!empty($doctor_staff_location_address)) : ?>
+                                    <div class="mb-3"><?php echo wp_kses_post($doctor_staff_location_address); ?></div>
+                                    <?php endif; ?>
+                                    <?php if (!empty($doctor_staff_location_phone)) : ?>
+                                    <div class="mb-2"><span class="text-verde fw-bold me-2">T</span><?php echo esc_html($doctor_staff_location_phone); ?></div>
+                                    <?php endif; ?>
+                                    <?php if (!empty($doctor_staff_location_fax)) : ?>
+                                    <div><span class="text-verde fw-bold me-2">F</span><?php echo esc_html($doctor_staff_location_fax); ?></div>
+                                    <?php endif; ?>
+                                </div>
+
+                                <?php if (!empty($doctor_staff_location_image_url)) : ?>
+                                <div class="col-12 col-lg-5">
+                                    <img src="<?php echo esc_url($doctor_staff_location_image_url); ?>" alt="<?php echo esc_attr('Location image for ' . $doctor_staff_location_title); ?>" class="img-fluid w-100">
+                                </div>
+                                <?php endif; ?>
+                            </div>
+                        </div>
+                    </div>
+                    <?php endif; ?>
+                    <?php endforeach; ?>
+
+                </div>
+            </div>
+        </div>
+        <?php endif; ?>
 
 
 

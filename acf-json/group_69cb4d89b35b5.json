@@ -3,6 +3,27 @@
     "title": "Consulting Locations",
     "fields": [
         {
+            "key": "field_69d5d6682bfca",
+            "label": "Consulting Location SVG",
+            "name": "consulting_location_svg",
+            "aria-label": "",
+            "type": "file",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "library": "all",
+            "min_size": "",
+            "max_size": "",
+            "mime_types": "svg",
+            "allow_in_bindings": 0
+        },
+        {
             "key": "field_69cb4d8924b17",
             "label": "Consulting Location Image",
             "name": "consulting_location_image",
@@ -132,5 +153,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1775018997
+    "modified": 1775622229
 }

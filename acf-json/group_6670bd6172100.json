@@ -2463,6 +2463,45 @@
                     "min": "",
                     "max": ""
                 },
+                "layout_69d5f533bafea": {
+                    "key": "layout_69d5f533bafea",
+                    "name": "locations",
+                    "label": "Locations",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_69d5f533bafeb",
+                            "label": "Locations Background",
+                            "name": "locations_background",
+                            "aria-label": "",
+                            "type": "select",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "bg-hueso": "Background Bone",
+                                "bg-white": "Background White"
+                            },
+                            "default_value": "bg-white",
+                            "return_format": "value",
+                            "multiple": 0,
+                            "allow_null": 0,
+                            "allow_in_bindings": 0,
+                            "ui": 0,
+                            "ajax": 0,
+                            "placeholder": "",
+                            "create_options": 0,
+                            "save_options": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
                 "layout_66cd52973fd41": {
                     "key": "layout_66cd52973fd41",
                     "name": "cards_h",
@@ -3994,7 +4033,7 @@
             {
                 "param": "post_type",
                 "operator": "==",
-                "value": "services"
+                "value": "post"
             }
         ]
     ],
@@ -4008,5 +4047,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1771480981
+    "modified": 1775629770
 }
