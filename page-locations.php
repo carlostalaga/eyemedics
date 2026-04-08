@@ -40,6 +40,11 @@ get_header();
                         )
                     );
 
+                    /*
+                    Deep-link input from doctor/staff profile pages:
+                    /locations/?location=<consulting_location_id>#locations-page
+                    We sanitize to a positive integer before using it.
+                    */
                     $locations_requested_location_id = 0;
                     if (isset($_GET['location'])) :
                         $locations_requested_location_raw = wp_unslash($_GET['location']);
@@ -50,6 +55,11 @@ get_header();
                 ?>
                 <?php if (!empty($locations_posts)): ?>
                 <?php
+                    /*
+                    Tabs are rendered by index (0..n), while deep links provide a post ID.
+                    Convert the requested location post ID into its matching tab index.
+                    If no match is found, index 0 stays active as a safe default.
+                    */
                     $locations_active_tab_index = 0;
                     if (!empty($locations_requested_location_id)) :
                         foreach ($locations_posts as $locations_index => $locations_post_item) :
@@ -66,6 +76,7 @@ get_header();
                 <!-- Nav tabs -->
                 <ul class="nav tabs-icon-nav justify-content-center flex-wrap pb-5" id="locationsTab-page" role="tablist">
                     <?php foreach ($locations_posts as $locations_post): ?>
+                    <?php // Keep button active state in sync with computed deep-link index. ?>
                     <?php $locations_is_active = ($locations_tab_index === $locations_active_tab_index); ?>
                     <li class="nav-item" role="presentation">
                         <button class="tabs-icon-btn <?php echo $locations_is_active ? 'active' : ''; ?>" id="locations-tab-page-<?php echo esc_attr($locations_tab_index); ?>-tab" data-bs-toggle="tab" data-bs-target="#locations-tab-page-<?php echo esc_attr($locations_tab_index); ?>" type="button" role="tab" aria-controls="locations-tab-page-<?php echo esc_attr($locations_tab_index); ?>" aria-selected="<?php echo $locations_is_active ? 'true' : 'false'; ?>">
@@ -81,6 +92,7 @@ get_header();
                     <?php $locations_tab_index = 0; ?>
                     <?php foreach ($locations_posts as $locations_post): ?>
                     <?php
+                        // Use the same computed index for pane visibility classes.
                         $locations_is_active = ($locations_tab_index === $locations_active_tab_index);
                         $locations_post_id = $locations_post->ID;
                         $locations_post_title = get_the_title($locations_post_id);

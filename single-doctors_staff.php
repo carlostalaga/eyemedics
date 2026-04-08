@@ -75,6 +75,9 @@
             ===========================================================
                 Locations Page Link Routing
             ===========================================================
+            Consulting location clicks route into the tabbed Locations page.
+            Operating locations remain direct links to their own permalink,
+            because they are handled in a different flow.
             */
             $doctor_staff_locations_page_url = '';
             $doctor_staff_locations_page = get_page_by_path('locations');
@@ -311,6 +314,11 @@
                                 <?php foreach ($doctor_staff_consulting_location_ids as $doctor_staff_location_id) : ?>
                                 <?php if ($doctor_staff_location_id) : ?>
                                 <?php
+                                    /*
+                                    Deep-link format used by page-locations.php:
+                                    - ?location=<id> selects the matching location tab
+                                    - #locations-page scrolls the visitor to the tabs section
+                                    */
                                     $doctor_staff_location_tab_url = add_query_arg(
                                         array(
                                             'location' => (int) $doctor_staff_location_id,
@@ -336,16 +344,8 @@
                             <ul class="mb-0">
                                 <?php foreach ($doctor_staff_operating_location_ids as $doctor_staff_location_id) : ?>
                                 <?php if ($doctor_staff_location_id) : ?>
-                                <?php
-                                    $doctor_staff_location_tab_url = add_query_arg(
-                                        array(
-                                            'location' => (int) $doctor_staff_location_id,
-                                        ),
-                                        $doctor_staff_locations_page_url
-                                    ) . '#locations-page';
-                                ?>
                                 <li>
-                                    <a href="<?php echo esc_url($doctor_staff_location_tab_url); ?>" class="text-white">
+                                    <a href="<?php echo esc_url(get_permalink($doctor_staff_location_id)); ?>" class="text-white">
                                         <?php echo esc_html(get_the_title($doctor_staff_location_id)); ?>
                                     </a>
                                 </li>
