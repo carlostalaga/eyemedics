@@ -363,66 +363,17 @@
 
 
 
-        <?php if (!empty($doctor_staff_consulting_location_ids)) : ?>
-        <div class="container-fluid mb-5">
-            <div class="container py-5">
-                <div class="row justify-content-center g-5">
-
-                    <div class="col-12">
-                        <h2><i class="fas fa-caret-right ms-2" aria-hidden="true"></i> Locations</h2>
-                    </div>
-
-                    <?php foreach ($doctor_staff_consulting_location_ids as $doctor_staff_location_id) : ?>
-                    <?php if ($doctor_staff_location_id) : ?>
-                    <?php
-                                $doctor_staff_location_title = get_the_title($doctor_staff_location_id);
-                                $doctor_staff_location_address = get_field('consulting_location_address', $doctor_staff_location_id);
-                                $doctor_staff_location_phone = get_field('consulting_location_phone', $doctor_staff_location_id);
-                                $doctor_staff_location_fax = get_field('consulting_location_fax', $doctor_staff_location_id);
-                                $doctor_staff_location_image = get_field('consulting_location_image', $doctor_staff_location_id);
-
-                                $doctor_staff_location_image_url = '';
-                                if (is_array($doctor_staff_location_image)) :
-                                    if (!empty($doctor_staff_location_image['sizes']['576sm'])) :
-                                        $doctor_staff_location_image_url = (string) $doctor_staff_location_image['sizes']['576sm'];
-                                    elseif (!empty($doctor_staff_location_image['url'])) :
-                                        $doctor_staff_location_image_url = (string) $doctor_staff_location_image['url'];
-                                    endif;
-                                endif;
-                                ?>
-                    <div class="col-12 col-md-4">
-                        <div class="h-100 pt-4">
-                            <div class="row g-3 align-items-start">
-                                <div class="col-12 col-lg-7 fosforos bg-light">
-                                    <?php if (!empty($doctor_staff_location_title)) : ?>
-                                    <h5 class="mb-3"><?php echo esc_html($doctor_staff_location_title); ?></h5>
-                                    <?php endif; ?>
-                                    <?php if (!empty($doctor_staff_location_address)) : ?>
-                                    <div class="mb-3"><?php echo wp_kses_post($doctor_staff_location_address); ?></div>
-                                    <?php endif; ?>
-                                    <?php if (!empty($doctor_staff_location_phone)) : ?>
-                                    <div class="mb-2"><span class="text-verde fw-bold me-2">T</span><?php echo esc_html($doctor_staff_location_phone); ?></div>
-                                    <?php endif; ?>
-                                    <?php if (!empty($doctor_staff_location_fax)) : ?>
-                                    <div><span class="text-verde fw-bold me-2">F</span><?php echo esc_html($doctor_staff_location_fax); ?></div>
-                                    <?php endif; ?>
-                                </div>
-
-                                <?php if (!empty($doctor_staff_location_image_url)) : ?>
-                                <div class="col-12 col-lg-5">
-                                    <img src="<?php echo esc_url($doctor_staff_location_image_url); ?>" alt="<?php echo esc_attr('Location image for ' . $doctor_staff_location_title); ?>" class="img-fluid w-100">
-                                </div>
-                                <?php endif; ?>
-                            </div>
-                        </div>
-                    </div>
-                    <?php endif; ?>
-                    <?php endforeach; ?>
-
-                </div>
-            </div>
-        </div>
-        <?php endif; ?>
+        <?php
+            /*
+            Consulting Locations cards — renders only this doctor's assigned locations.
+            Uses the shared component: inc/component-consulting-locations.php
+            $doctor_staff_consulting_location_ids is built earlier from the ACF
+            relationship field 'doctor_staff_consulting_locations'.
+            */
+            bystra_render_consulting_locations_cards(
+                $doctor_staff_consulting_location_ids
+            );
+        ?>
 
 
 

@@ -171,6 +171,11 @@ if ( ! file_exists( get_template_directory() . '/bs533-navwalker.php' ) ) {
 */
 require_once get_template_directory() . '/inc/component-resources.php';
 
+// Shared consulting location cards renderer.
+// Used by: blocks/block-locations.php, single-doctors_staff.php
+// Links to: page-locations.php (deep-link into the correct tab)
+require_once get_template_directory() . '/inc/component-consulting-locations.php';
+
 
 
 /*
