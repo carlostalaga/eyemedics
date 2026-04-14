@@ -45,8 +45,6 @@ if( have_rows('flexible_content') ):
             include get_theme_file_path('/blocks/block-gallery.php');
         elseif( get_row_layout() == 'hero' ):
             include get_theme_file_path('/blocks/block-hero.php');
-        elseif( get_row_layout() == 'banner' ):
-            include get_theme_file_path('/blocks/block-banner.php');
         elseif( get_row_layout() == 'services' ):
             include get_theme_file_path('/blocks/block-services.php');
         elseif( get_row_layout() == 'team' ):
