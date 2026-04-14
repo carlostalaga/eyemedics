@@ -3920,6 +3920,15 @@
                     "min": "",
                     "max": ""
                 },
+                "layout_69ddc5fd6c1b7": {
+                    "key": "layout_69ddc5fd6c1b7",
+                    "name": "slider_doctors",
+                    "label": "Slider Doctors",
+                    "display": "block",
+                    "sub_fields": [],
+                    "min": "",
+                    "max": ""
+                },
                 "layout_67f7587206002": {
                     "key": "layout_67f7587206002",
                     "name": "parallax",
@@ -4054,5 +4063,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1776129366
+    "modified": 1776141860
 }

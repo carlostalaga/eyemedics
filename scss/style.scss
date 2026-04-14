@@ -1324,6 +1324,47 @@ Check the fonts in %text-list-base (.text-list li, .text-list-light and .text-li
 }
 
 
+// Slider Doctors Block
+.slider-doctors .slick-slide {
+    margin: 0 10px;
+}
+
+.slider-doctor-card {
+    text-decoration: none;
+    display: block;
+
+    .magnify {
+        border-radius: 8px;
+        overflow: hidden;
+        height: 100%;
+    }
+
+    .slider-doctor-image {
+        overflow: hidden;
+        border-radius: 4px;
+
+        img {
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+        }
+    }
+
+    .slider-doctor-title {
+        font-size: 0.85rem;
+        color: colours.$posidonia;
+    }
+
+    .slider-doctor-name {
+        color: colours.$posidonia;
+        font-weight: 600;
+    }
+
+    .slider-doctor-specialisations {
+        color: #666;
+    }
+}
+
+
 
 /*
 ██████   ██████   ██████ ██    ██ ███    ███ ███████ ███    ██ ████████
@@ -1448,5 +1489,72 @@ Check the fonts in %text-list-base (.text-list li, .text-list-light and .text-li
         height: auto;
         margin-top: -3px;
         margin-right: -24px;
+    }
+}
+
+
+
+/*
+ ██████  ██████  ███    ██ ██████  ██ ████████ ██  ██████  ███    ██ ███████
+██      ██    ██ ████   ██ ██   ██ ██    ██    ██ ██    ██ ████   ██ ██
+██      ██    ██ ██ ██  ██ ██   ██ ██    ██    ██ ██    ██ ██ ██  ██ ███████
+██      ██    ██ ██  ██ ██ ██   ██ ██    ██    ██ ██    ██ ██  ██ ██      ██
+ ██████  ██████  ██   ████ ██████  ██    ██    ██  ██████  ██   ████ ███████
+
+███████ ██ ██████  ███████ ██████   █████  ██████
+██      ██ ██   ██ ██      ██   ██ ██   ██ ██   ██
+███████ ██ ██   ██ █████   ██████  ███████ ██████
+     ██ ██ ██   ██ ██      ██   ██ ██   ██ ██   ██
+███████ ██ ██████  ███████ ██████  ██   ██ ██   ██
+
+*/
+.conditions-sidebar {
+    position: sticky;
+    top: 2rem;
+
+    &__heading {
+        @include fonts.font(fonts.$text-prose, fonts.$fw-prose-bold);
+        font-size: 1.6rem;
+        color: colours.$blanco;
+        background-color: colours.$verde;
+        padding: 1rem 1.4rem;
+        margin-bottom: 0;
+    }
+
+    &__list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    &__item {
+        border-bottom: 1px solid colours.$humo;
+        border-left: 4px solid transparent;
+
+        a {
+            @include fonts.font(fonts.$text-prose, fonts.$fw-prose-regular);
+            font-size: 1.5rem;
+            display: block;
+            padding: 0.7rem 1.4rem;
+            color: colours.$tinta;
+            text-decoration: none;
+            transition: all 0.2s ease;
+
+            &:hover {
+                color: colours.$verde-dark;
+                background-color: color.change(colours.$verde, $alpha: 0.06);
+            }
+        }
+
+        &--active {
+            border-left-color: colours.$verde;
+            background-color: color.change(colours.$verde, $alpha: 0.1);
+
+            a {
+                font-weight: fonts.$fw-prose-bold;
+                color: colours.$tinta;
+                text-decoration: underline;
+            }
+        }
     }
 }

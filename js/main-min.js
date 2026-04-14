@@ -917,6 +917,48 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 jQuery(document).ready(function ($) {
+    var $sliderDoctors = $('.slider-doctors');
+    var totalDoctorSlides = $sliderDoctors.children().length;
+
+    $sliderDoctors.slick({
+        dots: true,
+        infinite: true,
+        speed: 300,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+
+        autoplay: totalDoctorSlides > 3,
+        autoplaySpeed: 3000,
+        cssEase: 'linear',
+        arrows: true,
+        pauseOnHover: true,
+        swipe: true,
+        touchMove: true,
+
+        responsive: [
+            {
+                breakpoint: 992,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
+                    autoplay: totalDoctorSlides > 2,
+                    dots: true
+                }
+            },
+            {
+                breakpoint: 576,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    autoplay: totalDoctorSlides > 1,
+                    dots: true
+                }
+            }
+        ]
+    });
+});
+
+jQuery(document).ready(function ($) {
     // Reference the slider element
     var $slider = $('.slider-cards');
     var totalSlides = $slider.children().length; // Count the total number of slides
