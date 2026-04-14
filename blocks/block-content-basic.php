@@ -162,7 +162,8 @@ $resources_html = ob_get_clean();
 
 
             <div class="col-12 order-3">
-                <?php echo $resources_html; ?>
+                <?php /* echo $resources_html; */ ?>
+                <?php display_resources('resource_entries', false, true); ?>
             </div>
 
         </div>

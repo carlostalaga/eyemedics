@@ -4035,6 +4035,13 @@
                 "operator": "==",
                 "value": "post"
             }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "conditions"
+            }
         ]
     ],
     "menu_order": 0,
@@ -4047,5 +4054,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1775629770
+    "modified": 1776129366
 }
