@@ -1470,11 +1470,11 @@
                     "display": "block",
                     "sub_fields": [
                         {
-                            "key": "field_697984223f252",
-                            "label": "Banner Background",
-                            "name": "banner_background",
+                            "key": "field_69ddd5378bd0c",
+                            "label": "Banner Content",
+                            "name": "banner_content",
                             "aria-label": "",
-                            "type": "select",
+                            "type": "wysiwyg",
                             "instructions": "",
                             "required": 0,
                             "conditional_logic": 0,
@@ -1483,28 +1483,19 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "choices": {
-                                "bg-cielo": "Background Cielo",
-                                "bg-hueso": "Background Bone",
-                                "bg-white": "Background White"
-                            },
-                            "default_value": "bg-white",
-                            "return_format": "value",
-                            "multiple": 0,
-                            "allow_null": 0,
+                            "default_value": "",
                             "allow_in_bindings": 0,
-                            "ui": 0,
-                            "ajax": 0,
-                            "placeholder": "",
-                            "create_options": 0,
-                            "save_options": 0
+                            "tabs": "all",
+                            "toolbar": "full",
+                            "media_upload": 0,
+                            "delay": 0
                         },
                         {
-                            "key": "field_697a82026ab87",
-                            "label": "Banner Style",
-                            "name": "banner_style",
+                            "key": "field_69ddd56f8bd0e",
+                            "label": "Banner Link",
+                            "name": "banner_link",
                             "aria-label": "",
-                            "type": "select",
+                            "type": "link",
                             "instructions": "",
                             "required": 0,
                             "conditional_logic": 0,
@@ -1513,30 +1504,16 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "choices": {
-                                "aguamarina": "aguamarina",
-                                "purpura": "purpura",
-                                "naranja": "naranja",
-                                "cielo": "cielo"
-                            },
-                            "default_value": false,
-                            "return_format": "value",
-                            "multiple": 0,
-                            "allow_null": 0,
-                            "allow_in_bindings": 0,
-                            "ui": 0,
-                            "ajax": 0,
-                            "placeholder": "",
-                            "create_options": 0,
-                            "save_options": 0
+                            "return_format": "array",
+                            "allow_in_bindings": 0
                         },
                         {
-                            "key": "field_697984713f253",
-                            "label": "Banner Line 1",
-                            "name": "banner_line_1",
+                            "key": "field_69ddd55d8bd0d",
+                            "label": "Banner Image",
+                            "name": "banner_image",
                             "aria-label": "",
-                            "type": "text",
-                            "instructions": "Character limit 24",
+                            "type": "image",
+                            "instructions": "",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -1544,33 +1521,17 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "default_value": "",
-                            "maxlength": "",
+                            "return_format": "array",
+                            "library": "all",
+                            "min_width": "",
+                            "min_height": "",
+                            "min_size": "",
+                            "max_width": "",
+                            "max_height": "",
+                            "max_size": "",
+                            "mime_types": "",
                             "allow_in_bindings": 0,
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": ""
-                        },
-                        {
-                            "key": "field_69798f7b17f0b",
-                            "label": "Banner Line 2",
-                            "name": "banner_line_2",
-                            "aria-label": "",
-                            "type": "text",
-                            "instructions": "Character limit 24",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "maxlength": "",
-                            "allow_in_bindings": 0,
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": ""
+                            "preview_size": "medium"
                         }
                     ],
                     "min": "",
@@ -1582,36 +1543,6 @@
                     "label": "Contact",
                     "display": "block",
                     "sub_fields": [
-                        {
-                            "key": "field_697c22ca08b22",
-                            "label": "Contact Background",
-                            "name": "contact_background",
-                            "aria-label": "",
-                            "type": "select",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "choices": {
-                                "bg-cielo": "Background Cielo",
-                                "bg-hueso": "Background Bone",
-                                "bg-white": "Background White"
-                            },
-                            "default_value": "bg-white",
-                            "return_format": "value",
-                            "multiple": 0,
-                            "allow_null": 0,
-                            "allow_in_bindings": 0,
-                            "ui": 0,
-                            "ajax": 0,
-                            "placeholder": "",
-                            "create_options": 0,
-                            "save_options": 0
-                        },
                         {
                             "key": "field_697c26a293096",
                             "label": "Contact Headline",
@@ -1634,11 +1565,11 @@
                             "append": ""
                         },
                         {
-                            "key": "field_697c26da93097",
-                            "label": "Contact CTA Link",
-                            "name": "contact_cta_link",
+                            "key": "field_69dde5231c6a9",
+                            "label": "Contact Content",
+                            "name": "contact_content",
                             "aria-label": "",
-                            "type": "link",
+                            "type": "wysiwyg",
                             "instructions": "",
                             "required": 0,
                             "conditional_logic": 0,
@@ -1647,8 +1578,12 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "return_format": "array",
-                            "allow_in_bindings": 0
+                            "default_value": "",
+                            "allow_in_bindings": 0,
+                            "tabs": "all",
+                            "toolbar": "full",
+                            "media_upload": 0,
+                            "delay": 0
                         }
                     ],
                     "min": "",
@@ -4063,5 +3998,7 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1776141860
+    "allow_ai_access": false,
+    "ai_description": "",
+    "modified": 1776149837
 }

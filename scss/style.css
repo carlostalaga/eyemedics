@@ -1009,7 +1009,8 @@ Text Domain: bystra
   color: #F5F0EB !important;
   margin-top: 0.5rem;
   cursor: pointer;
-  appearance: none;
+  -moz-appearance: none;
+       appearance: none;
   -webkit-appearance: none;
 }
 
@@ -1056,6 +1057,11 @@ Text Domain: bystra
 */
 /* Placeholder styles for various browsers */
 /* Chrome, Firefox, Opera, Safari 10.1+ */
+::-moz-placeholder {
+  color: lightgray !important;
+  /* Use lightgray for placeholder */
+  opacity: 1;
+}
 ::placeholder {
   color: lightgray !important;
   /* Use lightgray for placeholder */
@@ -1126,8 +1132,8 @@ input {
 
 input[type=search] {
   -webkit-appearance: textfield;
-  appearance: textfield;
-  -webkit-box-sizing: content-box;
+  -moz-appearance: textfield;
+       appearance: textfield;
   box-sizing: content-box;
   font-family: inherit;
   font-size: 100%;
@@ -1140,8 +1146,6 @@ input[type=search] {
   padding: 3px 10px 3px 32px;
   /* Adjusted padding for icon */
   width: 55px;
-  -webkit-transition: all 0.5s;
-  -moz-transition: all 0.5s;
   transition: all 0.5s;
 }
 
@@ -1380,8 +1384,10 @@ Use it to optionally show a visual guide for the developer.
   left: 0;
   width: 100%;
   height: 120%;
-  object-fit: cover;
-  object-position: center center;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center center;
+     object-position: center center;
   will-change: transform;
 }
 
@@ -1497,13 +1503,7 @@ Use it to optionally show a visual guide for the developer.
   height: 20px;
   position: relative;
   margin: 0px;
-  -webkit-transform: rotate(0deg);
-  -moz-transform: rotate(0deg);
-  -o-transform: rotate(0deg);
   transform: rotate(0deg);
-  -webkit-transition: 0.5s ease-in-out;
-  -moz-transition: 0.5s ease-in-out;
-  -o-transition: 0.5s ease-in-out;
   transition: 0.5s ease-in-out;
   cursor: pointer;
 }
@@ -1518,13 +1518,7 @@ Use it to optionally show a visual guide for the developer.
   border-radius: 9px;
   opacity: 1;
   left: 0;
-  -webkit-transform: rotate(0deg);
-  -moz-transform: rotate(0deg);
-  -o-transform: rotate(0deg);
   transform: rotate(0deg);
-  -webkit-transition: 0.25s ease-in-out;
-  -moz-transition: 0.25s ease-in-out;
-  -o-transition: 0.25s ease-in-out;
   transition: 0.25s ease-in-out;
 }
 
@@ -1536,13 +1530,7 @@ Use it to optionally show a visual guide for the developer.
   height: 18px;
   position: relative;
   margin: 0px;
-  -webkit-transform: rotate(0deg);
-  -moz-transform: rotate(0deg);
-  -o-transform: rotate(0deg);
   transform: rotate(0deg);
-  -webkit-transition: 0.5s ease-in-out;
-  -moz-transition: 0.5s ease-in-out;
-  -o-transition: 0.5s ease-in-out;
   transition: 0.5s ease-in-out;
   cursor: pointer;
 }
@@ -1557,13 +1545,7 @@ Use it to optionally show a visual guide for the developer.
   border-radius: 9px;
   opacity: 1;
   left: 0;
-  -webkit-transform: rotate(0deg);
-  -moz-transform: rotate(0deg);
-  -o-transform: rotate(0deg);
   transform: rotate(0deg);
-  -webkit-transition: 0.25s ease-in-out;
-  -moz-transition: 0.25s ease-in-out;
-  -o-transition: 0.25s ease-in-out;
   transition: 0.25s ease-in-out;
 }
 
@@ -1593,9 +1575,6 @@ Use it to optionally show a visual guide for the developer.
 
 .animated-icon1.open span:nth-child(1) {
   top: 11px;
-  -webkit-transform: rotate(135deg);
-  -moz-transform: rotate(135deg);
-  -o-transform: rotate(135deg);
   transform: rotate(135deg);
 }
 
@@ -1606,9 +1585,6 @@ Use it to optionally show a visual guide for the developer.
 
 .animated-icon1.open span:nth-child(3) {
   top: 11px;
-  -webkit-transform: rotate(-135deg);
-  -moz-transform: rotate(-135deg);
-  -o-transform: rotate(-135deg);
   transform: rotate(-135deg);
 }
 
@@ -1633,16 +1609,10 @@ Use it to optionally show a visual guide for the developer.
 }
 
 .animated-icon2.open span:nth-child(2) {
-  -webkit-transform: rotate(45deg);
-  -moz-transform: rotate(45deg);
-  -o-transform: rotate(45deg);
   transform: rotate(45deg);
 }
 
 .animated-icon2.open span:nth-child(3) {
-  -webkit-transform: rotate(-45deg);
-  -moz-transform: rotate(-45deg);
-  -o-transform: rotate(-45deg);
   transform: rotate(-45deg);
 }
 
@@ -1655,32 +1625,20 @@ Use it to optionally show a visual guide for the developer.
 /* Icon 4 */
 .animated-icon3 span:nth-child(1) {
   top: 0px;
-  -webkit-transform-origin: left center;
-  -moz-transform-origin: left center;
-  -o-transform-origin: left center;
   transform-origin: left center;
 }
 
 .animated-icon3 span:nth-child(2) {
   top: 10px;
-  -webkit-transform-origin: left center;
-  -moz-transform-origin: left center;
-  -o-transform-origin: left center;
   transform-origin: left center;
 }
 
 .animated-icon3 span:nth-child(3) {
   top: 20px;
-  -webkit-transform-origin: left center;
-  -moz-transform-origin: left center;
-  -o-transform-origin: left center;
   transform-origin: left center;
 }
 
 .animated-icon3.open span:nth-child(1) {
-  -webkit-transform: rotate(45deg);
-  -moz-transform: rotate(45deg);
-  -o-transform: rotate(45deg);
   transform: rotate(45deg);
   top: 0px;
   left: 8px;
@@ -1692,9 +1650,6 @@ Use it to optionally show a visual guide for the developer.
 }
 
 .animated-icon3.open span:nth-child(3) {
-  -webkit-transform: rotate(-45deg);
-  -moz-transform: rotate(-45deg);
-  -o-transform: rotate(-45deg);
   transform: rotate(-45deg);
   top: 21px;
   left: 8px;
@@ -1934,7 +1889,8 @@ Text Domain: bystra
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   /* Cover the container without losing aspect ratio */
 }
 
@@ -2017,8 +1973,10 @@ Based on scale_vectors reference implementation
 .hero__background video {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: center;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
 }
 .hero__background picture {
   display: block;
@@ -2028,8 +1986,10 @@ Based on scale_vectors reference implementation
 .hero__background picture img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: center;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
 }
 
 .hero__content {
@@ -2212,7 +2172,9 @@ Swiper Thumbs pill nav + content slider
   line-height: 1.2;
   cursor: pointer;
   transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
 }
 .slider-tabs__pill:hover {
   border-color: #D5E04D;
@@ -2834,15 +2796,17 @@ html {
   background-color: #D5E04D;
   color: #0D2C6B;
   text-transform: uppercase;
-  display: inline-flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
 }
 .btn-lima:hover {
   border-color: #A9B22E;
   background-color: #A9B22E;
   color: #ffffff;
+}
+.btn-lima {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
 }
 
 .btn-verde {
@@ -2858,15 +2822,17 @@ html {
   background-color: #8CC63E;
   color: #F5F0EB;
   text-transform: uppercase;
-  display: inline-flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
 }
 .btn-verde:hover {
   border-color: #5a8418;
   background-color: #5a8418;
   color: #eaeaea;
+}
+.btn-verde {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
 }
 
 .btn-blanco {
@@ -2882,15 +2848,17 @@ html {
   background-color: #ffffff;
   color: #1a1a1a;
   text-transform: uppercase;
-  display: inline-flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
 }
 .btn-blanco:hover {
   border-color: #F5F0EB;
   background-color: #F5F0EB;
   color: #1a1a1a;
+}
+.btn-blanco {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
 }
 
 .btn-hueso {
@@ -2906,15 +2874,17 @@ html {
   background-color: #F5F0EB;
   color: #1a1a1a;
   text-transform: uppercase;
-  display: inline-flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
 }
 .btn-hueso:hover {
   border-color: #DBC8B6;
   background-color: #DBC8B6;
   color: #1a1a1a;
+}
+.btn-hueso {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
 }
 
 /*
@@ -3307,12 +3277,14 @@ Check the fonts in %text-list-base (.text-list li, .text-list-light and .text-li
 
 */
 .newspaper {
-  column-count: 2;
+  -moz-column-count: 2;
+       column-count: 2;
 }
 
 @media screen and (max-width: 992px) {
   .newspaper {
-    column-count: 1;
+    -moz-column-count: 1;
+         column-count: 1;
   }
 }
 /*
@@ -3452,7 +3424,8 @@ Check the fonts in %text-list-base (.text-list li, .text-list-light and .text-li
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   /* Ensures the image fills the container */
   display: block;
 }
@@ -3558,7 +3531,8 @@ Check the fonts in %text-list-base (.text-list li, .text-list-light and .text-li
 }
 .slider-doctor-card .slider-doctor-image img {
   aspect-ratio: 1/1;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .slider-doctor-card .slider-doctor-title {
   font-size: 0.85rem;
@@ -3589,18 +3563,23 @@ Check the fonts in %text-list-base (.text-list li, .text-list-light and .text-li
 
 */
 .newspaper-1 {
-  column-count: 1;
-  column-gap: 40px;
+  -moz-column-count: 1;
+       column-count: 1;
+  -moz-column-gap: 40px;
+       column-gap: 40px;
 }
 
 .newspaper-2 {
-  column-count: 2;
-  column-gap: 40px;
+  -moz-column-count: 2;
+       column-count: 2;
+  -moz-column-gap: 40px;
+       column-gap: 40px;
 }
 
 @media screen and (max-width: 992px) {
   .newspaper-2 {
-    column-count: 1;
+    -moz-column-count: 1;
+         column-count: 1;
   }
 }
 .list-separator {
@@ -3747,6 +3726,4 @@ Check the fonts in %text-list-base (.text-list li, .text-list-light and .text-li
   font-weight: 700;
   color: #1a1a1a;
   text-decoration: underline;
-}
-
-/*# sourceMappingURL=style.css.map */
+}/*# sourceMappingURL=style.css.map */
