@@ -164,7 +164,7 @@
             "post_status": "",
             "taxonomy": "",
             "return_format": "id",
-            "multiple": 0,
+            "multiple": 1,
             "allow_null": 0,
             "allow_in_bindings": 0,
             "bidirectional": 0,
@@ -218,5 +218,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1775711694
+    "modified": 1776126875
 }
