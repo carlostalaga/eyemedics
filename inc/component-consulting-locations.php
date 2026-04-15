@@ -172,7 +172,7 @@ if (!function_exists('bystra_render_consulting_locations_cards')) :
                             <?php if (!empty($consulting_location_title)) : ?>
                             <h6 class="mb-3">
                                 <!-- Title links to this location's tab on the Locations page -->
-                                <a href="<?php echo esc_url($consulting_location_tab_url); ?>">
+                                <a href="<?php echo esc_url($consulting_location_tab_url); ?>" class="text-negro">
                                     <?php echo esc_html($consulting_location_title); ?>
                                 </a>
                             </h6>
@@ -181,7 +181,7 @@ if (!function_exists('bystra_render_consulting_locations_cards')) :
                             <div class="mb-3"><?php echo wp_kses_post($consulting_location_address); ?></div>
                             <?php endif; ?>
                             <?php if (!empty($consulting_location_phone)) : ?>
-                            <div class="mb-2 underline-link">
+                            <div class="mb-2">
                                 <span class="text-verde fw-bold me-2">T</span><a href="tel:<?php echo esc_html($consulting_location_phone); ?>"><?php echo esc_html($consulting_location_phone); ?></a>
                             </div>
                             <?php endif; ?>

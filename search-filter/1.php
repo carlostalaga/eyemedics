@@ -71,11 +71,15 @@ endif;
                 </div>
                 <?php endif; ?>
                 <div class="<?php echo esc_attr($doctors_result_content_column_class); ?>">
-                    <?php if (!empty($doctors_result_title)): ?>
-                    <div class="mb-1"><?php echo esc_html($doctors_result_title); ?></div>
-                    <?php endif; ?>
 
-                    <h4 class="mb-2"><?php echo esc_html($doctors_result_name); ?></h4>
+
+                    <h6>
+                        <?php if (!empty($doctors_result_title)): ?>
+                        <span class="mb-1"><?php echo esc_html($doctors_result_title); ?></span>
+                        <?php endif; ?>
+                        <br>
+                        <span class="mb-1"><?php echo esc_html($doctors_result_name); ?></span>
+                    </h6>
 
                     <?php if (!empty($doctors_result_specialisations_display)): ?>
                     <div class="mb-3 small"><?php echo wp_kses_post($doctors_result_specialisations_display); ?></div>

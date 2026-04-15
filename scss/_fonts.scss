@@ -42,23 +42,18 @@ body {
 a {
     text-decoration: none;
     color: colours.$verde-dark;
-    text-decoration: underline;
+    background-image: linear-gradient(currentColor, currentColor);
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    background-size: 0% 3px;
+    transition: color 0.25s ease, background-size 0.25s ease;
 
     &:hover {
-        text-decoration: none;
-        color: colours.$verde;
+        color: colours.$verde-dark;
+        background-size: 100% 1.5px;
     }
 }
 
-.underline-link a {
-    text-decoration: underline;
-    color: colours.$posidonia;
-}
-
-.underline-link a:hover {
-    text-decoration: underline;
-    color: colours.$aguamarina-dark;
-}
 
 // Heading typography map
 // The 'color' property sets the default color for each heading.

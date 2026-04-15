@@ -33,7 +33,7 @@
                             <ul class="conditions-sidebar__list">
                                 <?php while ($conditions_sidebar->have_posts()): $conditions_sidebar->the_post(); ?>
                                 <li class="conditions-sidebar__item<?php if (get_the_ID() === $conditions_current_id): ?> conditions-sidebar__item--active<?php endif; ?>">
-                                    <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+                                    <a href="<?php the_permalink(); ?>" class="text-negro"><?php the_title(); ?></a>
                                 </li>
                                 <?php endwhile; ?>
                             </ul>

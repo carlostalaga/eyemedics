@@ -413,21 +413,15 @@ body {
 a {
   text-decoration: none;
   color: #5a8418;
-  text-decoration: underline;
+  background-image: linear-gradient(currentColor, currentColor);
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  background-size: 0% 3px;
+  transition: color 0.25s ease, background-size 0.25s ease;
 }
 a:hover {
-  text-decoration: none;
-  color: #8CC63E;
-}
-
-.underline-link a {
-  text-decoration: underline;
-  color: #0D2C6B;
-}
-
-.underline-link a:hover {
-  text-decoration: underline;
-  color: #7bc4d4;
+  color: #5a8418;
+  background-size: 100% 1.5px;
 }
 
 h1 {
