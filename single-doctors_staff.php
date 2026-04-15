@@ -226,39 +226,66 @@
 
     <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-        <div class="container-fluid bg-verde">
+
+        <div class="container-fluid bg-1 doctor-staff-hero">
             <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-12">
-                        <div class="py-4">
-                            <a href="<?php echo esc_url(home_url('/doctors-and-staff/')); ?>">Back to Doctors and Staff</a>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-5">
+                <?php /* Hook row for overflow behavior so image can extend into purple section. */ ?>
+                <div class="row g-5 justify-content-center doctor-staff-hero__row">
+
+                    <?php /* Image column stays in markup order; image itself is taken out of flow on md+ via SCSS. */ ?>
+                    <div class="col-12 col-md-6 col-lg-5 p-5 doctor-staff-hero__image-col">
                         <?php if (!empty($doctor_staff_image_url)) : ?>
-                        <img src="<?php echo esc_url($doctor_staff_image_url); ?>" alt="<?php echo esc_attr(get_the_title()); ?>" class="img-fluid">
+                        <img src="<?php echo esc_url($doctor_staff_image_url); ?>" alt="<?php echo esc_attr(get_the_title()); ?>" class="img-fluid doctor-staff-hero__image">
                         <?php endif; ?>
                     </div>
 
-                    <div class="col-12 col-md-6 col-lg-5">
+                    <?php /* Text column remains in normal flow, so it defines hero height. */ ?>
+                    <div class="col-12 col-md-6 col-lg-5 p-5 doctor-staff-hero__content-col">
 
-                        <?php if (!empty($doctor_staff_title)) : ?>
-                        <div>
-                            <h1><?php echo esc_html($doctor_staff_title); ?></h1>
+
+                        <div class="doctors-staff-headings-container">
+                            <h1 class="text-white">
+                                <?php if (!empty($doctor_staff_title)) : ?>
+                                <span>
+                                    <?php echo esc_html($doctor_staff_title); ?>
+                                </span>
+                                <?php endif; ?>
+                                <br>
+                                <span>
+                                    <?php the_title(); ?>
+                                </span>
+                            </h1>
+
+                            <?php if (!empty($doctor_staff_specialisations_display)) : ?>
+                            <div class="my-5">
+                                <h5 class="text-white"><?php echo wp_kses_post($doctor_staff_specialisations_display); ?></h5>
+                            </div>
+                            <?php endif; ?>
                         </div>
-                        <?php endif; ?>
+
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+        <div class="container-fluid bg-white">
+            <div class="container">
+                <div class="row g-5 pb-5 justify-content-center">
+
+                    <div class="col-12 col-md-6 col-lg-5 px-5 d-none d-md-block">
+
+                    </div>
+
+                    <div class="col-12 col-md-6 col-lg-5 px-5">
 
                         <div>
-                            <h1><?php the_title(); ?></h1>
-                        </div>
-
-                        <?php if (!empty($doctor_staff_specialisations_display)) : ?>
-                        <div>
-                            <?php echo wp_kses_post($doctor_staff_specialisations_display); ?>
-                        </div>
-                        <?php endif; ?>
-
-                        <div class="mt-5">
                             <?php if (!empty($doctor_staff_specialist_fields_display)) : ?>
                             <div>
                                 <div class="text-small">Specialist Fields</div>
@@ -288,9 +315,17 @@
             </div>
         </div>
 
+
+
+
+
+
+
+
+
         <?php if (!empty($doctor_staff_content)) : ?>
         <div class="container py-5">
-            <div class="row justify-content-center">
+            <div class="row my-5 py-5 justify-content-center">
                 <div class="col-12 col-lg-10">
                     <div>
                         <?php echo wp_kses_post($doctor_staff_content); ?>
@@ -306,10 +341,10 @@
             <div class="container">
                 <div class="row justify-content-center g-5 text-white">
 
-                    <div class="col-12 col-md-5 col-lg-4 bg-black m-5 p-5 round-all">
+                    <div class="col-12 col-md-5 col-lg-4 bg-negro m-5 p-5 round-all">
                         <?php if (!empty($doctor_staff_consulting_location_ids)) : ?>
                         <div class="mb-4">
-                            <h4 class="text-white mb-5">Consulting Locations</h4>
+                            <h3 class="text-white mb-5">Consulting Locations</h3>
                             <ul class="mb-0">
                                 <?php foreach ($doctor_staff_consulting_location_ids as $doctor_staff_location_id) : ?>
                                 <?php if ($doctor_staff_location_id) : ?>
@@ -337,10 +372,10 @@
                         </div>
                         <?php endif; ?>
                     </div>
-                    <div class="col-12 col-md-5 col-lg-4 bg-black m-5 p-5 round-all">
+                    <div class="col-12 col-md-5 col-lg-4 bg-negro m-5 p-5 round-all">
                         <?php if (!empty($doctor_staff_operating_location_ids)) : ?>
                         <div class="mb-4">
-                            <h4 class="text-white mb-5">Operating Locations</h4>
+                            <h3 class="text-white mb-5">Operating Locations</h3>
                             <ul class="mb-0">
                                 <?php foreach ($doctor_staff_operating_location_ids as $doctor_staff_location_id) : ?>
                                 <?php if ($doctor_staff_location_id) : ?>

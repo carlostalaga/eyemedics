@@ -121,7 +121,7 @@ if (!function_exists('bystra_render_consulting_locations_cards')) :
             $consulting_location_page_url = home_url('/locations/');
         endif;
         ?>
-<div<?php if (!empty($section_id)) : ?> id="<?php echo esc_attr($section_id); ?>"<?php endif; ?> class="<?php echo esc_attr($section_classes); ?>">
+<div<?php if (!empty($section_id)) : ?> id="<?php echo esc_attr($section_id); ?>" <?php endif; ?> class="<?php echo esc_attr($section_classes); ?>">
     <div class="container py-5">
         <div class="row justify-content-center g-5">
 
@@ -165,23 +165,25 @@ if (!function_exists('bystra_render_consulting_locations_cards')) :
                 ) . '#locations-page';
             ?>
             <!-- Card: single location -->
-            <div class="col-12 col-md-4">
+            <div class="col-12 col-md-6 col-xl-4">
                 <div class="h-100 pt-4">
                     <div class="row g-3 align-items-start">
-                        <div class="col-12 col-lg-7 fosforos bg-light">
+                        <div class="col-12 col-sm-7 fosforos">
                             <?php if (!empty($consulting_location_title)) : ?>
-                            <h5 class="mb-3">
+                            <h6 class="mb-3">
                                 <!-- Title links to this location's tab on the Locations page -->
                                 <a href="<?php echo esc_url($consulting_location_tab_url); ?>">
                                     <?php echo esc_html($consulting_location_title); ?>
                                 </a>
-                            </h5>
+                            </h6>
                             <?php endif; ?>
                             <?php if (!empty($consulting_location_address)) : ?>
                             <div class="mb-3"><?php echo wp_kses_post($consulting_location_address); ?></div>
                             <?php endif; ?>
                             <?php if (!empty($consulting_location_phone)) : ?>
-                            <div class="mb-2"><span class="text-verde fw-bold me-2">T</span><?php echo esc_html($consulting_location_phone); ?></div>
+                            <div class="mb-2 underline-link">
+                                <span class="text-verde fw-bold me-2">T</span><a href="tel:<?php echo esc_html($consulting_location_phone); ?>"><?php echo esc_html($consulting_location_phone); ?></a>
+                            </div>
                             <?php endif; ?>
                             <?php if (!empty($consulting_location_fax)) : ?>
                             <div><span class="text-verde fw-bold me-2">F</span><?php echo esc_html($consulting_location_fax); ?></div>
@@ -189,7 +191,7 @@ if (!function_exists('bystra_render_consulting_locations_cards')) :
                         </div>
 
                         <?php if (!empty($consulting_location_image_url)) : ?>
-                        <div class="col-12 col-lg-5">
+                        <div class="col-12 col-sm-5">
                             <!-- Image links to the same tab deep-link as the title -->
                             <a href="<?php echo esc_url($consulting_location_tab_url); ?>" aria-label="<?php echo esc_attr($consulting_location_title); ?>">
                                 <img src="<?php echo esc_url($consulting_location_image_url); ?>" alt="<?php echo esc_attr('Location image for ' . $consulting_location_title); ?>" class="img-fluid w-100">
@@ -204,7 +206,7 @@ if (!function_exists('bystra_render_consulting_locations_cards')) :
 
         </div>
     </div>
-</div>
-<?php
+    </div>
+    <?php
     }
 endif;

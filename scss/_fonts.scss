@@ -14,6 +14,8 @@ $fw-prose-semibold: 600;
 $fw-prose-bold: 700;
 $fw-prose-extrabold: 800;
 
+$body-font-size: 2.2rem;
+
 
 // Mixin for font properties
 @mixin font($family, $weight, $style: normal) {
@@ -30,7 +32,7 @@ html {
 
 body {
     @include font($text-prose, $fw-prose-light);
-    font-size: 2.2rem;
+    font-size: $body-font-size;
     color: colours.$tinta;
 }
 
@@ -47,6 +49,15 @@ a {
     }
 }
 
+.underline-link a {
+    text-decoration: underline;
+    color: colours.$posidonia;
+}
+
+.underline-link a:hover {
+    text-decoration: underline;
+    color: colours.$aguamarina-dark;
+}
 
 // Heading typography map
 // The 'color' property sets the default color for each heading.
@@ -54,19 +65,19 @@ a {
 //   <h2 class="text-posidonia">...</h2>
 // This allows sensible defaults while enabling easy per-case overrides.
 $base-font-sizes: (
-    h1: (size: 6.2rem, weight: $fw-prose-medium, line-height: 92.364%, letter-spacing: -0.058rem, color: colours.$tinta),
-    h2: (size: 5.7rem, weight: $fw-prose-medium, line-height: 96%, letter-spacing: -0.058rem, color: colours.$tinta),
-    h3: (size: 4.8rem, weight: $fw-prose-medium, line-height: 92.364%, letter-spacing: -0.049rem, color: colours.$tinta),
-    h4: (size: 4.0rem, weight: $fw-prose-medium, line-height: 92.364%, letter-spacing: -0.039rem, color: colours.$tinta),
-    h5: (size: 3.4rem, weight: $fw-prose-medium, line-height: 123%, letter-spacing: -0.12rem, color: colours.$posidonia),
-    h6: (size: 2.6rem, weight: $fw-prose-medium, line-height: 95%, letter-spacing: null, color: colours.$tinta)
+    h1: (size: 6.2rem, weight: $fw-prose-regular, line-height: 0.96, letter-spacing: -0.058rem, color: colours.$tinta),
+    h2: (size: 5.7rem, weight: $fw-prose-regular, line-height: 0.96, letter-spacing: -0.058rem, color: colours.$tinta),
+    h3: (size: 4.8rem, weight: $fw-prose-regular, line-height: 0.96, letter-spacing: -0.049rem, color: colours.$tinta),
+    h4: (size: 4.0rem, weight: $fw-prose-regular, line-height: 0.96, letter-spacing: -0.039rem, color: colours.$tinta),
+    h5: (size: 3.4rem, weight: $fw-prose-regular, line-height: 1.23, letter-spacing: -0.12rem, color: colours.$tinta),
+    h6: (size: 2.6rem, weight: $fw-prose-regular, line-height: 0.95, letter-spacing: null, color: colours.$tinta)
 );
 
 $breakpoints: (
-    1200px: 0.90,
-    992px: 0.85,
-    768px: 0.80,
-    576px: 0.75
+    1200px: 0.95,
+    992px: 0.90,
+    768px: 0.85,
+    576px: 0.80
 );
 
 // =============================================================================
@@ -106,6 +117,10 @@ $breakpoints: (
 // Responsive styles
 @each $bp, $scale in $breakpoints {
     @media (max-width: $bp) {
+        body {
+            font-size: calc(#{$body-font-size} * #{$scale});
+        }
+
         @each $tag, $props in $base-font-sizes {
             #{$tag} {
                 font-size: calc(#{map.get($props, size)} * #{$scale});

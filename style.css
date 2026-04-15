@@ -379,6 +379,13 @@ Text Domain: bystra
   background-color: transparent !important;
 }
 
+.bg-1 {
+  background-image: url("img/bg-1.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 /*
 Theme Name: EyeMedics Bystra
 Theme URI: https://envyus.com.au/
@@ -412,66 +419,102 @@ a:hover {
   color: #7bc4d4;
 }
 
+.underline-link a {
+  text-decoration: underline;
+  color: #0D2C6B;
+}
+
+.underline-link a:hover {
+  text-decoration: underline;
+  color: #7bc4d4;
+}
+
 h1 {
   font-family: "canada-type-gibson", sans-serif;
-  font-weight: 500;
+  font-weight: 400;
   font-style: normal;
   font-size: 6.2rem;
   color: #1a1a1a;
-  line-height: 92.364%;
+  line-height: 0.96;
   letter-spacing: -0.058rem;
 }
 
 h2 {
   font-family: "canada-type-gibson", sans-serif;
-  font-weight: 500;
+  font-weight: 400;
   font-style: normal;
   font-size: 5.7rem;
   color: #1a1a1a;
-  line-height: 96%;
+  line-height: 0.96;
   letter-spacing: -0.058rem;
 }
 
 h3 {
   font-family: "canada-type-gibson", sans-serif;
-  font-weight: 500;
+  font-weight: 400;
   font-style: normal;
   font-size: 4.8rem;
   color: #1a1a1a;
-  line-height: 92.364%;
+  line-height: 0.96;
   letter-spacing: -0.049rem;
 }
 
 h4 {
   font-family: "canada-type-gibson", sans-serif;
-  font-weight: 500;
+  font-weight: 400;
   font-style: normal;
   font-size: 4rem;
   color: #1a1a1a;
-  line-height: 92.364%;
+  line-height: 0.96;
   letter-spacing: -0.039rem;
 }
 
 h5 {
   font-family: "canada-type-gibson", sans-serif;
-  font-weight: 500;
+  font-weight: 400;
   font-style: normal;
   font-size: 3.4rem;
-  color: #0D2C6B;
-  line-height: 123%;
+  color: #1a1a1a;
+  line-height: 1.23;
   letter-spacing: -0.12rem;
 }
 
 h6 {
   font-family: "canada-type-gibson", sans-serif;
-  font-weight: 500;
+  font-weight: 400;
   font-style: normal;
   font-size: 2.6rem;
   color: #1a1a1a;
-  line-height: 95%;
+  line-height: 0.95;
 }
 
 @media (max-width: 1200px) {
+  body {
+    font-size: calc(2.2rem * 0.95);
+  }
+  h1 {
+    font-size: calc(6.2rem * 0.95);
+  }
+  h2 {
+    font-size: calc(5.7rem * 0.95);
+  }
+  h3 {
+    font-size: calc(4.8rem * 0.95);
+  }
+  h4 {
+    font-size: calc(4rem * 0.95);
+  }
+  h5 {
+    font-size: calc(3.4rem * 0.95);
+  }
+  h6 {
+    font-size: calc(2.6rem * 0.95);
+  }
+}
+@media (max-width: 992px) {
+  body {
+    font-size: calc(2.2rem * 0.9);
+  }
   h1 {
     font-size: calc(6.2rem * 0.9);
   }
@@ -491,7 +534,10 @@ h6 {
     font-size: calc(2.6rem * 0.9);
   }
 }
-@media (max-width: 992px) {
+@media (max-width: 768px) {
+  body {
+    font-size: calc(2.2rem * 0.85);
+  }
   h1 {
     font-size: calc(6.2rem * 0.85);
   }
@@ -511,7 +557,10 @@ h6 {
     font-size: calc(2.6rem * 0.85);
   }
 }
-@media (max-width: 768px) {
+@media (max-width: 576px) {
+  body {
+    font-size: calc(2.2rem * 0.8);
+  }
   h1 {
     font-size: calc(6.2rem * 0.8);
   }
@@ -529,26 +578,6 @@ h6 {
   }
   h6 {
     font-size: calc(2.6rem * 0.8);
-  }
-}
-@media (max-width: 576px) {
-  h1 {
-    font-size: calc(6.2rem * 0.75);
-  }
-  h2 {
-    font-size: calc(5.7rem * 0.75);
-  }
-  h3 {
-    font-size: calc(4.8rem * 0.75);
-  }
-  h4 {
-    font-size: calc(4rem * 0.75);
-  }
-  h5 {
-    font-size: calc(3.4rem * 0.75);
-  }
-  h6 {
-    font-size: calc(2.6rem * 0.75);
   }
 }
 .contentBox h1,
@@ -2471,6 +2500,11 @@ html {
   border: 4px solid #0A0203;
 }
 
+.doctors-staff-rounded {
+  border-radius: 40px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+}
+
 .logos-footer {
   max-width: 150px;
 }
@@ -3611,6 +3645,62 @@ Check the fonts in %text-list-base (.text-list li, .text-list-light and .text-li
   color: #666;
 }
 
+/*
+██████   ██████   ██████ ████████  ██████  ██████   ███████
+██   ██ ██    ██ ██         ██    ██    ██ ██   ██  ██
+██   ██ ██    ██ ██         ██    ██    ██ ██████   ███████
+██   ██ ██    ██ ██         ██    ██    ██ ██   ██       ██
+██████   ██████   ██████    ██     ██████  ██   ██  ███████
+
+███████ ████████  █████  ███████ ███████
+██         ██    ██   ██ ██      ██
+███████    ██    ███████ █████   █████
+     ██    ██    ██   ██ ██      ██
+███████    ██    ██   ██ ██      ██
+*/
+.single-doctors_staff .doctor-staff-hero,
+.single-doctors_staff .doctor-staff-hero .container,
+.single-doctors_staff .doctor-staff-hero__row {
+  overflow: visible;
+  padding-top: 3rem;
+}
+.single-doctors_staff .doctor-staff-hero__image {
+  display: block;
+  width: 100%;
+  height: auto;
+  box-shadow: 0 2rem 4rem 0 rgba(0, 0, 0, 0.6);
+  border-radius: 40px;
+}
+@media (min-width: 768px) {
+  .single-doctors_staff .doctor-staff-hero__image-col {
+    position: relative;
+    min-height: 0;
+  }
+  .single-doctors_staff .doctor-staff-hero__image {
+    position: absolute;
+    top: 3rem;
+    left: 3rem;
+    width: calc(100% - 6rem);
+    max-width: none;
+    z-index: 3;
+  }
+  .single-doctors_staff .doctor-staff-hero__content-col {
+    position: relative;
+    z-index: 4;
+  }
+}
+
+.doctors-staff-headings-container {
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+}
+
+@media (max-width: 768px) {
+  .doctors-staff-headings-container {
+    margin-top: 0rem;
+    margin-bottom: 4rem;
+  }
+}
 /*
 ██████   ██████   ██████ ██    ██ ███    ███ ███████ ███    ██ ████████
 ██   ██ ██    ██ ██      ██    ██ ████  ████ ██      ████   ██    ██
