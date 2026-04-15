@@ -14,7 +14,7 @@ $fw-prose-semibold: 600;
 $fw-prose-bold: 700;
 $fw-prose-extrabold: 800;
 
-$body-font-size: 2.2rem;
+$body-font-size: 2.0rem;
 
 
 // Mixin for font properties
@@ -41,11 +41,12 @@ body {
 
 a {
     text-decoration: none;
-    color: colours.$posidonia;
+    color: colours.$verde-dark;
+    text-decoration: underline;
 
     &:hover {
         text-decoration: none;
-        color: colours.$aguamarina-dark;
+        color: colours.$verde;
     }
 }
 
