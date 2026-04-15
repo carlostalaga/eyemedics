@@ -205,6 +205,10 @@ html {
     border: 4px solid colours.$verde;
 }
 
+.contact-rounded {
+    border-radius: 40px;
+    border: 4px solid colours.$negro;
+}
 
 .logos-footer {
     max-width: 150px;
@@ -701,6 +705,50 @@ Check the fonts in %text-list-base (.text-list li, .text-list-light and .text-li
 
         &:nth-child(even) {
             background-color: colours.$posidonia;
+        }
+
+        // Add a hover effect
+        &:hover {
+            background-color: color.adjust(#fff, $lightness: -30%);
+            cursor: pointer;
+        }
+
+        .list-link {
+            display: block;
+            width: 100%;
+            height: auto;
+            padding: 10px 15px;
+            text-align: center;
+            text-decoration: none;
+            color: inherit;
+        }
+    }
+}
+
+
+.location-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+
+    ul {
+        width: 100%;
+    }
+
+    li {
+        padding: 3px 15px 0px 15px;
+        margin: 9px 0;
+        position: relative;
+        border-bottom: 1px solid colours.$sombra;
+
+        // Alternate background colors
+        &:nth-child(odd) {
+            background-color: colours.$carbon;
+        }
+
+        &:nth-child(even) {
+            background-color: colours.$negro;
         }
 
         // Add a hover effect
