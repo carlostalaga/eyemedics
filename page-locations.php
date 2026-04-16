@@ -170,20 +170,20 @@ get_header();
                                 ?>
                                 <div class="col">
                                     <div class="bg-white p-4 h-100">
-                                        <div class="row g-3 align-items-center h-100">
+                                        <div class="row g-5 align-items-center h-100">
                                             <?php if (!empty($locations_doctor_image_url)): ?>
                                             <div class="col-5">
                                                 <a href="<?php echo esc_url($locations_doctor_profile_url); ?>" aria-label="View profile for <?php echo esc_attr($locations_doctor_name); ?>">
-                                                    <img src="<?php echo esc_url($locations_doctor_image_url); ?>" alt="<?php echo esc_attr($locations_doctor_name); ?>" class="img-fluid w-100">
+                                                    <img src="<?php echo esc_url($locations_doctor_image_url); ?>" alt="<?php echo esc_attr($locations_doctor_name); ?>" class="img-fluid img-rounded w-100">
                                                 </a>
                                             </div>
                                             <?php endif; ?>
                                             <div class="<?php echo esc_attr($locations_doctor_content_column_class); ?>">
                                                 <?php if (!empty($locations_doctor_title)): ?>
-                                                <div class="mb-1"><?php echo esc_html($locations_doctor_title); ?></div>
+                                                <h6 class="mb-1"><?php echo esc_html($locations_doctor_title); ?></h6>
                                                 <?php endif; ?>
 
-                                                <h4 class="mb-2"><?php echo esc_html($locations_doctor_name); ?></h4>
+                                                <h6 class="mb-2"><?php echo esc_html($locations_doctor_name); ?></h6>
 
                                                 <?php if (!empty($locations_doctor_specialisations)): ?>
                                                 <div class="mb-3 small"><?php echo wp_kses_post($locations_doctor_specialisations); ?></div>

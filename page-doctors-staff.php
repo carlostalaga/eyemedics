@@ -25,7 +25,7 @@ get_header();
             ?>
         </div>
 
-        <div class="container-fluid  bg-hueso">
+        <div class="container-fluid">
             <div class="container py-5">
                 <?php 
             // Include the Search & Filter form with the House and Land Packages query

@@ -62,11 +62,11 @@ endif;
     ?>
     <div class="col">
         <div class="bg-white p-4 h-100">
-            <div class="row g-3 align-items-center h-100">
+            <div class="row g-5 align-items-center h-100">
                 <?php if (!empty($doctors_result_image_url)): ?>
                 <div class="col-5">
                     <a href="<?php echo esc_url($doctors_result_profile_url); ?>" aria-label="View profile for <?php echo esc_attr($doctors_result_name); ?>">
-                        <img src="<?php echo esc_url($doctors_result_image_url); ?>" alt="<?php echo esc_attr($doctors_result_name); ?>" class="img-fluid w-100">
+                        <img src="<?php echo esc_url($doctors_result_image_url); ?>" alt="<?php echo esc_attr($doctors_result_name); ?>" class="img-fluid img-rounded w-100">
                     </a>
                 </div>
                 <?php endif; ?>
