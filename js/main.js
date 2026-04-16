@@ -921,11 +921,12 @@ jQuery(document).ready(function ($) {
     var totalDoctorSlides = $sliderDoctors.children().length;
 
     $sliderDoctors.slick({
-        dots: true,
+        dots: false,
         infinite: true,
         speed: 300,
-        slidesToShow: 3,
+        slidesToShow: 5,
         slidesToScroll: 1,
+        gap: '200px',
 
         autoplay: totalDoctorSlides > 3,
         autoplaySpeed: 3000,
@@ -937,7 +938,34 @@ jQuery(document).ready(function ($) {
 
         responsive: [
             {
-                breakpoint: 992,
+                breakpoint: 2560,
+                settings: {
+                    slidesToShow: 4,
+                    slidesToScroll: 1,
+                    autoplay: totalDoctorSlides > 2,
+                    dots: true
+                }
+            },
+            {
+                breakpoint: 2048,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 1,
+                    autoplay: totalDoctorSlides > 2,
+                    dots: true
+                }
+            },
+            {
+                breakpoint: 1200,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
+                    autoplay: totalDoctorSlides > 2,
+                    dots: true
+                }
+            },
+            {
+                breakpoint: 768,
                 settings: {
                     slidesToShow: 2,
                     slidesToScroll: 1,

@@ -151,49 +151,19 @@ get_header();
                                 <?php while ($locations_doctors_query->have_posts()): $locations_doctors_query->the_post(); ?>
                                 <?php
                                     $locations_doctor_id = get_the_ID();
-                                    $locations_doctor_name = get_the_title();
-                                    $locations_doctor_profile_url = get_permalink($locations_doctor_id);
-                                    $locations_doctor_title = get_field('doctor_staff_title', $locations_doctor_id);
-                                    $locations_doctor_specialisations = get_field('doctor_staff_specialisations', $locations_doctor_id);
-                                    $locations_doctor_image = get_field('doctor_staff_image', $locations_doctor_id);
+                                    /*
+                                    Build normalized doctor/staff card data from post ID, then
+                                    keep this context's heading style explicit for readability.
+                                    */
+                                    $locations_doctor_card_data = bystra_get_doctor_staff_card_data(
+                                        $locations_doctor_id,
+                                        array(
+                                            'heading_variant' => 'split',
+                                        )
+                                    );
 
-                                    $locations_doctor_image_url = '';
-                                    if (is_array($locations_doctor_image)):
-                                        if (!empty($locations_doctor_image['sizes']['576sm'])):
-                                            $locations_doctor_image_url = (string) $locations_doctor_image['sizes']['576sm'];
-                                        elseif (!empty($locations_doctor_image['url'])):
-                                            $locations_doctor_image_url = (string) $locations_doctor_image['url'];
-                                        endif;
-                                    endif;
-
-                                    $locations_doctor_content_column_class = !empty($locations_doctor_image_url) ? 'col-7' : 'col-12';
+                                    bystra_render_doctor_staff_grid_card($locations_doctor_card_data);
                                 ?>
-                                <div class="col">
-                                    <div class="bg-white p-4 h-100">
-                                        <div class="row g-5 align-items-center h-100">
-                                            <?php if (!empty($locations_doctor_image_url)): ?>
-                                            <div class="col-5">
-                                                <a href="<?php echo esc_url($locations_doctor_profile_url); ?>" aria-label="View profile for <?php echo esc_attr($locations_doctor_name); ?>">
-                                                    <img src="<?php echo esc_url($locations_doctor_image_url); ?>" alt="<?php echo esc_attr($locations_doctor_name); ?>" class="img-fluid img-rounded w-100">
-                                                </a>
-                                            </div>
-                                            <?php endif; ?>
-                                            <div class="<?php echo esc_attr($locations_doctor_content_column_class); ?>">
-                                                <?php if (!empty($locations_doctor_title)): ?>
-                                                <h6 class="mb-1"><?php echo esc_html($locations_doctor_title); ?></h6>
-                                                <?php endif; ?>
-
-                                                <h6 class="mb-2"><?php echo esc_html($locations_doctor_name); ?></h6>
-
-                                                <?php if (!empty($locations_doctor_specialisations)): ?>
-                                                <div class="mb-3 small"><?php echo wp_kses_post($locations_doctor_specialisations); ?></div>
-                                                <?php endif; ?>
-
-                                                <a href="<?php echo esc_url($locations_doctor_profile_url); ?>" class="btn btn-sm btn-verde">LEARN MORE <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
                                 <?php endwhile; ?>
                             </div>
                             <?php else: ?>

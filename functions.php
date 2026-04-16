@@ -176,6 +176,10 @@ require_once get_template_directory() . '/inc/component-resources.php';
 // Links to: page-locations.php (deep-link into the correct tab)
 require_once get_template_directory() . '/inc/component-consulting-locations.php';
 
+// Shared doctor/staff card data builder + renderers + specialisations formatter.
+// Used by: search-filter/1.php, page-locations.php, blocks/block-slider-doctors.php
+require_once get_template_directory() . '/inc/component-doctor-staff-card.php';
+
 
 
 /*

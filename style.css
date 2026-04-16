@@ -2548,6 +2548,12 @@ html {
   align-items: flex-end;
 }
 
+#navbar-brand,
+#navbar-brand:hover {
+  background-image: none;
+  text-decoration: none;
+}
+
 #main-menu-mobile a:link,
 #menu-main-menu-desktop a:link {
   color: #8CC63E;
@@ -2895,11 +2901,17 @@ html {
   align-items: center;
   justify-content: space-between;
   gap: 24px;
+  background-image: none;
+  text-decoration: none;
 }
 .btn-verde:hover {
   border-color: #5a8418;
   background-color: #5a8418;
   color: #eaeaea;
+}
+.btn-verde:hover {
+  background-image: none;
+  text-decoration: none;
 }
 
 .btn-blanco {
@@ -3607,37 +3619,24 @@ Check the fonts in %text-list-base (.text-list li, .text-list-light and .text-li
   transition: transform 0.3s ease;
 }
 
-.slider-doctors .slick-slide {
-  margin: 0 10px;
+.block-slider-doctors-card {
+  z-index: 20;
+  padding: 20px 60px;
 }
 
-.slider-doctor-card {
+@media (max-width: 768px) {
+  .block-slider-doctors-card {
+    padding: 20px 20px;
+  }
+}
+.doctor-staff-card-link,
+.doctor-staff-card-link:hover {
+  background-image: none;
   text-decoration: none;
-  display: block;
 }
-.slider-doctor-card .magnify {
-  border-radius: 8px;
-  overflow: hidden;
-  height: 100%;
-}
-.slider-doctor-card .slider-doctor-image {
-  overflow: hidden;
-  border-radius: 4px;
-}
-.slider-doctor-card .slider-doctor-image img {
-  aspect-ratio: 1/1;
-  object-fit: cover;
-}
-.slider-doctor-card .slider-doctor-title {
-  font-size: 0.85rem;
-  color: #0D2C6B;
-}
-.slider-doctor-card .slider-doctor-name {
-  color: #0D2C6B;
-  font-weight: 600;
-}
-.slider-doctor-card .slider-doctor-specialisations {
-  color: #666;
+
+.slider-doctors .slick-slide {
+  margin: 0 30px;
 }
 
 /*

@@ -275,6 +275,13 @@ html {
     align-items: flex-end;
 }
 
+// Keep logo link free of global underline animation
+#navbar-brand,
+#navbar-brand:hover {
+    background-image: none;
+    text-decoration: none;
+}
+
 // Link styles for both desktop and mobile menus
 #main-menu-mobile a:link,
 #menu-main-menu-desktop a:link {
@@ -632,6 +639,13 @@ html {
     align-items: center;
     justify-content: space-between;
     gap: 24px;
+    background-image: none;
+    text-decoration: none;
+
+    &:hover {
+        background-image: none;
+        text-decoration: none;
+    }
 }
 
 .btn-blanco {
@@ -1385,43 +1399,27 @@ Check the fonts in %text-list-base (.text-list li, .text-list-light and .text-li
 
 
 // Slider Doctors Block
-.slider-doctors .slick-slide {
-    margin: 0 10px;
+.block-slider-doctors-card {
+    z-index: 20;
+    padding: 20px 60px;
 }
 
-.slider-doctor-card {
+@media (max-width: 768px) {
+    .block-slider-doctors-card {
+        padding: 20px 20px;
+    }
+}
+
+
+.doctor-staff-card-link,
+.doctor-staff-card-link:hover {
+    background-image: none;
     text-decoration: none;
-    display: block;
+}
 
-    .magnify {
-        border-radius: 8px;
-        overflow: hidden;
-        height: 100%;
-    }
 
-    .slider-doctor-image {
-        overflow: hidden;
-        border-radius: 4px;
-
-        img {
-            aspect-ratio: 1 / 1;
-            object-fit: cover;
-        }
-    }
-
-    .slider-doctor-title {
-        font-size: 0.85rem;
-        color: colours.$posidonia;
-    }
-
-    .slider-doctor-name {
-        color: colours.$posidonia;
-        font-weight: 600;
-    }
-
-    .slider-doctor-specialisations {
-        color: #666;
-    }
+.slider-doctors .slick-slide {
+    margin: 0 30px;
 }
 
 /*
