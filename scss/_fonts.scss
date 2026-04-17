@@ -31,7 +31,7 @@ html {
 }
 
 body {
-    @include font($text-prose, $fw-prose-light);
+    @include font($text-prose, $fw-prose-regular);
     font-size: $body-font-size;
     color: colours.$tinta;
 }
