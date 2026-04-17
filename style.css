@@ -583,8 +583,16 @@ h6 {
   }
 }
 /* Basics */
+p {
+  margin: 0 0 1.5rem 0;
+}
+
+/* p:last-child {
+    margin-bottom: 0;
+} */
 strong {
-  font-weight: 500;
+  font-weight: 600;
+  margin: 0 0 1.5rem 0;
 }
 
 .text-prose-light {
