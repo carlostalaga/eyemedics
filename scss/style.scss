@@ -567,6 +567,56 @@ html {
     }
 }
 
+.sidebar-menu {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    border: 2px solid colours.$verde;
+    background-color: colours.$blanco;
+
+    li {
+        margin: 0;
+        border-bottom: 1px solid color.change(colours.$verde, $alpha: 0.45);
+
+        &:last-child {
+            border-bottom: 0;
+        }
+
+        &.current-menu-item,
+        &.current_page_item {
+            background-color: colours.$verde-light;
+
+            a {
+                text-decoration: underline;
+            }
+        }
+
+        &.current-menu-parent,
+        &.current-menu-ancestor,
+        &.current_page_parent,
+        &.current_page_ancestor {
+            background-color: colours.$humo;
+        }
+    }
+
+    a {
+        @include fonts.font(fonts.$text-prose, fonts.$fw-prose-bold);
+        display: block;
+        padding: 0.95rem 1.15rem;
+        color: colours.$tinta;
+        text-decoration: none;
+        line-height: 1.25;
+
+        &:hover,
+        &:focus-visible {
+            color: colours.$tinta;
+            text-decoration: none;
+        }
+    }
+}
+
+
+
 
 
 /*

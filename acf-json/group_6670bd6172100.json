@@ -2196,6 +2196,7 @@
                                     "collapsed": "",
                                     "button_label": "Add Row",
                                     "rows_per_page": 20,
+                                    "parent_repeater": "field_66e91a4eaf29d",
                                     "sub_fields": [
                                         {
                                             "key": "field_6980181d5a75b",
@@ -2283,8 +2284,7 @@
                                             "allow_in_bindings": 0,
                                             "parent_repeater": "field_698017ff5a75a"
                                         }
-                                    ],
-                                    "parent_repeater": "field_66e91a4eaf29d"
+                                    ]
                                 }
                             ]
                         }
@@ -4000,5 +4000,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1776149837
+    "modified": 1776389944
 }

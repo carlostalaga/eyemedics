@@ -2806,6 +2806,44 @@ html {
   color: #fcb937;
 }
 
+.sidebar-menu {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  border: 2px solid #8CC63E;
+  background-color: #ffffff;
+}
+.sidebar-menu li {
+  margin: 0;
+  border-bottom: 1px solid rgba(140, 198, 62, 0.45);
+}
+.sidebar-menu li:last-child {
+  border-bottom: 0;
+}
+.sidebar-menu li.current-menu-item, .sidebar-menu li.current_page_item {
+  background-color: #A7D16C;
+}
+.sidebar-menu li.current-menu-item a, .sidebar-menu li.current_page_item a {
+  text-decoration: underline;
+}
+.sidebar-menu li.current-menu-parent, .sidebar-menu li.current-menu-ancestor, .sidebar-menu li.current_page_parent, .sidebar-menu li.current_page_ancestor {
+  background-color: #eaeaea;
+}
+.sidebar-menu a {
+  font-family: "canada-type-gibson", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  display: block;
+  padding: 0.95rem 1.15rem;
+  color: #1a1a1a;
+  text-decoration: none;
+  line-height: 1.25;
+}
+.sidebar-menu a:hover, .sidebar-menu a:focus-visible {
+  color: #1a1a1a;
+  text-decoration: none;
+}
+
 /*
 ██████  ██    ██ ████████ ████████  ██████  ███    ██ ███████
 ██   ██ ██    ██    ██       ██    ██    ██ ████   ██ ██

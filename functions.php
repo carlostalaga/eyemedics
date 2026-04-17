@@ -40,6 +40,7 @@ function bystra_theme_setup() {
         'super-menu' => __('Super menu', 'bystra') ,
         'footer-menu' => __('Footer menu', 'bystra') ,
         'privacy-menu' => __('Privacy menu', 'bystra') ,
+        'surgical-services-menu' => __('Surgical services menu', 'bystra') ,
     ));
 }
 add_action('after_setup_theme', 'bystra_theme_setup');

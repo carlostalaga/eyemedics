@@ -15,10 +15,34 @@ get_header();
         include get_theme_file_path('/inc/content-intro.php'); 
         ?>
 
-        <?php 
-        /* Flexible Content */
-        include get_theme_file_path('/blocks/flexible-content.php'); 
-        ?>
+        <div class="container-fluid">
+            <div class="container">
+
+                <div class="row">
+                    <div class="col-lg-3 mb-4 mb-lg-0">
+
+
+                        <?php
+                        wp_nav_menu(array(
+                            'theme_location' => 'surgical-services-menu',
+                            'container'      => 'nav',
+                            'menu_class'     => 'sidebar-menu',
+                        ));
+                        ?>
+
+
+                    </div>
+                    <div class="col-lg-9">
+                        <?php 
+                        /* Flexible Content */
+                        include get_theme_file_path('/blocks/flexible-content.php'); 
+                        ?>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
 
 
 

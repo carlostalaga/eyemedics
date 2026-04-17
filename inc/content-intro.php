@@ -14,28 +14,28 @@
 /* =========================================
  * ACF values
  * =======================================*/
-$content_intro_columns = get_sub_field('content_columns');
-$content_intro_content = get_sub_field('content_content');
+$content_columns = get_sub_field('content_columns');
+$content_content = get_sub_field('content_content');
 $content_intro_post_title = get_the_title();
 
 // Fallback to get_field() when this template is used outside flexible content loops.
-if (!$content_intro_columns):
-    $content_intro_columns = get_field('content_columns');
+if (!$content_columns):
+    $content_columns = get_field('content_columns');
 endif;
 
-if (!$content_intro_content):
-    $content_intro_content = get_field('content_content');
+if (!$content_content):
+    $content_content = get_field('content_content');
 endif;
 
 /* =========================================
  * Layout modifiers
  * =======================================*/
-$content_intro_newspaper_class = ($content_intro_columns === '2_col') ? 'newspaper' : '';
+$content_newspaper_class = ($content_columns === '2_col') ? 'newspaper' : '';
 
 /* =========================================
  * Guard clause
  * =======================================*/
-if (!$content_intro_post_title && !$content_intro_content):
+if (!$content_intro_post_title && !$content_content):
     return;
 endif;
 ?>
@@ -55,9 +55,9 @@ endif;
                 <?php endif; ?>
 
                 <!-- ACF content -->
-                <?php if ($content_intro_content): ?>
-                <div class="<?php echo esc_attr($content_intro_newspaper_class); ?>">
-                    <?php echo wp_kses_post($content_intro_content); ?>
+                <?php if ($content_content): ?>
+                <div class="<?php echo esc_attr($content_newspaper_class); ?>">
+                    <?php echo wp_kses_post($content_content); ?>
                 </div>
                 <?php endif; ?>
             </div>
