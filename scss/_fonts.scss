@@ -61,12 +61,12 @@ a {
 //   <h2 class="text-posidonia">...</h2>
 // This allows sensible defaults while enabling easy per-case overrides.
 $base-font-sizes: (
-    h1: (size: 6.2rem, weight: $fw-prose-semibold, line-height: 0.96, letter-spacing: 0, color: colours.$tinta),
-    h2: (size: 5.7rem, weight: $fw-prose-semibold, line-height: 0.96, letter-spacing: 0, color: colours.$tinta),
-    h3: (size: 4.8rem, weight: $fw-prose-semibold, line-height: 0.96, letter-spacing: 0, color: colours.$tinta),
-    h4: (size: 4.0rem, weight: $fw-prose-semibold, line-height: 0.96, letter-spacing: 0, color: colours.$tinta),
-    h5: (size: 3.4rem, weight: $fw-prose-semibold, line-height: 1.23, letter-spacing: 0, color: colours.$tinta),
-    h6: (size: 2.6rem, weight: $fw-prose-semibold, line-height: 0.95, letter-spacing: 0, color: colours.$tinta)
+    h1: (size: 6.2rem, weight: $fw-prose-semibold, line-height: 0.96, letter-spacing: 0, color: colours.$tinta, margin-bottom: 0.6rem),
+    h2: (size: 5.7rem, weight: $fw-prose-semibold, line-height: 0.96, letter-spacing: 0, color: colours.$tinta, margin-bottom: 0.6rem),
+    h3: (size: 4.8rem, weight: $fw-prose-semibold, line-height: 0.96, letter-spacing: 0, color: colours.$tinta, margin-bottom: 0.4rem),
+    h4: (size: 4.0rem, weight: $fw-prose-semibold, line-height: 0.96, letter-spacing: 0, color: colours.$tinta, margin-bottom: 0.4rem),
+    h5: (size: 3.4rem, weight: $fw-prose-semibold, line-height: 1.23, letter-spacing: 0, color: colours.$tinta, margin-bottom: 0.3rem),
+    h6: (size: 2.6rem, weight: $fw-prose-semibold, line-height: 0.95, letter-spacing: 0, color: colours.$tinta, margin-bottom: 0.3rem)
 );
 
 $breakpoints: (
@@ -90,6 +90,7 @@ $breakpoints: (
 // Optional properties (only applied if not null):
 //   - line-height: custom line-height (falls back to browser default if null)
 //   - letter-spacing: custom letter-spacing (falls back to browser default if null)
+//   - margin-bottom: spacing below heading (falls back to browser default if null)
 //
 // To override colors in specific contexts, use utility classes from _colours.scss:
 //   <h2 class="text-posidonia">...</h2>
@@ -107,6 +108,10 @@ $breakpoints: (
         @if map.get($props, letter-spacing) {
             letter-spacing: map.get($props, letter-spacing);
         }
+
+        @if map.get($props, margin-bottom) {
+            margin-bottom: map.get($props, margin-bottom);
+        }
     }
 }
 
@@ -122,19 +127,6 @@ $breakpoints: (
                 font-size: calc(#{map.get($props, size)} * #{$scale});
             }
         }
-    }
-}
-
-
-.contentBox {
-
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-        margin: 0 0 0.6rem 0;
     }
 }
 

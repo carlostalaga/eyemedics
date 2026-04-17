@@ -432,6 +432,7 @@ h1 {
   color: #1a1a1a;
   line-height: 0.96;
   letter-spacing: 0;
+  margin-bottom: 0.6rem;
 }
 
 h2 {
@@ -442,6 +443,7 @@ h2 {
   color: #1a1a1a;
   line-height: 0.96;
   letter-spacing: 0;
+  margin-bottom: 0.6rem;
 }
 
 h3 {
@@ -452,6 +454,7 @@ h3 {
   color: #1a1a1a;
   line-height: 0.96;
   letter-spacing: 0;
+  margin-bottom: 0.4rem;
 }
 
 h4 {
@@ -462,6 +465,7 @@ h4 {
   color: #1a1a1a;
   line-height: 0.96;
   letter-spacing: 0;
+  margin-bottom: 0.4rem;
 }
 
 h5 {
@@ -472,6 +476,7 @@ h5 {
   color: #1a1a1a;
   line-height: 1.23;
   letter-spacing: 0;
+  margin-bottom: 0.3rem;
 }
 
 h6 {
@@ -482,6 +487,7 @@ h6 {
   color: #1a1a1a;
   line-height: 0.95;
   letter-spacing: 0;
+  margin-bottom: 0.3rem;
 }
 
 @media (max-width: 1200px) {
@@ -576,15 +582,6 @@ h6 {
     font-size: calc(2.6rem * 0.8);
   }
 }
-.contentBox h1,
-.contentBox h2,
-.contentBox h3,
-.contentBox h4,
-.contentBox h5,
-.contentBox h6 {
-  margin: 0 0 0.6rem 0;
-}
-
 /* Basics */
 strong {
   font-weight: 500;
