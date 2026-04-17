@@ -2,7 +2,7 @@
 @use 'colours' as colours;
 
 // Font family variables
-$text-prose: "canada-type-gibson", sans-serif;
+$text-prose: "din-2014", sans-serif;
 // $text-drama: 'open-sans', sans-serif;
 // $text-epic: 'times', serif;
 
@@ -61,12 +61,12 @@ a {
 //   <h2 class="text-posidonia">...</h2>
 // This allows sensible defaults while enabling easy per-case overrides.
 $base-font-sizes: (
-    h1: (size: 6.2rem, weight: $fw-prose-regular, line-height: 0.96, letter-spacing: -0.058rem, color: colours.$tinta),
-    h2: (size: 5.7rem, weight: $fw-prose-regular, line-height: 0.96, letter-spacing: -0.058rem, color: colours.$tinta),
-    h3: (size: 4.8rem, weight: $fw-prose-regular, line-height: 0.96, letter-spacing: -0.049rem, color: colours.$tinta),
-    h4: (size: 4.0rem, weight: $fw-prose-regular, line-height: 0.96, letter-spacing: -0.039rem, color: colours.$tinta),
-    h5: (size: 3.4rem, weight: $fw-prose-regular, line-height: 1.23, letter-spacing: -0.12rem, color: colours.$tinta),
-    h6: (size: 2.6rem, weight: $fw-prose-regular, line-height: 0.95, letter-spacing: null, color: colours.$tinta)
+    h1: (size: 6.2rem, weight: $fw-prose-semibold, line-height: 0.96, letter-spacing: 0, color: colours.$tinta),
+    h2: (size: 5.7rem, weight: $fw-prose-semibold, line-height: 0.96, letter-spacing: 0, color: colours.$tinta),
+    h3: (size: 4.8rem, weight: $fw-prose-semibold, line-height: 0.96, letter-spacing: 0, color: colours.$tinta),
+    h4: (size: 4.0rem, weight: $fw-prose-semibold, line-height: 0.96, letter-spacing: 0, color: colours.$tinta),
+    h5: (size: 3.4rem, weight: $fw-prose-semibold, line-height: 1.23, letter-spacing: 0, color: colours.$tinta),
+    h6: (size: 2.6rem, weight: $fw-prose-semibold, line-height: 0.95, letter-spacing: 0, color: colours.$tinta)
 );
 
 $breakpoints: (
