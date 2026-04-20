@@ -285,6 +285,10 @@ function bystra_image_sizes() {
         'center',
         'center'
     ));
+    add_image_size('4-3r960', 960, 800, array(
+        'center',
+        'center'
+    ));
     add_image_size('16-9r720', 720, 405, array(
         'center',
         'center'

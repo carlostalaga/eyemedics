@@ -64,27 +64,14 @@ $nav_hero_instance_id = function_exists('wp_unique_id') ? wp_unique_id('nav-hero
         <div class="nav-hero__slide<?php echo $is_active ? ' is-active' : ''; ?>" data-slide="<?php echo esc_attr($index); ?>" id="<?php echo esc_attr($panel_id); ?>" role="tabpanel" aria-labelledby="<?php echo esc_attr($tab_id); ?>" tabindex="0" <?php if (!$is_active): ?>hidden<?php endif; ?>>
             <div class="row">
                 <div class="col-6">
-                    <?php
-                        $image = $item['image'];
-                        if (is_array($image) && !empty($image['ID'])):
-                            $alt = isset($image['alt']) ? $image['alt'] : '';
-                            echo wp_get_attachment_image(
-                                (int) $image['ID'],
-                                [576, 576],
-                                false,
-                                [
-                                    'class' => 'img-fluid nav-hero__image',
-                                    'alt' => $alt,
-                                    'loading' => 'lazy',
-                                ]
-                            );
-                        elseif (is_array($image) && !empty($image['url'])):
-                            $alt = isset($image['alt']) ? $image['alt'] : '';
-                            ?>
-                    <img class="img-fluid nav-hero__image" src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($alt); ?>" loading="lazy" />
-                    <?php
-                        endif;
-                        ?>
+                    <div class="nav-hero__media">
+                        <img class="nav-hero__arrow nav-hero__arrow--head" src="<?php echo esc_url(get_template_directory_uri() . '/img/arrow-head.svg'); ?>" alt="" aria-hidden="true" />
+                        <?php $image = $item['image']; ?>
+                        <?php if (!empty($image['sizes']['4-3r960'])): ?>
+                        <img class="img-fluid nav-hero__image" src="<?php echo esc_url($image['sizes']['4-3r960']); ?>" alt="<?php echo esc_attr($image['alt'] ?? ''); ?>" loading="lazy" />
+                        <?php endif; ?>
+                        <img class="nav-hero__arrow nav-hero__arrow--tail" src="<?php echo esc_url(get_template_directory_uri() . '/img/arrow-tail.svg'); ?>" alt="" aria-hidden="true" />
+                    </div>
                 </div>
 
                 <div class="col-6 d-flex align-items-center">
@@ -136,6 +123,28 @@ if (!$nav_hero_assets_printed):
         .nav-hero__slide.is-active {
             display: block;
         }
+
+        .nav-hero__media {
+            position: relative;
+            display: inline-block;
+            max-width: 100%;
+        }
+
+        .nav-hero__image {
+            display: block;
+        }
+
+        .nav-hero__arrow {
+            position: absolute;
+            top: 0;
+            height: 100%;
+            width: auto;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .nav-hero__arrow--head { left: 0; }
+        .nav-hero__arrow--tail { right: 0; }
     </style>
 
 <script>
