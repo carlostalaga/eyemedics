@@ -698,6 +698,49 @@ html {
     }
 }
 
+.btn-hero {
+    @include button-styles(colours.$blanco, colours.$lima, colours.$negro, colours.$negro);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    background-image: none;
+    text-decoration: none;
+    padding: 24px 18px;
+    min-height: 105px;
+
+    &:hover,
+    &:focus,
+    &.is-active,
+    &.is-active:focus {
+        //background-image: none;
+        text-decoration: none;
+        border-color: colours.$lima;
+        background-color: colours.$lima;
+        color: colours.$negro;
+        box-shadow: none;
+    }
+}
+
+.btn.btn-hero {
+
+    &:active,
+    &.is-active:active {
+        border-color: colours.$lima-dark;
+        background-color: colours.$lima-dark;
+        color: colours.$humo;
+        box-shadow: none;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .btn-hero {
+        min-height: 48px;
+        margin-top: 6px;
+        margin-bottom: 6px
+    }
+}
+
 .btn-blanco {
     @include button-styles(colours.$blanco, colours.$hueso, colours.$tinta, colours.$tinta);
     display: inline-flex;

@@ -51,9 +51,9 @@ $nav_hero_instance_id = function_exists('wp_unique_id') ? wp_unique_id('nav-hero
 
 ?>
 
-<div class="container-fluid nav-hero bg-verde-light" data-nav-hero="<?php echo esc_attr($nav_hero_instance_id); ?>">
+<div class="container-fluid p-0 nav-hero" data-nav-hero="<?php echo esc_attr($nav_hero_instance_id); ?>">
 
-    <div class="container nav-hero-top">
+    <div class="container-fluid nav-hero-top  bg-verde-light">
         <?php foreach ($nav_hero_items as $index => $item): ?>
         <?php
             $is_active = ($index === 0);
@@ -61,15 +61,15 @@ $nav_hero_instance_id = function_exists('wp_unique_id') ? wp_unique_id('nav-hero
             $panel_id = $nav_hero_instance_id . '-panel-' . $index;
             ?>
 
-        <div class="nav-hero-slide<?php echo $is_active ? ' is-active' : ''; ?>" data-slide="<?php echo esc_attr($index); ?>" id="<?php echo esc_attr($panel_id); ?>" role="tabpanel" aria-labelledby="<?php echo esc_attr($tab_id); ?>" tabindex="0" <?php if (!$is_active): ?>hidden<?php endif; ?>>
-            <div class="row">
+        <div class="container bg-info p-0 nav-hero-slide<?php echo $is_active ? ' is-active' : ''; ?>" data-slide="<?php echo esc_attr($index); ?>" id="<?php echo esc_attr($panel_id); ?>" role="tabpanel" aria-labelledby="<?php echo esc_attr($tab_id); ?>" tabindex="0" <?php if (!$is_active): ?>hidden<?php endif; ?>>
+            <div class="row g-0">
 
                 <div class="col-6">
                     <div class="nav-hero-media">
                         <img class="nav-hero-arrow nav-hero-arrow-head" src="<?php echo esc_url(get_template_directory_uri() . '/img/arrow-head.svg'); ?>" alt="" aria-hidden="true" />
                         <?php $image = $item['image']; ?>
-                        <?php if (!empty($image['sizes']['4-3r960'])): ?>
-                        <img class="img-fluid nav-hero-image" src="<?php echo esc_url($image['sizes']['4-3r960']); ?>" alt="<?php echo esc_attr($image['alt'] ?? ''); ?>" loading="lazy" />
+                        <?php if (!empty($image['sizes']['6-5r960'])): ?>
+                        <img class="img-fluid nav-hero-image" src="<?php echo esc_url($image['sizes']['6-5r960']); ?>" alt="<?php echo esc_attr($image['alt'] ?? ''); ?>" loading="lazy" />
                         <?php endif; ?>
                         <img class="nav-hero-arrow nav-hero-arrow-tail" src="<?php echo esc_url(get_template_directory_uri() . '/img/arrow-tail.svg'); ?>" alt="" aria-hidden="true" />
                     </div>
@@ -92,10 +92,11 @@ $nav_hero_instance_id = function_exists('wp_unique_id') ? wp_unique_id('nav-hero
 
 
     <?php if ($nav_hero_count > 1): ?>
-    <div class="container nav-hero-bottom">
-        <div class="row nav-hero-tabs" role="tablist" aria-label="<?php echo esc_attr__('Navigator hero', 'eyemedics'); ?>">
-            <?php foreach ($nav_hero_items as $index => $item): ?>
-            <?php
+    <div class="container-fluid nav-hero-bottom">
+        <div class="container">
+            <div class="row nav-hero-tabs" role="tablist" aria-label="<?php echo esc_attr__('Navigator hero', 'eyemedics'); ?>">
+                <?php foreach ($nav_hero_items as $index => $item): ?>
+                <?php
                     $is_active = ($index === 0);
                     $tab_id = $nav_hero_instance_id . '-tab-' . $index;
                     $panel_id = $nav_hero_instance_id . '-panel-' . $index;
@@ -106,12 +107,13 @@ $nav_hero_instance_id = function_exists('wp_unique_id') ? wp_unique_id('nav-hero
                     $link_rel = ($link_target === '_blank') ? 'noopener noreferrer' : '';
                     ?>
 
-            <div class="col-12 col-sm-6 col-md">
-                <a class="btn btn-verde w-100 nav-hero-tab<?php echo $is_active ? ' is-active' : ''; ?>" href="<?php echo esc_url($link_url ?: '#'); ?>" <?php if (!empty($link_target)): ?>target="<?php echo esc_attr($link_target); ?>" <?php endif; ?> <?php if (!empty($link_rel)): ?>rel="<?php echo esc_attr($link_rel); ?>" <?php endif; ?> role="tab" id="<?php echo esc_attr($tab_id); ?>" aria-controls="<?php echo esc_attr($panel_id); ?>" aria-selected="<?php echo $is_active ? 'true' : 'false'; ?>" tabindex="<?php echo $is_active ? '0' : '-1'; ?>" data-target="<?php echo esc_attr($index); ?>">
-                    <?php echo esc_html($link_title ?: __('Learn more', 'eyemedics')); ?>
-                </a>
+                <div class="col-12 col-sm-6 col-md">
+                    <a class="btn btn-hero w-100 nav-hero-tab<?php echo $is_active ? ' is-active' : ''; ?>" href="<?php echo esc_url($link_url ?: '#'); ?>" <?php if (!empty($link_target)): ?>target="<?php echo esc_attr($link_target); ?>" <?php endif; ?> <?php if (!empty($link_rel)): ?>rel="<?php echo esc_attr($link_rel); ?>" <?php endif; ?> role="tab" id="<?php echo esc_attr($tab_id); ?>" aria-controls="<?php echo esc_attr($panel_id); ?>" aria-selected="<?php echo $is_active ? 'true' : 'false'; ?>" tabindex="<?php echo $is_active ? '0' : '-1'; ?>" data-target="<?php echo esc_attr($index); ?>">
+                        <?php echo esc_html($link_title ?: __('Learn more', 'eyemedics')); ?>
+                    </a>
+                </div>
+                <?php endforeach; ?>
             </div>
-            <?php endforeach; ?>
         </div>
     </div>
     <?php endif; ?>
@@ -133,12 +135,6 @@ if (!$nav_hero_assets_printed):
 
         .nav-hero-media {
             position: relative;
-            display: inline-block;
-            max-width: 100%;
-        }
-
-        .nav-hero-image {
-            display: block;
         }
 
         .nav-hero-arrow {
@@ -171,6 +167,23 @@ if (!$nav_hero_assets_printed):
         .nav-hero-content .nav-hero-headline {
             position: relative;
             z-index: 1;
+        }
+
+        /* Overhang: pull tabs up so they overlap the hero's bottom edge.
+           position: relative + z-index lifts them above .nav-hero-content
+           (which creates its own stacking context via position: relative). */
+        .nav-hero-bottom {
+            position: relative;
+            z-index: 2;
+            margin-top: -60px;
+            margin-bottom: -45px;
+        }
+
+        .nav-hero-tab.is-active,
+        .nav-hero-tab.is-active:hover {
+            border-color: #D5E04D;
+            background-color: #D5E04D;
+            color: #0A0203;
         }
     </style>
 
