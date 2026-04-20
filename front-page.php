@@ -6,6 +6,11 @@
     <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 
+        <?php
+    /* Navigator Hero */
+    include get_theme_file_path('/inc/navigator-hero.php'); 
+    ?>
+
         <?php 
     /* Flexible Content */
     include get_theme_file_path('/blocks/flexible-content.php'); 
