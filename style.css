@@ -4001,4 +4001,20 @@ Check the fonts in %text-list-base (.text-list li, .text-list-light and .text-li
   text-decoration: underline;
 }
 
+/*
+ ██████ ████████  █████      ██████  ██    ██ ████████ ████████  ██████  ███    ██ ███████
+██         ██    ██   ██     ██   ██ ██    ██    ██       ██    ██    ██ ████   ██ ██
+██         ██    ███████     ██████  ██    ██    ██       ██    ██    ██ ██ ██  ██ ███████
+██         ██    ██   ██     ██   ██ ██    ██    ██       ██    ██    ██ ██  ██ ██      ██
+ ██████    ██    ██   ██     ██████   ██████     ██       ██     ██████  ██   ████ ███████
+
+
+*/
+.cta-buttons-container {
+  position: relative;
+  z-index: 2;
+  margin-top: -60px;
+  margin-bottom: -45px;
+}
+
 /*# sourceMappingURL=style.css.map */

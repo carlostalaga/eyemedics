@@ -27,6 +27,8 @@ if( have_rows('flexible_content') ):
             include get_theme_file_path('/blocks/block-contact.php');
         elseif( get_row_layout() == 'content_basic' ):
             include get_theme_file_path('/blocks/block-content-basic.php');
+        elseif( get_row_layout() == 'cta_buttons' ):
+            include get_theme_file_path('/blocks/block-cta-buttons.php');
         elseif( get_row_layout() == 'document_resources' ):
             include get_theme_file_path('/blocks/block-document-resources.php');
         elseif( get_row_layout() == 'embed_media' ):

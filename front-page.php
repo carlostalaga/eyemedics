@@ -8,7 +8,7 @@
 
         <?php
     /* Navigator Hero */
-    include get_theme_file_path('/inc/navigator-hero.php'); 
+    /* include get_theme_file_path('/inc/navigator-hero.php'); */ 
     ?>
 
         <?php 
