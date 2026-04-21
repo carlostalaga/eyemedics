@@ -323,6 +323,26 @@ jQuery(document).ready(function () {
             });
         });
 
+        // Nav hero slider with slide transition + autoplay
+        document.querySelectorAll('.slider-nav-hero').forEach(function (sliderElement) {
+            var navHeroSlider = new Swiper(sliderElement, {
+                loop: true,
+                autoplay: {
+                    delay: 5000,
+                    disableOnInteraction: false,
+                },
+                speed: 800,
+                keyboard: {
+                    enabled: true,
+                    onlyInViewport: true,
+                },
+                observer: true,
+                observeParents: true,
+                preloadImages: true,
+                watchSlidesProgress: true,
+            });
+        });
+
         /*
         ███████ ██      ██ ██████  ███████ ██████      ████████  █████  ██████  ███████
         ██      ██      ██ ██   ██ ██      ██   ██        ██    ██   ██ ██   ██ ██
@@ -442,7 +462,7 @@ jQuery(document).ready(function () {
          ██████  ███████ ██   ████ ███████ ██   ██ ██  ██████     ███████ ███████ ██ ██████  ███████ ██   ██
         */
         // Initialize the generic swiper (excludes hero and slider-tabs to avoid double init)
-        var swiper = new Swiper('.swiper:not(.swiper-hero):not(.swiper-slider-tabs-nav):not(.swiper-slider-tabs-content)', {
+        var swiper = new Swiper('.swiper:not(.swiper-hero):not(.slider-nav-hero):not(.swiper-slider-tabs-nav):not(.swiper-slider-tabs-content)', {
             loop: true,
             // Uncomment the next line if you want autoplay
             // autoplay: true,

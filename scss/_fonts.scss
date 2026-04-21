@@ -177,11 +177,12 @@ strong {
 }
 
 .text-header,
-.nav-hero-headline {
-    @include font($text-prose, $fw-prose-bold);
-    font-size: 7.2rem;
-    text-transform: uppercase;
-    line-height: 0.9;
+.slider-headline,
+{
+@include font($text-prose, $fw-prose-bold);
+font-size: 7.2rem;
+text-transform: uppercase;
+line-height: 0.9;
 }
 
 $header-breakpoints: (
@@ -195,7 +196,7 @@ $header-breakpoints: (
     @media (max-width: $bp) {
 
         .text-header,
-        .nav-hero-headline {
+        .slider-headline {
             font-size: calc(7.2rem * #{$scale});
         }
     }

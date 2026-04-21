@@ -463,6 +463,115 @@ Swiper Thumbs pill nav + content slider
     padding: 24px 0;
 }
 
+/*
+███████ ██      ██ ██████  ███████ ██████
+██      ██      ██ ██   ██ ██      ██   ██
+███████ ██      ██ ██   ██ █████   ██████
+     ██ ██      ██ ██   ██ ██      ██   ██
+███████ ███████ ██ ██████  ███████ ██   ██
+
+███    ██  █████  ██    ██     ██   ██ ███████ ██████   ██████
+████   ██ ██   ██ ██    ██     ██   ██ ██      ██   ██ ██    ██
+██ ██  ██ ███████ ██    ██     ███████ █████   ██████  ██    ██
+██  ██ ██ ██   ██  ██  ██      ██   ██ ██      ██   ██ ██    ██
+██   ████ ██   ██   ████       ██   ██ ███████ ██   ██  ██████
+
+Slider nav hero block
+*/
+
+.slider-nav-hero {
+    height: auto;
+    min-height: 0;
+
+    .swiper-wrapper {
+        height: auto;
+    }
+
+    .swiper-slide {
+        display: block;
+        height: auto;
+        backface-visibility: hidden;
+        transform: translateZ(0);
+
+        // Ensure all slide content is pre-rendered even when not active
+        svg,
+        img,
+        video {
+            backface-visibility: hidden;
+            transform: translateZ(0);
+        }
+    }
+}
+
+.slider-nav-hero-top {
+    height: 100%;
+}
+
+.slider-nav-hero-media {
+    position: relative;
+    aspect-ratio: 6 / 5;
+    overflow: hidden;
+}
+
+.slider-nav-hero-image,
+.slider-nav-hero-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.slider-nav-hero-arrow {
+    position: absolute;
+    top: -2px;
+    bottom: -2px;
+    height: calc(100% + 4px);
+    width: auto;
+    z-index: 1;
+    pointer-events: none;
+    object-fit: fill;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+}
+
+.slider-nav-hero-arrow-head {
+    left: 0;
+}
+
+.slider-nav-hero-arrow-tail {
+    right: 0;
+}
+
+.slider-nav-hero-content {
+    position: relative;
+    background: linear-gradient(to right, #A7D16C 0%, #A7D16C 10%, #d3df62 90%, #d3df62 100%);
+    min-height: 100%;
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+}
+
+.slider-nav-hero-content-arrow {
+    position: absolute;
+    top: -2px;
+    bottom: -2px;
+    right: 0;
+    height: calc(100% + 4px);
+    width: auto;
+    z-index: 0;
+    pointer-events: none;
+    object-fit: fill;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+}
+
+.slider-nav-hero-content-inner {
+    position: relative;
+    z-index: 1;
+}
+
 // Responsive: tighten spacing on mobile
 @media (max-width: 767px) {
     .slider-tabs__pill {
@@ -477,6 +586,13 @@ Swiper Thumbs pill nav + content slider
 
     .slider-tabs__panel-inner {
         padding: 16px 0;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .slider-nav-hero-content-inner {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
     }
 }
 

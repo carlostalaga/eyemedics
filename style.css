@@ -640,7 +640,7 @@ strong {
 }
 
 .text-header,
-.nav-hero-headline {
+.slider-headline {
   font-family: "din-2014", sans-serif;
   font-weight: 700;
   font-style: normal;
@@ -651,25 +651,25 @@ strong {
 
 @media (max-width: 1200px) {
   .text-header,
-  .nav-hero-headline {
+  .slider-headline {
     font-size: calc(7.2rem * 0.8);
   }
 }
 @media (max-width: 992px) {
   .text-header,
-  .nav-hero-headline {
+  .slider-headline {
     font-size: calc(7.2rem * 0.5);
   }
 }
 @media (max-width: 768px) {
   .text-header,
-  .nav-hero-headline {
+  .slider-headline {
     font-size: calc(7.2rem * 0.35);
   }
 }
 @media (max-width: 576px) {
   .text-header,
-  .nav-hero-headline {
+  .slider-headline {
     font-size: calc(7.2rem * 0.3);
   }
 }
@@ -2295,6 +2295,110 @@ Swiper Thumbs pill nav + content slider
   padding: 24px 0;
 }
 
+/*
+███████ ██      ██ ██████  ███████ ██████
+██      ██      ██ ██   ██ ██      ██   ██
+███████ ██      ██ ██   ██ █████   ██████
+     ██ ██      ██ ██   ██ ██      ██   ██
+███████ ███████ ██ ██████  ███████ ██   ██
+
+███    ██  █████  ██    ██     ██   ██ ███████ ██████   ██████
+████   ██ ██   ██ ██    ██     ██   ██ ██      ██   ██ ██    ██
+██ ██  ██ ███████ ██    ██     ███████ █████   ██████  ██    ██
+██  ██ ██ ██   ██  ██  ██      ██   ██ ██      ██   ██ ██    ██
+██   ████ ██   ██   ████       ██   ██ ███████ ██   ██  ██████
+
+Slider nav hero block
+*/
+.slider-nav-hero {
+  height: auto;
+  min-height: 0;
+}
+.slider-nav-hero .swiper-wrapper {
+  height: auto;
+}
+.slider-nav-hero .swiper-slide {
+  display: block;
+  height: auto;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+.slider-nav-hero .swiper-slide svg,
+.slider-nav-hero .swiper-slide img,
+.slider-nav-hero .swiper-slide video {
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+.slider-nav-hero-top {
+  height: 100%;
+}
+
+.slider-nav-hero-media {
+  position: relative;
+  aspect-ratio: 6/5;
+  overflow: hidden;
+}
+
+.slider-nav-hero-image,
+.slider-nav-hero-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.slider-nav-hero-arrow {
+  position: absolute;
+  top: -2px;
+  bottom: -2px;
+  height: calc(100% + 4px);
+  width: auto;
+  z-index: 1;
+  pointer-events: none;
+  object-fit: fill;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+.slider-nav-hero-arrow-head {
+  left: 0;
+}
+
+.slider-nav-hero-arrow-tail {
+  right: 0;
+}
+
+.slider-nav-hero-content {
+  position: relative;
+  background: linear-gradient(to right, #A7D16C 0%, #A7D16C 10%, #d3df62 90%, #d3df62 100%);
+  min-height: 100%;
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+}
+
+.slider-nav-hero-content-arrow {
+  position: absolute;
+  top: -2px;
+  bottom: -2px;
+  right: 0;
+  height: calc(100% + 4px);
+  width: auto;
+  z-index: 0;
+  pointer-events: none;
+  object-fit: fill;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+.slider-nav-hero-content-inner {
+  position: relative;
+  z-index: 1;
+}
+
 @media (max-width: 767px) {
   .slider-tabs__pill {
     padding: 10px 20px;
@@ -2306,6 +2410,12 @@ Swiper Thumbs pill nav + content slider
   }
   .slider-tabs__panel-inner {
     padding: 16px 0;
+  }
+}
+@media (max-width: 991.98px) {
+  .slider-nav-hero-content-inner {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
   }
 }
 @media (max-width: 768px) {
@@ -3015,7 +3125,7 @@ html {
   background-image: none;
   text-decoration: none;
   padding: 24px 18px;
-  min-height: 105px;
+  min-height: 105px !important;
 }
 .btn-hero:hover, .btn-hero:focus, .btn-hero.is-active, .btn-hero.is-active:focus {
   text-decoration: none;
@@ -4013,8 +4123,15 @@ Check the fonts in %text-list-base (.text-list li, .text-list-light and .text-li
 .cta-buttons-container {
   position: relative;
   z-index: 2;
-  margin-top: -60px;
-  margin-bottom: -45px;
+  margin-top: -55px;
+  margin-bottom: -50px;
+}
+
+@media (max-width: 992px) {
+  .cta-buttons-container {
+    margin-top: 0;
+    margin-bottom: 0px;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
