@@ -97,6 +97,7 @@ get_header();
                         $locations_post_id = $locations_post->ID;
                         $locations_post_title = get_the_title($locations_post_id);
                         $locations_post_map = get_field('consulting_location_map', $locations_post_id);
+                        $locations_post_gallery = get_field('consulting_location_gallery', $locations_post_id);
 
                         $locations_map_allowed_html = array(
                             'iframe' => array(
@@ -138,11 +139,67 @@ get_header();
                     ?>
                     <div class="tab-pane fade <?php echo $locations_is_active ? 'show active' : ''; ?>" id="locations-tab-page-<?php echo esc_attr($locations_tab_index); ?>" role="tabpanel" aria-labelledby="locations-tab-page-<?php echo esc_attr($locations_tab_index); ?>-tab">
                         <div class="tabs-content-area mt-4 pb-5">
+
+                            <?php
+                            /* -------------------------------------------------------------------------- */
+                            /*                                     map                                    */
+                            /* -------------------------------------------------------------------------- */
+                            ?>
                             <?php if (!empty($locations_post_map)): ?>
                             <div class="mb-5">
                                 <?php echo wp_kses($locations_post_map, $locations_map_allowed_html); ?>
                             </div>
                             <?php endif; ?>
+
+
+                            <?php 
+                            /* -------------------------------------------------------------------------- */
+                            /*                                   gallery                                  */
+                            /* -------------------------------------------------------------------------- */
+                            ?>
+                            <?php if (!empty($locations_post_gallery) && is_array($locations_post_gallery)): ?>
+                            <?php
+                                $locations_gallery_id = 'locations-gallery-' . $locations_post_id;
+                            ?>
+                            <div id="<?php echo esc_attr($locations_gallery_id); ?>" class="row row-cols-2 row-cols-md-3 row-cols-xl-4 g-3 mb-5">
+                                <?php foreach ($locations_post_gallery as $locations_gallery_image): ?>
+                                <?php
+                                    $locations_gallery_full = $locations_gallery_image['sizes']['1080p'] ?? $locations_gallery_image['url'];
+                                    $locations_gallery_display = $locations_gallery_image['sizes']['medium_large'] ?? $locations_gallery_image['sizes']['720p'] ?? $locations_gallery_image['url'];
+                                    $locations_gallery_thumb = $locations_gallery_image['sizes']['thumbnail'] ?? $locations_gallery_image['url'];
+                                    $locations_gallery_alt = $locations_gallery_image['alt'] ?? '';
+                                    $locations_gallery_caption = $locations_gallery_image['caption'] ?? '';
+                                ?>
+                                <div class="col">
+                                    <a class="d-block ratio ratio-4x3 overflow-hidden" href="<?php echo esc_url($locations_gallery_full); ?>" data-lg-size="1920-1080" data-src="<?php echo esc_url($locations_gallery_full); ?>" data-thumb="<?php echo esc_url($locations_gallery_thumb); ?>" data-sub-html="<?php echo esc_attr($locations_gallery_caption); ?>">
+                                        <img src="<?php echo esc_url($locations_gallery_display); ?>" class="w-100 h-100 object-fit-cover lazy" alt="<?php echo esc_attr($locations_gallery_alt); ?>" loading="lazy">
+                                    </a>
+                                </div>
+                                <?php endforeach; ?>
+                            </div>
+
+                            <script>
+                            document.addEventListener("DOMContentLoaded", function() {
+                                lightGallery(document.querySelector("#<?php echo esc_js($locations_gallery_id); ?>"), {
+                                    selector: "a",
+                                    download: false,
+                                    plugins: [lgThumbnail, lgZoom, lgAutoplay],
+                                    thumbnail: true,
+                                    zoom: true,
+                                    autoplay: true,
+                                    pause: 3000,
+                                    progressBar: true,
+                                });
+                            });
+                            </script>
+                            <?php endif; ?>
+
+
+                            <?php
+                            /* -------------------------------------------------------------------------- */
+                            /*                                   doctors                                  */
+                            /* -------------------------------------------------------------------------- */
+                            ?>
 
                             <h3 class="mb-4">Practicing Doctors and Staff at <?php echo esc_html($locations_post_title); ?></h3>
 
