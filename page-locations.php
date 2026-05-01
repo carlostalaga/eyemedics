@@ -96,6 +96,7 @@ get_header();
                         $locations_is_active = ($locations_tab_index === $locations_active_tab_index);
                         $locations_post_id = $locations_post->ID;
                         $locations_post_title = get_the_title($locations_post_id);
+                        $locations_post_content = get_field('consulting_location_content', $locations_post_id);
                         $locations_post_map = get_field('consulting_location_map', $locations_post_id);
                         $locations_post_gallery = get_field('consulting_location_gallery', $locations_post_id);
 
@@ -140,14 +141,23 @@ get_header();
                     <div class="tab-pane fade <?php echo $locations_is_active ? 'show active' : ''; ?>" id="locations-tab-page-<?php echo esc_attr($locations_tab_index); ?>" role="tabpanel" aria-labelledby="locations-tab-page-<?php echo esc_attr($locations_tab_index); ?>-tab">
                         <div class="tabs-content-area mt-4 pb-5">
 
+
+                            <?php 
+                            /* -------------------------------------------------------------------------- */
+                            /*                                    title                                   */
+                            /* -------------------------------------------------------------------------- */
+                            if (!empty($locations_post_title)): ?>
+                            <h2 class="my-5"><?php echo esc_html($locations_post_title); ?></h2>
+                            <?php endif; ?>
+
                             <?php
                             /* -------------------------------------------------------------------------- */
-                            /*                                     map                                    */
+                            /*                                   content                                  */
                             /* -------------------------------------------------------------------------- */
                             ?>
-                            <?php if (!empty($locations_post_map)): ?>
+                            <?php if (!empty($locations_post_content)): ?>
                             <div class="mb-5">
-                                <?php echo wp_kses($locations_post_map, $locations_map_allowed_html); ?>
+                                <?php echo wp_kses_post($locations_post_content); ?>
                             </div>
                             <?php endif; ?>
 
@@ -161,7 +171,7 @@ get_header();
                             <?php
                                 $locations_gallery_id = 'locations-gallery-' . $locations_post_id;
                             ?>
-                            <div id="<?php echo esc_attr($locations_gallery_id); ?>" class="row row-cols-2 row-cols-md-3 row-cols-xl-4 g-3 mb-5">
+                            <div id="<?php echo esc_attr($locations_gallery_id); ?>" class="row row-cols-2 row-cols-md-3 row-cols-xl-4 g-3 mb-5 pb-5">
                                 <?php foreach ($locations_post_gallery as $locations_gallery_image): ?>
                                 <?php
                                     $locations_gallery_full = $locations_gallery_image['sizes']['1080p'] ?? $locations_gallery_image['url'];
@@ -195,13 +205,33 @@ get_header();
                             <?php endif; ?>
 
 
+
+
+
+
+
+
+                            <?php
+                            /* -------------------------------------------------------------------------- */
+                            /*                                     map                                    */
+                            /* -------------------------------------------------------------------------- */
+                            ?>
+                            <?php if (!empty($locations_post_map)): ?>
+                            <div class="my-5 py-5">
+                                <?php echo wp_kses($locations_post_map, $locations_map_allowed_html); ?>
+                            </div>
+                            <?php endif; ?>
+
+
+
+
                             <?php
                             /* -------------------------------------------------------------------------- */
                             /*                                   doctors                                  */
                             /* -------------------------------------------------------------------------- */
                             ?>
 
-                            <h3 class="mb-4">Practicing Doctors and Staff at <?php echo esc_html($locations_post_title); ?></h3>
+                            <h3 class="my-5 pb-5">Practicing Doctors and Staff at <?php echo esc_html($locations_post_title); ?></h3>
 
                             <?php if ($locations_doctors_query->have_posts()): ?>
                             <div class="row row-cols-1 row-cols-lg-2 g-4">
@@ -226,6 +256,12 @@ get_header();
                             <?php else: ?>
                             <div>No doctors or staff are currently assigned to this location.</div>
                             <?php endif; ?>
+
+
+
+
+
+
 
                             <?php wp_reset_postdata(); ?>
                         </div>

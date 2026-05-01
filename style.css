@@ -689,6 +689,14 @@ strong {
   color: #8CC63E;
 }
 
+.tabs-icon-label {
+  font-family: "din-2014", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 1.6rem;
+  text-transform: uppercase;
+}
+
 /*
 ██      ██ ███████ ████████ ███████
 ██      ██ ██         ██    ██

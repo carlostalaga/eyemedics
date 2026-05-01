@@ -216,6 +216,12 @@ $header-breakpoints: (
     color: colours.$verde;
 }
 
+.tabs-icon-label {
+    @include font($text-prose, $fw-prose-semibold);
+    font-size: 1.6rem;
+    text-transform: uppercase;
+}
+
 
 /*
 ██      ██ ███████ ████████ ███████
