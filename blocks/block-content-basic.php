@@ -80,10 +80,13 @@ if ($content_basic_columns == '1_col') {
     $image_url = $content_basic_image_url_11;
 }
 
+// Conditions and surgical services templates already provide the page-level H1.
+$content_basic_use_h2_headline = is_singular('conditions') || is_page_template('page-surgical-services.php');
+
 // Pre-render shared content sections to avoid duplication
 ob_start();
 if ($content_basic_headline):
-    if (!$firstContentBlockFound): ?>
+    if (!$firstContentBlockFound && !$content_basic_use_h2_headline): ?>
 <!-- First headline on page - use H1 for SEO -->
 <h1 class="mb-5"><?php echo esc_html($content_basic_headline); ?></h1>
 <?php $firstContentBlockFound = true;
