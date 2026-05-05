@@ -286,16 +286,19 @@
                     <div class="col-12 col-md-6 col-lg-5 px-5">
 
                         <div>
-                            <?php if (!empty($doctor_staff_specialist_fields_display)) : ?>
-                            <div>
-                                <div class="text-small">Specialist Fields</div>
-                                <?php echo esc_html($doctor_staff_specialist_fields_display); ?>
+                            <div class="mb-3">
+                                <div class="text-small">Specialist fields</div>
+                                <span class="text-sombra">
+                                    <?php if (!empty($doctor_staff_specialist_fields_display)) : ?>
+                                    <?php echo esc_html($doctor_staff_specialist_fields_display); ?>
+                                    <?php else : ?>
+                                    &nbsp;
+                                    <?php endif; ?>
+                                </span>
                             </div>
-                            <?php endif; ?>
 
-                            <?php if (!empty($doctor_staff_condition_links) || !empty($doctor_staff_conditions_display)) : ?>
-                            <div>
-                                <div class="text-xs">Conditions</div>
+                            <div class="mb-3">
+                                <div class="text-small">Conditions</div>
                                 <?php if (!empty($doctor_staff_condition_links)) : ?>
                                 <?php $doctor_staff_condition_links_total = count($doctor_staff_condition_links); ?>
                                 <?php foreach ($doctor_staff_condition_links as $doctor_staff_condition_index => $doctor_staff_condition_link) : ?>
@@ -303,11 +306,12 @@
                                     <?php echo esc_html($doctor_staff_condition_link['title']); ?>
                                 </a><?php if ($doctor_staff_condition_index < $doctor_staff_condition_links_total - 1) : ?>, <?php endif; ?>
                                 <?php endforeach; ?>
-                                <?php else : ?>
+                                <?php elseif (!empty($doctor_staff_conditions_display)) : ?>
                                 <?php echo esc_html($doctor_staff_conditions_display); ?>
+                                <?php else : ?>
+                                &nbsp;
                                 <?php endif; ?>
                             </div>
-                            <?php endif; ?>
                         </div>
 
                     </div>
